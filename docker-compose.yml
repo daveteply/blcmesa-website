@@ -1,0 +1,119 @@
+services:
+  dev:
+    build:
+      context: .
+      dockerfile: .devcontainer/Dockerfile
+    volumes:
+      - .:/workspace:cached
+    command: sleep infinity
+    environment:
+      - WORDPRESS_PORT=${WORDPRESS_PORT:-8080}
+      - PHPMYADMIN_PORT=${PHPMYADMIN_PORT:-8081}
+      - DB_PORT=${DB_PORT:-3306}
+      - MYSQL_DATABASE=${MYSQL_DATABASE:-wordpress}
+      - MYSQL_USER=${MYSQL_USER:-wordpress}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD:-wordpress_dev_password}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-wordpress_root_dev_password}
+      - DB_HOST=${DB_HOST:-db:3306}
+      - WP_SITE_URL=${WP_SITE_URL:-http://localhost:8080}
+      - WP_SITE_TITLE=${WP_SITE_TITLE:-Bethlehem Lutheran Church}
+      - WP_ADMIN_USER=${WP_ADMIN_USER:-admin}
+      - WP_ADMIN_PASSWORD=${WP_ADMIN_PASSWORD:-admin_password}
+      - WP_ADMIN_EMAIL=${WP_ADMIN_EMAIL:-admin@blcmesa.org}
+      - WP_TIMEZONE=${WP_TIMEZONE:-America/Phoenix}
+      - WP_ACTIVE_THEME=${WP_ACTIVE_THEME:-blcmesa-theme}
+    depends_on:
+      db:
+        condition: service_healthy
+      wordpress:
+        condition: service_started
+    networks:
+      - blcmesa-net
+
+  wordpress:
+    image: wordpress:6.7-apache
+    restart: unless-stopped
+    ports:
+      - "${WORDPRESS_PORT:-8080}:80"
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: ${MYSQL_USER:-wordpress}
+      WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD:-wordpress_dev_password}
+      WORDPRESS_DB_NAME: ${MYSQL_DATABASE:-wordpress}
+      WORDPRESS_DEBUG: ${WORDPRESS_DEBUG:-1}
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_DEBUG_LOG', true);
+        define('WP_DEBUG_DISPLAY', false);
+        define('SCRIPT_DEBUG', true);
+    volumes:
+      - wp_core:/var/www/html
+      - ./wp-content:/var/www/html/wp-content
+      - ./docker/php/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini:ro
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - blcmesa-net
+
+  db:
+    image: mariadb:11
+    restart: unless-stopped
+    ports:
+      - "${DB_PORT:-3306}:3306"
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-wordpress}
+      MYSQL_USER: ${MYSQL_USER:-wordpress}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-wordpress_dev_password}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-wordpress_root_dev_password}
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mariadb-admin ping -h localhost -u root -p$$MYSQL_ROOT_PASSWORD"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    networks:
+      - blcmesa-net
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    restart: unless-stopped
+    ports:
+      - "${PHPMYADMIN_PORT:-8081}:80"
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_USER: ${MYSQL_USER:-wordpress}
+      PMA_PASSWORD: ${MYSQL_PASSWORD:-wordpress_dev_password}
+      UPLOAD_LIMIT: 128M
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - blcmesa-net
+
+  wpcli:
+    image: wordpress:cli
+    user: "33:33"
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: ${MYSQL_USER:-wordpress}
+      WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD:-wordpress_dev_password}
+      WORDPRESS_DB_NAME: ${MYSQL_DATABASE:-wordpress}
+    volumes:
+      - wp_core:/var/www/html
+      - ./wp-content:/var/www/html/wp-content
+    depends_on:
+      wordpress:
+        condition: service_started
+    networks:
+      - blcmesa-net
+
+volumes:
+  wp_core:
+  db_data:
+
+networks:
+  blcmesa-net:
+    driver: bridge

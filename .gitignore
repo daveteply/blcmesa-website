@@ -1,0 +1,49 @@
+# Environment & Secrets
+.env
+*.env.local
+
+# WordPress Core in workspace root
+wp-config.php
+wp-admin/
+wp-includes/
+/*.php
+
+# WordPress Default Plugins
+wp-content/plugins/akismet/
+wp-content/plugins/hello.php
+
+# WordPress Default Themes (only track custom blcmesa-theme)
+wp-content/themes/*
+!wp-content/themes/blcmesa-theme/
+
+# WordPress Content Uploads, Upgrades, & Caches
+wp-content/uploads/
+wp-content/upgrade/
+wp-content/cache/
+wp-content/backups/
+wp-content/advanced-cache.php
+wp-content/wp-cache-config.php
+
+# Backups & Database Exports
+backups/*.sql
+backups/*.sql.gz
+backups/*.zip
+*.tar.gz
+
+# Dependency directories
+node_modules/
+vendor/
+
+# Logs & temp files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+tmp/
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# Keep .gitkeep files
+!.gitkeep
