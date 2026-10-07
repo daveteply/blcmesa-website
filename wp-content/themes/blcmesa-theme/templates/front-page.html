@@ -1,9 +1,274 @@
 <!-- wp:template-part {"slug":"header","tagName":"header"} /-->
 
-<!-- wp:group {"tagName":"main","style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40"}}},"layout":{"type":"constrained"}} -->
-<main class="wp-block-group" style="padding-top:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40)">
-  <!-- wp:post-content {"layout":{"type":"constrained"}} /-->
+<main class="wp-block-group" style="padding-top:0;padding-bottom:0">
+
+  <!-- HERO SECTION -->
+  <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}}},"backgroundColor":"primary","textColor":"white","layout":{"type":"constrained"}} -->
+  <div class="wp-block-group alignfull has-white-color has-primary-background-color has-text-color has-background" style="padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--30)">
+    
+    <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"0.85rem","fontWeight":"600","letterSpacing":"0.1em"}},"textColor":"gold-soft"} -->
+    <p class="has-text-align-center has-gold-soft-color has-text-color" style="font-size:0.85rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1rem">A Welcoming Faith Community &bull; Mesa, Arizona</p>
+    <!-- /wp:paragraph -->
+
+    <!-- wp:heading {"textAlign":"center","level":1,"style":{"typography":{"fontSize":"var:preset|font-size|2x-large","lineHeight":"1.18"}},"textColor":"white"} -->
+    <h1 class="wp-block-heading has-text-align-center has-white-color has-text-color" style="font-size:var(--wp--preset--font-size--2x-large);line-height:1.18;max-width:820px;margin-left:auto;margin-right:auto">A home to share God's love, grace, and community.</h1>
+    <!-- /wp:heading -->
+
+    <!-- wp:paragraph {"textAlign":"center","style":{"typography":{"fontSize":"var:preset|font-size|large","lineHeight":"1.6"}},"textColor":"gold-soft"} -->
+    <p class="has-text-align-center has-gold-soft-color has-text-color" style="font-size:var(--wp--preset--font-size--large);line-height:1.6;max-width:700px;margin-left:auto;margin-right:auto;margin-top:1.25rem;margin-bottom:2rem">Wherever you are on life's journey, you are welcome here. Join us in-person or online every Sunday for worship and genuine fellowship.</p>
+    <!-- /wp:paragraph -->
+
+    <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center","flexWrap":"wrap"},"style":{"spacing":{"blockGap":"1rem"}}} -->
+    <div class="wp-block-buttons">
+      <!-- wp:button {"backgroundColor":"accent","textColor":"white"} -->
+      <div class="wp-block-button"><a class="wp-block-button__link has-white-color has-accent-background-color has-text-color has-background wp-element-button" href="#worship" style="font-size:1rem;padding:0.9rem 2rem">Plan Your Visit</a></div>
+      <!-- /wp:button -->
+
+      <!-- wp:button {"style":{"border":{"color":"var:preset|color|white","width":"1.5px"}},"textColor":"white"} -->
+      <div class="wp-block-button"><a class="wp-block-button__link has-white-color has-text-color wp-element-button" href="/sermons/" style="border-color:var(--wp--preset--color--white);border-width:1.5px;font-size:1rem;padding:0.9rem 2rem">Watch Sermons Online</a></div>
+      <!-- /wp:button -->
+    </div>
+    <!-- /wp:buttons -->
+
+  </div>
+  <!-- /wp:group -->
+
+  <!-- QUICK INFO STRIP -->
+  <!-- wp:group {"align":"wide","style":{"spacing":{"margin":{"top":"-2rem","bottom":"var:preset|spacing|40"},"padding":{"top":"0","bottom":"0","left":"var:preset|spacing|20","right":"var:preset|spacing|20"}}},"layout":{"type":"constrained"}} -->
+  <div id="worship" class="wp-block-group alignwide" style="margin-top:-2rem;margin-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--20);padding-right:var(--wp--preset--spacing--20)">
+    <!-- wp:columns {"style":{"spacing":{"blockGap":"1.5rem"}}} -->
+    <div class="wp-block-columns">
+      
+      <!-- CARD 1 -->
+      <!-- wp:column {"style":{"spacing":{"padding":{"top":"1.75rem","bottom":"1.75rem","left":"1.75rem","right":"1.75rem"}},"border":{"radius":"8px","color":"var:preset|color|warm-gray","width":"1px"}},"backgroundColor":"white"} -->
+      <div class="wp-block-column has-white-background-color has-background" style="border-color:var(--wp--preset--color--warm-gray);border-width:1px;border-radius:8px;padding-top:1.75rem;padding-right:1.75rem;padding-bottom:1.75rem;padding-left:1.75rem;box-shadow:0 4px 12px rgba(0,0,0,0.04)">
+        <!-- wp:paragraph {"style":{"typography":{"fontSize":"1.5rem"}}} -->
+        <p style="font-size:1.5rem;margin:0 0 0.5rem 0">&#x1F558;</p>
+        <!-- /wp:paragraph -->
+        <!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"1.2rem"}}} -->
+        <h3 class="wp-block-heading" style="font-size:1.2rem;margin-bottom:0.5rem">Sunday Worship</h3>
+        <!-- /wp:heading -->
+        <!-- wp:paragraph {"style":{"typography":{"fontSize":"0.95rem"}},"textColor":"muted"} -->
+        <p class="has-muted-color has-text-color" style="font-size:0.95rem;margin:0"><strong>9:00 AM Every Sunday</strong><br>In-person &amp; live-streamed. Stay after for warm coffee and friendly conversation.</p>
+        <!-- /wp:paragraph -->
+      </div>
+      <!-- /wp:column -->
+
+      <!-- CARD 2 -->
+      <!-- wp:column {"style":{"spacing":{"padding":{"top":"1.75rem","bottom":"1.75rem","left":"1.75rem","right":"1.75rem"}},"border":{"radius":"8px","color":"var:preset|color|warm-gray","width":"1px"}},"backgroundColor":"white"} -->
+      <div class="wp-block-column has-white-background-color has-background" style="border-color:var(--wp--preset--color--warm-gray);border-width:1px;border-radius:8px;padding-top:1.75rem;padding-right:1.75rem;padding-bottom:1.75rem;padding-left:1.75rem;box-shadow:0 4px 12px rgba(0,0,0,0.04)">
+        <!-- wp:paragraph {"style":{"typography":{"fontSize":"1.5rem"}}} -->
+        <p style="font-size:1.5rem;margin:0 0 0.5rem 0">&#x1F4CD;</p>
+        <!-- /wp:paragraph -->
+        <!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"1.2rem"}}} -->
+        <h3 class="wp-block-heading" style="font-size:1.2rem;margin-bottom:0.5rem">Location &amp; Parking</h3>
+        <!-- /wp:heading -->
+        <!-- wp:paragraph {"style":{"typography":{"fontSize":"0.95rem"}},"textColor":"muted"} -->
+        <p class="has-muted-color has-text-color" style="font-size:0.95rem;margin:0"><strong>2745 N. 32nd St., Mesa, AZ</strong><br>North of McDowell Rd. Ample parking and an accessible campus for all.</p>
+        <!-- /wp:paragraph -->
+      </div>
+      <!-- /wp:column -->
+
+      <!-- CARD 3 -->
+      <!-- wp:column {"style":{"spacing":{"padding":{"top":"1.75rem","bottom":"1.75rem","left":"1.75rem","right":"1.75rem"}},"border":{"radius":"8px","color":"var:preset|color|warm-gray","width":"1px"}},"backgroundColor":"white"} -->
+      <div class="wp-block-column has-white-background-color has-background" style="border-color:var(--wp--preset--color--warm-gray);border-width:1px;border-radius:8px;padding-top:1.75rem;padding-right:1.75rem;padding-bottom:1.75rem;padding-left:1.75rem;box-shadow:0 4px 12px rgba(0,0,0,0.04)">
+        <!-- wp:paragraph {"style":{"typography":{"fontSize":"1.5rem"}}} -->
+        <p style="font-size:1.5rem;margin:0 0 0.5rem 0">&#x2728;</p>
+        <!-- /wp:paragraph -->
+        <!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"1.2rem"}}} -->
+        <h3 class="wp-block-heading" style="font-size:1.2rem;margin-bottom:0.5rem">What to Expect</h3>
+        <!-- /wp:heading -->
+        <!-- wp:paragraph {"style":{"typography":{"fontSize":"0.95rem"}},"textColor":"muted"} -->
+        <p class="has-muted-color has-text-color" style="font-size:0.95rem;margin:0"><strong>Come As You Are</strong><br>Casual dress, open communion for all baptized believers, and children always welcome.</p>
+        <!-- /wp:paragraph -->
+      </div>
+      <!-- /wp:column -->
+
+    </div>
+    <!-- /wp:columns -->
+  </div>
+  <!-- /wp:group -->
+
+  <!-- WELCOME / ABOUT SECTION -->
+  <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|40"}}},"layout":{"type":"constrained"}} -->
+  <div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--40)">
+    <!-- wp:columns {"verticalAlignment":"center","style":{"spacing":{"blockGap":"3rem"}}} -->
+    <div class="wp-block-columns are-vertically-aligned-center">
+      
+      <!-- LEFT COLUMN: WELCOME QUOTE -->
+      <!-- wp:column {"verticalAlignment":"center","width":"55%"} -->
+      <div class="wp-block-column is-vertically-aligned-center" style="flex-basis:55%">
+        <!-- wp:paragraph {"style":{"typography":{"fontSize":"0.85rem","fontWeight":"600","letterSpacing":"0.08em"}},"textColor":"terracotta"} -->
+        <p class="has-terracotta-color has-text-color" style="font-size:0.85rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.5rem">Welcome to Bethlehem</p>
+        <!-- /wp:paragraph -->
+        
+        <!-- wp:heading {"level":2,"style":{"typography":{"fontSize":"var:preset|font-size|x-large","lineHeight":"1.3"}}} -->
+        <h2 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--x-large);line-height:1.3">A community rooted in faith, open to questions, and active in love.</h2>
+        <!-- /wp:heading -->
+        
+        <!-- wp:paragraph {"style":{"typography":{"fontSize":"1.05rem","lineHeight":"1.7"}},"textColor":"dark"} -->
+        <p class="has-dark-color has-text-color" style="font-size:1.05rem;line-height:1.7;margin-top:1rem">At Bethlehem Lutheran Church, we believe church should be a sanctuary of genuine acceptance. Led by Pastor Brian Weinberger, our congregation gathers to celebrate the grace of Jesus Christ and to serve our neighbors in Mesa and across the Valley.</p>
+        <!-- /wp:paragraph -->
+
+        <!-- wp:paragraph {"style":{"typography":{"fontSize":"0.95rem","lineHeight":"1.6"}},"textColor":"muted"} -->
+        <p class="has-muted-color has-text-color" style="font-size:0.95rem;line-height:1.6">Whether you are searching for a church home, asking life's deeper questions, or seeking a loving preschool for your child, our doors and hearts are open to you.</p>
+        <!-- /wp:paragraph -->
+
+        <!-- wp:buttons {"style":{"spacing":{"margin":{"top":"1.5rem"}}}} -->
+        <div class="wp-block-buttons" style="margin-top:1.5rem">
+          <!-- wp:button {"backgroundColor":"primary","textColor":"white"} -->
+          <div class="wp-block-button"><a class="wp-block-button__link has-white-color has-primary-background-color has-text-color has-background wp-element-button" href="/about/">Learn More About Our Beliefs</a></div>
+          <!-- /wp:button -->
+        </div>
+        <!-- /wp:buttons -->
+      </div>
+      <!-- /wp:column -->
+
+      <!-- RIGHT COLUMN: HIGHLIGHT BOX -->
+      <!-- wp:column {"verticalAlignment":"center","width":"45%","style":{"spacing":{"padding":{"top":"2.5rem","bottom":"2.5rem","left":"2rem","right":"2rem"}},"border":{"radius":"8px","color":"var:preset|color|warm-gray","width":"1px"}},"backgroundColor":"white"} -->
+      <div class="wp-block-column is-vertically-aligned-center has-white-background-color has-background" style="flex-basis:45%;border-color:var(--wp--preset--color--warm-gray);border-width:1px;border-radius:8px;padding-top:2.5rem;padding-right:2rem;padding-bottom:2.5rem;padding-left:2rem">
+        <!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"1.3rem"}},"textColor":"navy-dark"} -->
+        <h3 class="wp-block-heading has-navy-dark-color has-text-color" style="font-size:1.3rem;margin-bottom:1rem">&#x271D;&#xFE0F; Core Values of Our Church</h3>
+        <!-- /wp:heading -->
+
+        <!-- wp:list {"style":{"typography":{"fontSize":"0.95rem","lineHeight":"1.8"}}} -->
+        <ul class="wp-block-list" style="font-size:0.95rem;line-height:1.8">
+          <li><strong>Grace First:</strong> God's love is a gift, unconditional and freely given to all.</li>
+          <li><strong>All Means All:</strong> We welcome diversity of background, perspective, and identity.</li>
+          <li><strong>Hands-On Service:</strong> Putting faith into action through our Community Garden and food ministry.</li>
+          <li><strong>Lifelong Growth:</strong> Nurturing faith from Noah's Ark preschool through senior adult studies.</li>
+        </ul>
+        <!-- /wp:list -->
+      </div>
+      <!-- /wp:column -->
+
+    </div>
+    <!-- /wp:columns -->
+  </div>
+  <!-- /wp:group -->
+
+  <!-- MINISTRIES SECTION -->
+  <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}}},"backgroundColor":"white","layout":{"type":"constrained"}} -->
+  <div class="wp-block-group alignfull has-white-background-color has-background" style="padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--30)">
+    
+    <!-- wp:group {"align":"wide","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"}}},"layout":{"type":"flex","justifyContent":"space-between","alignItems":"flex-end","flexWrap":"wrap"}} -->
+    <div class="wp-block-group alignwide" style="margin-bottom:var(--wp--preset--spacing--30)">
+      <div>
+        <!-- wp:paragraph {"style":{"typography":{"fontSize":"0.85rem","fontWeight":"600","letterSpacing":"0.08em"}},"textColor":"accent"} -->
+        <p class="has-accent-color has-text-color" style="font-size:0.85rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.25rem">Our Ministries</p>
+        <!-- /wp:paragraph -->
+        <!-- wp:heading {"level":2,"style":{"typography":{"fontSize":"var:preset|font-size|x-large"}}} -->
+        <h2 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--x-large)">Serving Mesa With Heart &amp; Purpose</h2>
+        <!-- /wp:heading -->
+      </div>
+    </div>
+    <!-- /wp:group -->
+
+    <!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":"2rem"}}} -->
+    <div class="wp-block-columns alignwide">
+      
+      <!-- MINISTRY 1: NOAH'S ARK -->
+      <!-- wp:column {"style":{"spacing":{"padding":{"top":"2rem","bottom":"2rem","left":"2rem","right":"2rem"}},"border":{"radius":"8px","color":"var:preset|color|warm-gray","width":"1px"}},"backgroundColor":"cream"} -->
+      <div class="wp-block-column has-cream-background-color has-background" style="border-color:var(--wp--preset--color--warm-gray);border-width:1px;border-radius:8px;padding-top:2rem;padding-right:2rem;padding-bottom:2rem;padding-left:2rem">
+        <!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"1.25rem"}}} -->
+        <h3 class="wp-block-heading" style="font-size:1.25rem;margin-bottom:0.75rem">&#x1F967; Noah's Ark Preschool</h3>
+        <!-- /wp:heading -->
+        <!-- wp:paragraph {"style":{"typography":{"fontSize":"0.95rem","lineHeight":"1.65"}},"textColor":"muted"} -->
+        <p class="has-muted-color has-text-color" style="font-size:0.95rem;line-height:1.65;margin-bottom:1.5rem">Providing high-quality, loving, faith-centered early education and kindergarten to Mesa families for decades. Certified teachers and safe classrooms.</p>
+        <!-- /wp:paragraph -->
+        <!-- wp:paragraph {"style":{"typography":{"fontSize":"0.9rem","fontWeight":"600"}}} -->
+        <p style="font-size:0.9rem;font-weight:600"><a href="https://noahsarkblc.org" target="_blank" rel="noopener noreferrer">Visit Preschool Website &rarr;</a></p>
+        <!-- /wp:paragraph -->
+      </div>
+      <!-- /wp:column -->
+
+      <!-- MINISTRY 2: COMMUNITY GARDEN -->
+      <!-- wp:column {"style":{"spacing":{"padding":{"top":"2rem","bottom":"2rem","left":"2rem","right":"2rem"}},"border":{"radius":"8px","color":"var:preset|color|warm-gray","width":"1px"}},"backgroundColor":"cream"} -->
+      <div class="wp-block-column has-cream-background-color has-background" style="border-color:var(--wp--preset--color--warm-gray);border-width:1px;border-radius:8px;padding-top:2rem;padding-right:2rem;padding-bottom:2rem;padding-left:2rem">
+        <!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"1.25rem"}}} -->
+        <h3 class="wp-block-heading" style="font-size:1.25rem;margin-bottom:0.75rem">&#x1F33F; Harvest of Hope Garden</h3>
+        <!-- /wp:heading -->
+        <!-- wp:paragraph {"style":{"typography":{"fontSize":"0.95rem","lineHeight":"1.65"}},"textColor":"muted"} -->
+        <p class="has-muted-color has-text-color" style="font-size:0.95rem;line-height:1.65;margin-bottom:1.5rem">Our community garden grows fresh, nutritious vegetables for local food banks and neighbors in need in collaboration with the City of Mesa.</p>
+        <!-- /wp:paragraph -->
+        <!-- wp:paragraph {"style":{"typography":{"fontSize":"0.9rem","fontWeight":"600"}}} -->
+        <p style="font-size:0.9rem;font-weight:600"><a href="/garden/">Get Involved in the Garden &rarr;</a></p>
+        <!-- /wp:paragraph -->
+      </div>
+      <!-- /wp:column -->
+
+      <!-- MINISTRY 3: BIBLE STUDY -->
+      <!-- wp:column {"style":{"spacing":{"padding":{"top":"2rem","bottom":"2rem","left":"2rem","right":"2rem"}},"border":{"radius":"8px","color":"var:preset|color|warm-gray","width":"1px"}},"backgroundColor":"cream"} -->
+      <div class="wp-block-column has-cream-background-color has-background" style="border-color:var(--wp--preset--color--warm-gray);border-width:1px;border-radius:8px;padding-top:2rem;padding-right:2rem;padding-bottom:2rem;padding-left:2rem">
+        <!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"1.25rem"}}} -->
+        <h3 class="wp-block-heading" style="font-size:1.25rem;margin-bottom:0.75rem">&#x1F4D6; Bible Study &amp; Prayer</h3>
+        <!-- /wp:heading -->
+        <!-- wp:paragraph {"style":{"typography":{"fontSize":"0.95rem","lineHeight":"1.65"}},"textColor":"muted"} -->
+        <p class="has-muted-color has-text-color" style="font-size:0.95rem;line-height:1.65;margin-bottom:1.5rem">Weekly in-person and online Zoom studies exploring Scripture, theology, and mutual prayer support. All questions and perspectives welcome.</p>
+        <!-- /wp:paragraph -->
+        <!-- wp:paragraph {"style":{"typography":{"fontSize":"0.9rem","fontWeight":"600"}}} -->
+        <p style="font-size:0.9rem;font-weight:600"><a href="/bible-study/">Join a Study Group &rarr;</a></p>
+        <!-- /wp:paragraph -->
+      </div>
+      <!-- /wp:column -->
+
+    </div>
+    <!-- /wp:columns -->
+
+  </div>
+  <!-- /wp:group -->
+
+  <!-- LATEST SERMON / MEDIA FEATURE -->
+  <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40"}}},"layout":{"type":"constrained"}} -->
+  <div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40)">
+    
+    <!-- wp:group {"style":{"spacing":{"padding":{"top":"2.5rem","bottom":"2.5rem","left":"2.5rem","right":"2.5rem"}},"border":{"radius":"8px","color":"var:preset|color|warm-gray","width":"1px"}},"backgroundColor":"white","layout":{"type":"constrained"}} -->
+    <div class="wp-block-group has-white-background-color has-background" style="border-color:var(--wp--preset--color--warm-gray);border-width:1px;border-radius:8px;padding-top:2.5rem;padding-right:2.5rem;padding-bottom:2.5rem;padding-left:2.5rem;box-shadow:0 4px 16px rgba(0,0,0,0.03)">
+      
+      <!-- wp:columns {"verticalAlignment":"center","style":{"spacing":{"blockGap":"2.5rem"}}} -->
+      <div class="wp-block-columns are-vertically-aligned-center">
+        <!-- wp:column {"width":"50%"} -->
+        <div class="wp-block-column" style="flex-basis:50%">
+          <!-- wp:paragraph {"style":{"typography":{"fontSize":"0.85rem","fontWeight":"600","letterSpacing":"0.08em"}},"textColor":"accent"} -->
+          <p class="has-accent-color has-text-color" style="font-size:0.85rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.5rem">Latest Worship Message</p>
+          <!-- /wp:paragraph -->
+
+          <!-- wp:heading {"level":2,"style":{"typography":{"fontSize":"1.6rem"}}} -->
+          <h2 class="wp-block-heading" style="font-size:1.6rem;margin-bottom:0.75rem">Sunday Worship Service</h2>
+          <!-- /wp:heading -->
+
+          <!-- wp:paragraph {"style":{"typography":{"fontSize":"0.95rem","lineHeight":"1.6"}},"textColor":"muted"} -->
+          <p class="has-muted-color has-text-color" style="font-size:0.95rem;line-height:1.6;margin-bottom:1.5rem">Missed a Sunday or worshiping from home? Watch our most recent weekly sermon video, follow along with the bulletin, and explore our message archive.</p>
+          <!-- /wp:paragraph -->
+
+          <!-- wp:buttons -->
+          <div class="wp-block-buttons">
+            <!-- wp:button {"backgroundColor":"primary","textColor":"white"} -->
+            <div class="wp-block-button"><a class="wp-block-button__link has-white-color has-primary-background-color has-text-color has-background wp-element-button" href="/sermons/">Browse All Sermons</a></div>
+            <!-- /wp:button -->
+          </div>
+          <!-- /wp:buttons -->
+        </div>
+        <!-- /wp:column -->
+
+        <!-- wp:column {"width":"50%"} -->
+        <div class="wp-block-column" style="flex-basis:50%">
+          <!-- wp:embed {"providerNameSlug":"youtube","responsive":true} -->
+          <figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+          https://www.youtube.com/watch?v=dQw4w9WgXcQ
+          </div></figure>
+          <!-- /wp:embed -->
+        </div>
+        <!-- /wp:column -->
+      </div>
+      <!-- /wp:columns -->
+
+    </div>
+    <!-- /wp:group -->
+
+  </div>
+  <!-- /wp:group -->
+
 </main>
-<!-- /wp:group -->
 
 <!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

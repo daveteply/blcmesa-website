@@ -1,20 +1,45 @@
-<!-- wp:group {"tagName":"header","style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}},"border":{"bottom":{"color":"var:preset|color|gray-subtle","width":"1px"}}},"backgroundColor":"white","layout":{"type":"constrained"}} -->
-<header class="wp-block-group has-white-background-color has-background" style="border-bottom-color:var(--wp--preset--color--gray-subtle);border-bottom-width:1px;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
+<!-- wp:group {"tagName":"header","style":{"spacing":{"padding":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}},"border":{"bottom":{"color":"var:preset|color|warm-gray","width":"1px"}}},"backgroundColor":"white","layout":{"type":"constrained"}} -->
+<header class="wp-block-group has-white-background-color has-background" style="border-bottom-color:var(--wp--preset--color--warm-gray);border-bottom-width:1px;padding-top:var(--wp--preset--spacing--20);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--20);padding-left:var(--wp--preset--spacing--30)">
   <!-- wp:group {"align":"wide","layout":{"type":"flex","justifyContent":"space-between","flexWrap":"wrap"}} -->
   <div class="wp-block-group alignwide">
-    <!-- wp:group {"layout":{"type":"flex","alignItems":"center"}} -->
+    <!-- wp:group {"layout":{"type":"flex","alignItems":"center","flexWrap":"nowrap"}} -->
     <div class="wp-block-group">
-      <!-- wp:site-logo {"width":48} /-->
+      <!-- wp:site-logo {"width":44} /-->
       <!-- wp:group {"style":{"spacing":{"blockGap":"0"}},"layout":{"type":"flex","orientation":"vertical"}} -->
       <div class="wp-block-group">
-        <!-- wp:site-title {"level":1,"style":{"typography":{"fontSize":"var:preset|font-size|large","fontWeight":"700"}}} /-->
-        <!-- wp:site-tagline {"style":{"typography":{"fontSize":"var:preset|font-size|small"},"color":{"text":"var:preset|color|slate"}}} /-->
+        <!-- wp:site-title {"level":1,"style":{"typography":{"fontSize":"1.2rem","fontWeight":"700","letterSpacing":"-0.01em"}},"textColor":"navy-dark"} /-->
+        <!-- wp:paragraph {"style":{"typography":{"fontSize":"0.78rem","fontWeight":"500","letterSpacing":"0.05em"}},"textColor":"muted"} -->
+        <p class="has-muted-color has-text-color" style="font-size:0.78rem;font-weight:500;letter-spacing:0.05em;margin:0;text-transform:uppercase">Mesa, Arizona &bull; ELCA</p>
+        <!-- /wp:paragraph -->
       </div>
       <!-- /wp:group -->
     </div>
     <!-- /wp:group -->
 
-    <!-- wp:navigation {"layout":{"type":"flex","justifyContent":"right"},"style":{"typography":{"fontWeight":"600"}}} /-->
+    <!-- wp:group {"layout":{"type":"flex","alignItems":"center","flexWrap":"wrap"}} -->
+    <div class="wp-block-group">
+      <!-- wp:navigation {"overlayMenu":"mobile","layout":{"type":"flex","justifyContent":"right"},"style":{"typography":{"fontSize":"var:preset|font-size|small","fontWeight":"600"}}} -->
+        <!-- wp:navigation-link {"label":"Home","url":"/"} /-->
+        <!-- wp:navigation-link {"label":"About","url":"/about/"} /-->
+        <!-- wp:navigation-link {"label":"Worship &amp; Sermons","url":"/sermons/"} /-->
+        <!-- wp:navigation-submenu {"label":"Ministries","url":"/ministries/"} -->
+          <!-- wp:navigation-link {"label":"Noah's Ark Preschool","url":"https://noahsarkblc.org"} /-->
+          <!-- wp:navigation-link {"label":"Harvest of Hope Garden","url":"/garden/"} /-->
+          <!-- wp:navigation-link {"label":"Bible Study &amp; Prayer","url":"/bible-study/"} /-->
+        <!-- /wp:navigation-submenu -->
+        <!-- wp:navigation-link {"label":"Giving","url":"/giving/"} /-->
+        <!-- wp:navigation-link {"label":"Contact","url":"/contact/"} /-->
+      <!-- /wp:navigation -->
+
+      <!-- wp:buttons {"style":{"spacing":{"margin":{"left":"var:preset|spacing|20"}}}} -->
+      <div class="wp-block-buttons" style="margin-left:var(--wp--preset--spacing--20)">
+        <!-- wp:button {"backgroundColor":"accent","textColor":"white","style":{"typography":{"fontSize":"0.85rem","fontWeight":"600"},"spacing":{"padding":{"top":"0.55rem","bottom":"0.55rem","left":"1.15rem","right":"1.15rem"}}}} -->
+        <div class="wp-block-button has-custom-font-size" style="font-size:0.85rem"><a class="wp-block-button__link has-white-color has-accent-background-color has-text-color has-background wp-element-button" href="#worship" style="padding-top:0.55rem;padding-right:1.15rem;padding-bottom:0.55rem;padding-left:1.15rem;font-weight:600">Plan a Visit</a></div>
+        <!-- /wp:button -->
+      </div>
+      <!-- /wp:buttons -->
+    </div>
+    <!-- /wp:group -->
   </div>
   <!-- /wp:group -->
 </header>
