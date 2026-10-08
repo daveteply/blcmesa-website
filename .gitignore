@@ -28,6 +28,8 @@ wp-content/wp-cache-config.php
 backups/*.sql
 backups/*.sql.gz
 backups/*.zip
+backups/*.xml
+backups/*.json
 *.tar.gz
 
 # Dependency directories

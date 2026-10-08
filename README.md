@@ -110,6 +110,22 @@ This produces `backups/blcmesa_migration_package_<timestamp>.zip` containing:
 - Media uploads (`wp-content/uploads`)
 - Migration instructions for standard hosts (Bluehost, DreamHost, SiteGround, etc.)
 
+### 4. Media & File Sync from Existing Live Site
+Download all media attachments from the WordPress XML export file into `wp-content/uploads/` with crash-recovery:
+```bash
+# Test on first 5 files
+python3 scripts/sync-media.py --limit 5
+
+# Full sync (auto-detects newest XML in backups/)
+python3 scripts/sync-media.py
+
+# Verify if remote files were modified with the same name
+python3 scripts/sync-media.py --verify-remote
+```
+
+> [!NOTE]
+> For detailed documentation on all available flags, architecture, and CLI options, see [**`scripts/README.md`**](file://./scripts/README.md).
+
 ---
 
 ## 🛠️ Handy WP-CLI Commands
