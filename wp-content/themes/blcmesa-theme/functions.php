@@ -32,6 +32,21 @@ function blcmesa_setup() {
 add_action( 'after_setup_theme', 'blcmesa_setup' );
 
 /**
+ * Enqueue scripts and styles.
+ */
+function blcmesa_scripts() {
+    // Enqueue theme main stylesheet (includes self-hosted fonts)
+    wp_enqueue_style(
+        'blcmesa-theme-style',
+        get_stylesheet_uri(),
+        array(),
+        wp_get_theme()->get( 'Version' )
+    );
+}
+add_action( 'wp_enqueue_scripts', 'blcmesa_scripts' );
+
+
+/**
  * Register custom block pattern categories for Bethlehem Lutheran Church.
  */
 function blcmesa_register_pattern_categories() {

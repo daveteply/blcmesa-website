@@ -4,7 +4,7 @@ Theme URI: https://blcmesa.org
 Author: Bethlehem Lutheran Church Mesa
 Author URI: https://blcmesa.org
 Description: Clean, modern Gutenberg Full Site Editing (FSE) block theme for Bethlehem Lutheran Church. Built for volunteer ease of use and performance.
-Version: 1.0.0
+Version: 1.1.0
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.0
@@ -13,3 +13,158 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: blcmesa
 Tags: full-site-editing, block-patterns, block-styles, wide-blocks, one-column, custom-colors
 */
+
+/* -------------------------------------------------------------
+ * 0. Self-Hosted Fonts (@font-face)
+ * ----------------------------------------------------------- */
+@font-face {
+  font-family: 'Cinzel';
+  font-style: normal;
+  font-weight: 600 700;
+  font-display: swap;
+  src: url('assets/fonts/cinzel.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Great Vibes';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('assets/fonts/great-vibes-400.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('assets/fonts/montserrat-400.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('assets/fonts/montserrat-600.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('assets/fonts/montserrat-700.woff2') format('woff2');
+}
+
+/* -------------------------------------------------------------
+ * 1. Global Utilities & Variables
+ * ----------------------------------------------------------- */
+:root {
+  --blc-gold-primary: #D49B28;
+  --blc-gold-hover: #E8B85A;
+  --blc-gold-glow: rgba(212, 155, 40, 0.45);
+  --blc-obsidian: #0C1017;
+  --blc-midnight-slate: #151D28;
+  --blc-cream: #FAF8F5;
+  --blc-white: #FFFFFF;
+}
+
+/* -------------------------------------------------------------
+ * 2. Sticky Navigation Bar
+ * ----------------------------------------------------------- */
+.blc-sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background-color: rgba(21, 29, 40, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(212, 155, 40, 0.25);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease-in-out;
+}
+
+/* -------------------------------------------------------------
+ * 3. Gold Glowing Dividers
+ * ----------------------------------------------------------- */
+.blc-gold-divider {
+  border: none;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(212, 155, 40, 0) 0%, rgba(212, 155, 40, 0.85) 50%, rgba(212, 155, 40, 0) 100%);
+  margin: 1.5rem auto;
+  max-width: 100%;
+}
+
+.blc-gold-divider-subtle {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(212, 155, 40, 0) 0%, rgba(212, 155, 40, 0.4) 50%, rgba(212, 155, 40, 0) 100%);
+  margin: 1rem auto;
+}
+
+/* -------------------------------------------------------------
+ * 4. Typography & Script Accent
+ * ----------------------------------------------------------- */
+.blc-script-accent {
+  font-family: 'Great Vibes', 'Alex Brush', 'Dancing Script', 'Playfair Display', cursive, serif;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0.04em;
+}
+
+.blc-serif-title {
+  font-family: Cinzel, 'Playfair Display', Georgia, serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* -------------------------------------------------------------
+ * 5. Gold & Outlined Buttons
+ * ----------------------------------------------------------- */
+.blc-btn-gold .wp-block-button__link {
+  background: linear-gradient(180deg, #E5A835 0%, #C0851D 100%) !important;
+  color: #FFFFFF !important;
+  font-weight: 600 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 14px rgba(212, 155, 40, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 6px !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.blc-btn-gold .wp-block-button__link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(212, 155, 40, 0.55);
+}
+
+.blc-btn-outline .wp-block-button__link {
+  background: rgba(12, 16, 23, 0.45) !important;
+  color: #FFFFFF !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 6px !important;
+  transition: all 0.2s ease;
+}
+
+.blc-btn-outline .wp-block-button__link:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border-color: #FFFFFF !important;
+  transform: translateY(-2px);
+}
+
+/* -------------------------------------------------------------
+ * 6. Social Icons in Footer
+ * ----------------------------------------------------------- */
+.blc-social-links .wp-block-social-link {
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.35rem;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.blc-social-links .wp-block-social-link:hover {
+  background: var(--blc-gold-primary);
+  transform: translateY(-2px);
+}
