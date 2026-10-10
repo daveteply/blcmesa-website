@@ -115,3 +115,16 @@ function blcmesa_register_pattern_categories() {
     );
 }
 add_action( 'init', 'blcmesa_register_pattern_categories' );
+
+/**
+ * Redirect legacy service URLs to new site destinations.
+ */
+function blcmesa_legacy_redirects() {
+    $request_path = trim( (string) parse_url( $_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH ), '/' );
+    if ( $request_path === 'lutheran-church-services-mesa' ) {
+        wp_safe_redirect( home_url( '/sermons/' ), 301 );
+        exit;
+    }
+}
+add_action( 'template_redirect', 'blcmesa_legacy_redirects' );
+
