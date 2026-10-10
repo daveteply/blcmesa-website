@@ -32,6 +32,27 @@ function blcmesa_setup() {
 add_action( 'after_setup_theme', 'blcmesa_setup' );
 
 /**
+ * Inline pre-render script in head to prevent Flash of Unstyled Theme (FOUT).
+ * Resolves localStorage or OS dark mode before browser paints the first element.
+ */
+function blcmesa_theme_head_script() {
+    ?>
+    <script>
+    (function() {
+        try {
+            var pref = localStorage.getItem('blc-color-theme') || 'system';
+            var isDark = pref === 'dark' || (pref === 'system' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+            var root = document.documentElement;
+            root.setAttribute('data-theme', isDark ? 'dark' : 'light');
+            root.setAttribute('data-theme-pref', pref);
+        } catch (e) {}
+    })();
+    </script>
+    <?php
+}
+add_action( 'wp_head', 'blcmesa_theme_head_script', 1 );
+
+/**
  * Enqueue scripts and styles.
  */
 function blcmesa_scripts() {
@@ -47,6 +68,15 @@ function blcmesa_scripts() {
     wp_enqueue_script(
         'blcmesa-navigation',
         get_template_directory_uri() . '/assets/js/navigation.js',
+        array(),
+        wp_get_theme()->get( 'Version' ),
+        true
+    );
+
+    // Enqueue color theme mode toggle script (Light / Dark / System)
+    wp_enqueue_script(
+        'blcmesa-theme-toggle',
+        get_template_directory_uri() . '/assets/js/theme-toggle.js',
         array(),
         wp_get_theme()->get( 'Version' ),
         true

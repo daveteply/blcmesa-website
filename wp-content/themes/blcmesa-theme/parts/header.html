@@ -1,11 +1,11 @@
 <!-- wp:group {"tagName":"header","className":"blc-sticky-header","align":"full","backgroundColor":"midnight-slate","layout":{"type":"constrained"}} -->
 <header class="wp-block-group blc-sticky-header alignfull has-midnight-slate-background-color has-background">
-  <!-- wp:group {"align":"wide","layout":{"type":"flex","justifyContent":"space-between","alignItems":"center","flexWrap":"wrap"}} -->
-  <div class="wp-block-group alignwide">
+  <!-- wp:group {"className":"blc-header-container","align":"wide","layout":{"type":"flex","flexWrap":"wrap"}} -->
+  <div class="wp-block-group blc-header-container alignwide">
     
-    <!-- BRAND LOGO & TITLE -->
-    <!-- wp:group {"layout":{"type":"flex","alignItems":"center","flexWrap":"nowrap"}} -->
-    <div class="wp-block-group">
+    <!-- BRAND LOGO & THEME TOGGLE (Logo Left, Toggle Right) -->
+    <!-- wp:group {"className":"blc-brand-row","layout":{"type":"flex","justifyContent":"space-between","alignItems":"center","flexWrap":"nowrap"}} -->
+    <div class="wp-block-group blc-brand-row">
       <!-- wp:html -->
       <a href="/" class="blc-header-brand" aria-label="Bethlehem Lutheran Church Home">
         <img class="blc-brand-logo" src="/wp-content/themes/blcmesa-theme/assets/images/bethlehem-star.webp" alt="Bethlehem Star" width="38" height="38" />
@@ -15,13 +15,40 @@
         </div>
       </a>
       <!-- /wp:html -->
+
+      <!-- COLOR THEME TOGGLE (Light / Dark / System) -->
+      <!-- wp:html -->
+      <div class="blc-theme-toggle-wrap">
+        <button type="button" class="blc-theme-toggle" aria-label="Toggle color theme (Light / Dark / System)" title="Toggle color theme" data-current-pref="system">
+          <svg class="blc-theme-icon blc-theme-icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none;">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="blc-theme-icon blc-theme-icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none;">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg class="blc-theme-icon blc-theme-icon-system" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+            <line x1="8" y1="21" x2="16" y2="21"></line>
+            <line x1="12" y1="17" x2="12" y2="21"></line>
+          </svg>
+        </button>
+      </div>
+      <!-- /wp:html -->
     </div>
     <!-- /wp:group -->
 
     <!-- NAVIGATION & ACTION CTA -->
-    <!-- wp:group {"layout":{"type":"flex","alignItems":"center","flexWrap":"wrap"}} -->
-    <div class="wp-block-group">
-      <!-- wp:navigation {"overlayMenu":"mobile","textColor":"white","layout":{"type":"flex","justifyContent":"right","orientation":"horizontal"}} -->
+    <!-- wp:group {"className":"blc-nav-row","layout":{"type":"flex","justifyContent":"space-between","alignItems":"center","flexWrap":"wrap"}} -->
+    <div class="wp-block-group blc-nav-row">
+      <!-- wp:navigation {"overlayMenu":"mobile","textColor":"white","layout":{"type":"flex","justifyContent":"left","orientation":"horizontal"}} -->
         <!-- wp:navigation-link {"label":"HOME","url":"/"} /-->
         <!-- wp:navigation-link {"label":"ABOUT","url":"/about/"} /-->
         <!-- wp:navigation-submenu {"label":"MINISTRIES","url":"/ministries/"} -->
