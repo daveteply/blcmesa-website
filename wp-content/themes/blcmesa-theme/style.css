@@ -70,6 +70,14 @@ Tags: full-site-editing, block-patterns, block-styles, wide-blocks, one-column, 
   --blc-white: #FFFFFF;
 }
 
+/* Remove default block gap above template parts (header, footer) */
+.wp-block-template-part,
+header.wp-block-template-part,
+footer.wp-block-template-part {
+  margin-block-start: 0 !important;
+  margin-top: 0 !important;
+}
+
 /* -------------------------------------------------------------
  * 1b. Hero Section (Extended Sky, Centered & Dark Blended)
  * ----------------------------------------------------------- */
@@ -119,11 +127,16 @@ Tags: full-site-editing, block-patterns, block-styles, wide-blocks, one-column, 
   overflow: visible !important;
 }
 
+header.wp-block-template-part,
+.wp-block-template-part:has(.blc-sticky-header),
 .blc-sticky-header {
   position: -webkit-sticky !important;
   position: sticky !important;
   top: 0 !important;
   z-index: 9999 !important;
+}
+
+.blc-sticky-header {
   background-color: rgba(21, 29, 40, 0.96);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
