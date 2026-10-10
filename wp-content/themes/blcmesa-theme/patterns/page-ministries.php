@@ -1,0 +1,363 @@
+<?php
+/**
+ * Title: Ministries & Programs Page Layout
+ * Slug: blcmesa/page-ministries
+ * Categories: blcmesa-church
+ * Description: Full responsive Ministries page layout featuring categorized alternating cards, authentic imagery, and in-page sub-navigation.
+ */
+?>
+<!-- wp:group {"align":"wide","className":"blc-page-content-wrapper","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignwide blc-page-content-wrapper">
+
+  <!-- PAGE LEAD INTRO -->
+  <!-- wp:paragraph {"align":"center","className":"blc-page-lead","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"}}}} -->
+  <p class="has-text-align-center blc-page-lead" style="margin-bottom:var(--wp--preset--spacing--30)">Connecting people in Christ through worship, fellowship, faith formation, and compassionate service to our Mesa neighbors.</p>
+  <!-- /wp:paragraph -->
+
+  <!-- IN-PAGE CATEGORY SUB-NAV PILLS -->
+  <!-- wp:group {"className":"blc-subnav-container","layout":{"type":"flex","justifyContent":"center","flexWrap":"wrap"}} -->
+  <div class="wp-block-group blc-subnav-container">
+    <nav class="blc-subnav-pills" aria-label="Ministries categories">
+      <a href="#worship-discipleship" class="blc-subnav-pill">Worship &amp; Discipleship</a>
+      <a href="#children-youth" class="blc-subnav-pill">Children, Youth &amp; Family</a>
+      <a href="#fellowship-care" class="blc-subnav-pill">Fellowship &amp; Care</a>
+      <a href="#community-outreach" class="blc-subnav-pill">Community Outreach</a>
+    </nav>
+  </div>
+  <!-- /wp:group -->
+
+  <!-- ========================================================= -->
+  <!-- SECTION 1: WORSHIP & DISCIPLESHIP                         -->
+  <!-- ========================================================= -->
+  <!-- wp:group {"className":"blc-section-block blc-category-section","layout":{"type":"constrained"}} -->
+  <div id="worship-discipleship" class="wp-block-group blc-section-block blc-category-section">
+    <!-- wp:heading {"level":2,"className":"blc-section-title","textAlign":"center"} -->
+    <h2 class="wp-block-heading blc-section-title has-text-align-center">Worship &amp; Discipleship</h2>
+    <!-- /wp:heading -->
+
+    <!-- wp:paragraph {"className":"blc-section-subtitle","textAlign":"center","textColor":"muted"} -->
+    <p class="has-text-align-center blc-section-subtitle has-muted-color has-text-color">Rooted in God's word, nourished by Christ's grace, and inspired by joyful music and scripture study.</p>
+    <!-- /wp:paragraph -->
+
+    <!-- MINISTRIES LIST -->
+    <div class="blc-ministries-grid">
+
+      <!-- CARD 1: Sunday Worship (Image Left) -->
+      <article class="blc-ministry-card">
+        <div class="blc-ministry-media">
+          <img src="/wp-content/uploads/2022/05/pastor.png" alt="Pastor Brian Weinberger leading worship" loading="lazy" />
+        </div>
+        <div class="blc-ministry-content">
+          <span class="blc-ministry-badge">Weekly Worship</span>
+          <h3 class="blc-ministry-title">Sunday Worship at 9:00 AM</h3>
+          <p>When Lutherans talk about faith, we celebrate a living, daring confidence in God’s grace. Every Sunday at 9:00 AM, we gather for uplifting liturgy, communion, and heartfelt praise. Children are invited to come forward for the Children's Message, experiencing God's welcome firsthand.</p>
+          <div class="blc-ministry-meta">
+            <span><strong>When:</strong> Sundays at 9:00 AM</span>
+            <span><strong>Where:</strong> Sanctuary &amp; Online Stream</span>
+          </div>
+          <div class="blc-ministry-action">
+            <a href="/#worship" class="blc-btn-text">Learn More About Worship &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 2: Bible Studies (Image Right) -->
+      <article class="blc-ministry-card blc-card-reverse">
+        <div class="blc-ministry-media">
+          <img src="/wp-content/uploads/2024/03/bible-study_wide_t.jpg" alt="Bible Study scripture and notes" loading="lazy" />
+        </div>
+        <div class="blc-ministry-content">
+          <span class="blc-ministry-badge">Faith Formation</span>
+          <h3 class="blc-ministry-title">Adult &amp; Online Bible Studies</h3>
+          <p>Deepen your faith and understanding of Scripture in open, welcoming discussion. Pastor Brian hosts weekly Bible study exploring upcoming Old and New Testament readings. Join in-person or connect conveniently online from anywhere.</p>
+          <div class="blc-ministry-meta">
+            <span><strong>When:</strong> Thursdays at 10:00 AM MST</span>
+            <span><strong>Format:</strong> Zoom &amp; In-Person Options</span>
+          </div>
+          <div class="blc-ministry-action">
+            <a href="mailto:office@blcmesa.org" class="blc-btn-text"><svg class="blc-btn-icon-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>Contact Office for Study Link</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 3: Music Ministry (Image Left) -->
+      <article class="blc-ministry-card">
+        <div class="blc-ministry-media">
+          <img src="/wp-content/uploads/2025/08/church-music.png" alt="Music ministry notes and worship praise" loading="lazy" />
+        </div>
+        <div class="blc-ministry-content">
+          <span class="blc-ministry-badge">Music &amp; Arts</span>
+          <h3 class="blc-ministry-title">Music Ministry: Chancel Choir &amp; Heart Fire</h3>
+          <p>Music is at the heart of our worship experience. Our <strong>Chancel Choir</strong> provides inspiring choral anthems for weekend and seasonal services from October through April (open to 9th grade through adults). <strong>Heart Fire</strong> brings vibrant acoustic and modern instrumentation—including guitars, banjo, piano, and percussion. All musical gifts are welcome!</p>
+          <div class="blc-ministry-meta">
+            <span><strong>Rehearsals:</strong> Heart Fire Thursdays at 10:00 AM &amp; Sundays 8:30 AM</span>
+            <span><strong>Director:</strong> Bekka Weinberger</span>
+          </div>
+          <div class="blc-ministry-action">
+            <a href="mailto:office@blcmesa.org" class="blc-btn-text"><svg class="blc-btn-icon-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>Join the Music Team</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+  <!-- /wp:group -->
+
+  <!-- ========================================================= -->
+  <!-- SECTION 2: CHILDREN, YOUTH & FAMILY                       -->
+  <!-- ========================================================= -->
+  <!-- wp:group {"className":"blc-section-block blc-category-section","layout":{"type":"constrained"}} -->
+  <div id="children-youth" class="wp-block-group blc-section-block blc-category-section">
+    <!-- wp:heading {"level":2,"className":"blc-section-title","textAlign":"center"} -->
+    <h2 class="wp-block-heading blc-section-title has-text-align-center">Children, Youth &amp; Family</h2>
+    <!-- /wp:heading -->
+
+    <!-- wp:paragraph {"className":"blc-section-subtitle","textAlign":"center","textColor":"muted"} -->
+    <p class="has-text-align-center blc-section-subtitle has-muted-color has-text-color">Nurturing faith formation, Christian education, and loving family support across generations.</p>
+    <!-- /wp:paragraph -->
+
+    <div class="blc-ministries-grid">
+
+      <!-- CARD 4: Noah's Ark (Image Right) -->
+      <article class="blc-ministry-card blc-card-reverse">
+        <div class="blc-ministry-media blc-media-contain">
+          <img src="/wp-content/uploads/2017/10/bk-noahs-ark-kiddos.jpg" alt="Children learning and playing at Noah's Ark" loading="lazy" />
+        </div>
+        <div class="blc-ministry-content">
+          <span class="blc-ministry-badge">Early Education</span>
+          <h3 class="blc-ministry-title">Noah's Ark Preschool &amp; Kindergarten</h3>
+          <p>Noah’s Ark is an accredited weekday ministry of Bethlehem Lutheran Church dedicated to helping children develop their intellectual, social, physical, and spiritual potential in a warm, faith-integrated environment under dedicated Christian teachers.</p>
+          <div class="blc-ministry-meta">
+            <span><strong>Hours:</strong> Mon&ndash;Fri 8:00 AM &ndash; 4:00 PM</span>
+            <span><strong>Phone:</strong> (480) 325-0687</span>
+            <span><strong>Director:</strong> Jill Majestic</span>
+          </div>
+          <div class="blc-ministry-action">
+            <a href="https://noahsarkblc.org/" target="_blank" rel="noopener noreferrer" class="blc-btn-text">Visit Noah's Ark Website <span class="blc-external-icon" aria-hidden="true">&#x2197;</span></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 5: Youth & Tirosh (Image Left) -->
+      <article class="blc-ministry-card">
+        <div class="blc-ministry-media">
+          <img src="/wp-content/uploads/2022/05/children-1.png" alt="Youth and children gathering at church" loading="lazy" />
+        </div>
+        <div class="blc-ministry-content">
+          <span class="blc-ministry-badge">Next Generation</span>
+          <h3 class="blc-ministry-title">Youth &amp; Tirosh Community</h3>
+          <p>Youth are vital members of our congregation family. Bethlehem is an active Tirosh community, providing meaningful retreats, mentoring, fellowship, and service opportunities designed to ground teens and young adults in faithful fellowship.</p>
+          <div class="blc-ministry-meta">
+            <span><strong>Focus:</strong> Middle School, High School &amp; Young Adults</span>
+          </div>
+          <div class="blc-ministry-action">
+            <a href="mailto:office@blcmesa.org" class="blc-btn-text"><svg class="blc-btn-icon-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>Connect with Youth Leaders</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 6: Grandparent Support Group (Image Right) -->
+      <article class="blc-ministry-card blc-card-reverse">
+        <div class="blc-ministry-media blc-media-icon">
+          <div class="blc-icon-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          </div>
+        </div>
+        <div class="blc-ministry-content">
+          <span class="blc-ministry-badge">Care &amp; Community Support</span>
+          <h3 class="blc-ministry-title">Grandparents Raising Grandchildren</h3>
+          <p>In partnership with Duet, Bethlehem hosts this monthly support group for relative caregivers. Raising grandchildren brings unique legal, school, and emotional challenges. We offer a safe place to share experiences, build community, and access workable solutions.</p>
+          <div class="blc-ministry-meta">
+            <span><strong>When:</strong> 1st Thursday of the Month &bull; 6:00&ndash;8:00 PM</span>
+            <span><strong>Where:</strong> Rooms 8, 9 &amp; 10</span>
+            <span><strong>Contact:</strong> info@duetaz.org | (602) 274-5022</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+  <!-- /wp:group -->
+
+  <!-- ========================================================= -->
+  <!-- SECTION 3: FELLOWSHIP & CARE MINISTRIES                   -->
+  <!-- ========================================================= -->
+  <!-- wp:group {"className":"blc-section-block blc-category-section","layout":{"type":"constrained"}} -->
+  <div id="fellowship-care" class="wp-block-group blc-section-block blc-category-section">
+    <!-- wp:heading {"level":2,"className":"blc-section-title","textAlign":"center"} -->
+    <h2 class="wp-block-heading blc-section-title has-text-align-center">Fellowship &amp; Care Ministries</h2>
+    <!-- /wp:heading -->
+
+    <!-- wp:paragraph {"className":"blc-section-subtitle","textAlign":"center","textColor":"muted"} -->
+    <p class="has-text-align-center blc-section-subtitle has-muted-color has-text-color">Walking together through life's joys and trials with prayer, empathy, and hands-on kindness.</p>
+    <!-- /wp:paragraph -->
+
+    <div class="blc-ministries-grid">
+
+      <!-- CARD 7: Women of the ELCA / WELCA (Image Left, Zoomed) -->
+      <article class="blc-ministry-card">
+        <div class="blc-ministry-media blc-media-logo blc-media-logo-zoom">
+          <img src="/wp-content/uploads/2025/11/welca-cross.png" alt="Women of the ELCA Logo" loading="lazy" />
+        </div>
+        <div class="blc-ministry-content">
+          <span class="blc-ministry-badge">Women's Ministry</span>
+          <h3 class="blc-ministry-title">Women of the ELCA (WELCA)</h3>
+          <p>All women are invited to gather for Christian fellowship, prayer, and Bible study. WELCA sponsors church craft boutiques, seasonal luncheons, funeral receptions, youth scholarships, and ongoing support for local ministries such as East Valley Homeless assistance.</p>
+          <div class="blc-ministry-meta">
+            <span><strong>Gatherings:</strong> 3rd Thursday of each month at 10:00 AM</span>
+          </div>
+          <div class="blc-ministry-action">
+            <a href="https://www.womenoftheelca.org/" target="_blank" rel="noopener noreferrer" class="blc-btn-text">Visit National WELCA <span class="blc-external-icon" aria-hidden="true">&#x2197;</span></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 8: Stephen Ministry (Image Right, Zoomed) -->
+      <article class="blc-ministry-card blc-card-reverse">
+        <div class="blc-ministry-media blc-media-logo blc-media-logo-zoom">
+          <img src="/wp-content/uploads/2025/08/stephenministrylogoblue2.png" alt="Stephen Ministry Christ Caring for People Logo" loading="lazy" />
+        </div>
+        <div class="blc-ministry-content">
+          <span class="blc-ministry-badge">Stephen Ministry</span>
+          <h3 class="blc-ministry-title">Stephen Ministry</h3>
+          <p>Bethlehem is an official Stephen Ministry congregation. Trained Stephen Ministers provide confidential, one-on-one Christian care, compassionate listening, and support during life transitions, illness, grief, divorce, or hardship. Available freely to church members and neighbors alike.</p>
+          <div class="blc-ministry-meta">
+            <span><strong>Nature:</strong> Confidential, one-to-one Christian care</span>
+          </div>
+          <div class="blc-ministry-action">
+            <a href="mailto:office@blcmesa.org" class="blc-btn-text"><svg class="blc-btn-icon-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>Request Stephen Ministry Care</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 9: Quilters Fellowship (Image Left) -->
+      <article class="blc-ministry-card">
+        <div class="blc-ministry-media">
+          <img src="/wp-content/uploads/2024/09/blc-quilting.jpg" alt="Bethlehem Lutheran quilters creating handmade blankets" loading="lazy" />
+        </div>
+        <div class="blc-ministry-content">
+          <span class="blc-ministry-badge">Hands-on Service</span>
+          <h3 class="blc-ministry-title">Quilters Fellowship</h3>
+          <p>Join our quilting circle to create beautiful, practical quilts distributed to Lutheran Social Services families, local hospitals, and regional missions. No experience is required—bring your lunch on Tuesday morning, make wonderful friends, and learn as you go!</p>
+          <div class="blc-ministry-meta">
+            <span><strong>When:</strong> Tuesdays 9:00 AM &ndash; 12:00 PM (November through March)</span>
+            <span><strong>Experience:</strong> None necessary &bull; All welcome!</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 10: Prayer Shawl Ministry (Image Right) -->
+      <article class="blc-ministry-card blc-card-reverse">
+        <div class="blc-ministry-media blc-media-icon">
+          <div class="blc-icon-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          </div>
+        </div>
+        <div class="blc-ministry-content">
+          <span class="blc-ministry-badge">Comfort Ministry</span>
+          <h3 class="blc-ministry-title">Prayer Shawl Ministry</h3>
+          <p>Hand-knitted and crocheted prayer shawls are lovingly crafted, prayed over, and blessed in Sunday worship before being given to individuals in need of comfort and healing. Meet with the Stitch &amp; Knit group or craft from home!</p>
+          <div class="blc-ministry-meta">
+            <span><strong>When:</strong> 4th Wednesday of each month from 1:00&ndash;3:00 PM</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 11: Cursillo & Holy Yoga (Image Left) -->
+      <article class="blc-ministry-card">
+        <div class="blc-ministry-media blc-media-icon">
+          <div class="blc-icon-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m4.93 4.93 4.24 4.24"></path><path d="m14.83 9.17 4.24-4.24"></path><path d="m14.83 14.83 4.24 4.24"></path><path d="m9.17 14.83-4.24 4.24"></path></svg>
+          </div>
+        </div>
+        <div class="blc-ministry-content">
+          <span class="blc-ministry-badge">Spiritual Growth &amp; Wellness</span>
+          <h3 class="blc-ministry-title">Cursillo Community &amp; Holy Yoga</h3>
+          <p><strong>Cursillo</strong> is a renewal movement that enlivens Christian life and discipleship. Our Cursillo grouping meets Mondays at 6:00 PM in the Social Hall.<br><br><strong>Holy Yoga</strong> offers a Christ-centered restorative movement and prayer practice on Tuesdays from 6:00&ndash;7:30 PM (Rooms 9/10). All fitness levels welcome.</p>
+          <div class="blc-ministry-meta">
+            <span><strong>Cursillo:</strong> Mondays at 6:00 PM (Social Hall)</span>
+            <span><strong>Holy Yoga:</strong> Tuesdays at 6:00 PM (Rooms 9&ndash;10)</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+  <!-- /wp:group -->
+
+  <!-- ========================================================= -->
+  <!-- SECTION 4: COMMUNITY OUTREACH & SERVICE                   -->
+  <!-- ========================================================= -->
+  <!-- wp:group {"className":"blc-section-block blc-category-section","layout":{"type":"constrained"}} -->
+  <div id="community-outreach" class="wp-block-group blc-section-block blc-category-section">
+    <!-- wp:heading {"level":2,"className":"blc-section-title","textAlign":"center"} -->
+    <h2 class="wp-block-heading blc-section-title has-text-align-center">Community Outreach &amp; Service</h2>
+    <!-- /wp:heading -->
+
+    <!-- wp:paragraph {"className":"blc-section-subtitle","textAlign":"center","textColor":"muted"} -->
+    <p class="has-text-align-center blc-section-subtitle has-muted-color has-text-color">Living out Christ’s love by feeding the hungry, welcoming the stranger, and sharing resources with Mesa neighbors.</p>
+    <!-- /wp:paragraph -->
+
+    <div class="blc-ministries-grid">
+
+      <!-- CARD 12: Community Garden (Image Right) -->
+      <article class="blc-ministry-card blc-card-reverse">
+        <div class="blc-ministry-media">
+          <img src="/wp-content/uploads/2021/02/garden.jpeg" alt="Harvest of Hope Community Garden raised beds" loading="lazy" />
+        </div>
+        <div class="blc-ministry-content">
+          <span class="blc-ministry-badge">Urban Agriculture &amp; Food Security</span>
+          <h3 class="blc-ministry-title">Harvest of Hope Community Garden</h3>
+          <p>Situated in a recognized East Mesa food desert, our community garden offers raised garden beds for rent, education on healthy eating, organic gardening techniques, and fresh produce. Join us in cultivating green spaces and neighbors!</p>
+          <div class="blc-ministry-meta">
+            <span><strong>Campus Location:</strong> East Campus Grounds</span>
+            <span><strong>Beds:</strong> Available for public rental</span>
+          </div>
+          <div class="blc-ministry-action">
+            <a href="https://www.facebook.com/Harvest.of.Hope.Community.Garden" target="_blank" rel="noopener noreferrer" class="blc-btn-text">Visit Garden on Facebook <span class="blc-external-icon" aria-hidden="true">&#x2197;</span></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 13: I-HELP (Image Left) -->
+      <article class="blc-ministry-card">
+        <div class="blc-ministry-media">
+          <img src="/wp-content/uploads/2021/02/ihelp-2.jpg" alt="I-Help community hospitality volunteers" loading="lazy" />
+        </div>
+        <div class="blc-ministry-content">
+          <span class="blc-ministry-badge">Shelter &amp; Compassion</span>
+          <h3 class="blc-ministry-title">I-HELP (Interfaith Homeless Lodging)</h3>
+          <p>In partnership with Lutheran Social Services of the Southwest, Bethlehem opens our doors as an emergency overnight shelter for homeless women in Mesa on 5th Fridays. Our volunteers prepare warm meals, offer hospitality, and ensure a safe night's sleep.</p>
+          <div class="blc-ministry-meta">
+            <span><strong>When:</strong> 5th Friday of applicable months</span>
+            <span><strong>Partner:</strong> Lutheran Social Services of the SW</span>
+          </div>
+          <div class="blc-ministry-action">
+            <a href="mailto:office@blcmesa.org" class="blc-btn-text"><svg class="blc-btn-icon-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>Volunteer with I-HELP</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 14: Food Bank & ELCA World Hunger (Image Right) -->
+      <article class="blc-ministry-card blc-card-reverse">
+        <div class="blc-ministry-media blc-media-icon">
+          <div class="blc-icon-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"></path><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+          </div>
+        </div>
+        <div class="blc-ministry-content">
+          <span class="blc-ministry-badge">Hunger Relief</span>
+          <h3 class="blc-ministry-title">Bethie Lu's Pantry &amp; ELCA World Hunger</h3>
+          <p><strong>The Pantry Corner:</strong> Each month our church collects designated food staples (soups, proteins, cereals, paper goods) delivered directly to the First Evangelical Lutheran Church community food pantry.<br><br><strong>ELCA World Hunger:</strong> Through Sunday hunger collections and our annual Souper Bowl fundraiser, Bethlehem sends relief locally and internationally to combat hunger and poverty.</p>
+          <div class="blc-ministry-meta">
+            <span><strong>Collection:</strong> Food cart located weekly in the Narthex</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+  <!-- /wp:group -->
+
+</div>
+<!-- /wp:group -->
