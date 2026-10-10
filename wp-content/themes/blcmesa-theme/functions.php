@@ -42,6 +42,15 @@ function blcmesa_scripts() {
         array(),
         wp_get_theme()->get( 'Version' )
     );
+
+    // Enqueue mobile navigation helper script
+    wp_enqueue_script(
+        'blcmesa-navigation',
+        get_template_directory_uri() . '/assets/js/navigation.js',
+        array(),
+        wp_get_theme()->get( 'Version' ),
+        true
+    );
 }
 add_action( 'wp_enqueue_scripts', 'blcmesa_scripts' );
 
