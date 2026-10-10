@@ -186,6 +186,12 @@
     }
   },
   "styles": {
+    "spacing": {
+      "padding": {
+        "left": "var:preset|spacing|30",
+        "right": "var:preset|spacing|30"
+      }
+    },
     "color": {
       "background": "var:preset|color|cream",
       "text": "var:preset|color|dark"
