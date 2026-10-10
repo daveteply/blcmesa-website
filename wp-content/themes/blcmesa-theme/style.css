@@ -728,3 +728,299 @@ main.wp-block-group > .wp-block-group {
   margin: 0 !important;
 }
 
+/* -------------------------------------------------------------
+ * 9. External Link Indicators & Accessibility
+ * ----------------------------------------------------------- */
+.blc-external-icon {
+  display: inline-block;
+  font-size: 0.85em;
+  line-height: 1;
+  margin-left: 0.2rem;
+  vertical-align: baseline;
+  opacity: 0.8;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+a:hover .blc-external-icon {
+  opacity: 1;
+  transform: translate(2px, -2px);
+}
+
+/* -------------------------------------------------------------
+ * 10. ELCA Affiliation Callout
+ * ----------------------------------------------------------- */
+.blc-elca-callout {
+  border-radius: 16px;
+  padding: 2.25rem 2.5rem;
+  margin-top: 2.5rem !important;
+  margin-bottom: 3.5rem !important;
+  box-shadow: 0 4px 20px rgba(12, 16, 23, 0.05);
+  border: 1px solid rgba(212, 155, 40, 0.25);
+  background-color: var(--blc-cream) !important;
+  box-sizing: border-box;
+}
+
+.blc-elca-callout-inner {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.blc-elca-logo-col {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blc-elca-globe-img {
+  width: 110px;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.08));
+  transition: transform 0.25s ease;
+}
+
+.blc-elca-logo-link:hover .blc-elca-globe-img {
+  transform: scale(1.05);
+}
+
+.blc-elca-text-col {
+  flex: 1;
+}
+
+.blc-elca-title {
+  font-family: Cinzel, serif;
+  font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+  font-weight: 700;
+  color: #151D28;
+  margin-top: 0.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.blc-elca-desc {
+  color: #555E6B;
+  font-size: 1rem;
+  line-height: 1.65;
+  margin-bottom: 0.85rem;
+}
+
+.blc-elca-link-wrap a {
+  color: var(--blc-gold-primary);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.blc-elca-link-wrap a:hover {
+  color: var(--blc-gold-hover);
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .blc-elca-callout {
+    padding: 1.75rem 1.25rem;
+    margin-top: 1.5rem !important;
+    margin-bottom: 2.5rem !important;
+  }
+
+  .blc-elca-callout-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.25rem;
+  }
+
+  .blc-elca-link-wrap a {
+    justify-content: center;
+  }
+}
+
+/* -------------------------------------------------------------
+ * 11. Footer ELCA Badge
+ * ----------------------------------------------------------- */
+.blc-footer-elca-wrap {
+  margin: 0.75rem 0 1rem 0;
+}
+
+.blc-footer-elca-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none !important;
+  color: #FFFFFF !important;
+  padding: 0.4rem 0.75rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(212, 155, 40, 0.25);
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.blc-footer-elca-badge:hover {
+  background: rgba(212, 155, 40, 0.15) !important;
+  border-color: var(--blc-gold-primary);
+  transform: translateY(-1px);
+}
+
+.blc-footer-elca-globe {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.blc-footer-elca-label {
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* -------------------------------------------------------------
+ * 12. Noah's Ark Feature Banner
+ * ----------------------------------------------------------- */
+.blc-noahs-ark-feature {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(12, 16, 23, 0.08);
+  margin-top: 4rem !important;
+  margin-bottom: 4rem !important;
+  border: 1px solid rgba(212, 155, 40, 0.2);
+  background-color: #FFFFFF !important;
+}
+
+.blc-noahs-ark-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+}
+
+.blc-noahs-ark-image-col {
+  position: relative;
+  min-height: 380px;
+  overflow: hidden;
+}
+
+.blc-noahs-ark-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.blc-noahs-ark-text-col {
+  padding: 3.5rem 3rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.blc-noahs-ark-title {
+  font-family: Cinzel, serif;
+  font-size: clamp(1.4rem, 2.5vw, 2.1rem);
+  color: #151D28;
+  margin-top: 0.35rem;
+  margin-bottom: 1rem;
+}
+
+.blc-noahs-ark-desc {
+  color: #555E6B;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 1.75rem;
+}
+
+@media (max-width: 900px) {
+  .blc-noahs-ark-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .blc-noahs-ark-image-col {
+    min-height: 260px;
+    max-height: 320px;
+  }
+
+  .blc-noahs-ark-text-col {
+    padding: 2.25rem 1.5rem;
+  }
+}
+
+/* -------------------------------------------------------------
+ * 13. Life at Bethlehem (Community Photo Grid)
+ * ----------------------------------------------------------- */
+.blc-community-photos-section {
+  margin-top: 4.5rem !important;
+  margin-bottom: 4.5rem !important;
+}
+
+.blc-section-header-center {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.blc-community-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.blc-photo-placeholder-card {
+  background: #FFFFFF;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(12, 16, 23, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.blc-photo-placeholder-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.blc-photo-placeholder-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: #EAE6DF;
+  overflow: hidden;
+}
+
+.blc-community-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.blc-photo-placeholder-body {
+  padding: 1.25rem 1.5rem;
+  flex: 1;
+}
+
+.blc-photo-placeholder-title {
+  font-family: Cinzel, serif;
+  font-size: 1.15rem;
+  color: #151D28;
+  margin: 0 0 0.4rem 0;
+}
+
+.blc-photo-placeholder-text {
+  font-size: 0.92rem;
+  color: #555E6B;
+  margin: 0;
+  line-height: 1.55;
+}
+
+@media (max-width: 800px) {
+  .blc-community-photo-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
+
+
