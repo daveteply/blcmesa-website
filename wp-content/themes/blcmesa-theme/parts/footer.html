@@ -1,66 +1,117 @@
-<!-- wp:group {"tagName":"footer","style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}},"border":{"top":{"color":"var:preset|color|warm-gray","width":"1px"}}},"backgroundColor":"white","layout":{"type":"constrained"}} -->
-<footer class="wp-block-group has-white-background-color has-background" style="border-top-color:var(--wp--preset--color--warm-gray);border-top-width:1px;padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--30)">
-  <!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":"var:preset|spacing|30"}}} -->
+<!-- wp:group {"tagName":"footer","className":"blc-footer","align":"full","style":{"spacing":{"padding":{"top":"0","bottom":"var:preset|spacing|40","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}}},"backgroundColor":"obsidian","textColor":"white","layout":{"type":"constrained"}} -->
+<footer class="wp-block-group blc-footer alignfull has-white-color has-obsidian-background-color has-text-color has-background" style="padding-top:0;padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--30)">
+  
+  <!-- GLOWING TOP GOLD DIVIDER -->
+  <hr class="blc-gold-divider" style="margin-top:0;margin-bottom:3.5rem;max-width:1200px" />
+
+  <!-- 4-COLUMN FOOTER CONTENT -->
+  <!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":"2.5rem"}}} -->
   <div class="wp-block-columns alignwide">
     
-    <!-- COL 1: CHURCH BIO -->
-    <!-- wp:column {"width":"40%"} -->
-    <div class="wp-block-column" style="flex-basis:40%">
-      <!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"1.3rem"}},"textColor":"navy-dark"} -->
-      <h3 class="wp-block-heading has-navy-dark-color has-text-color" style="font-size:1.3rem;margin-bottom:0.75rem">Bethlehem Lutheran Church</h3>
-      <!-- /wp:heading -->
-      <!-- wp:paragraph {"style":{"typography":{"fontSize":"0.92rem","lineHeight":"1.65"}},"textColor":"muted"} -->
-      <p class="has-muted-color has-text-color" style="font-size:0.92rem;line-height:1.65">A warm, Christ-centered home sharing God's love and grace in Mesa, Arizona.<br>Proud congregation of the Evangelical Lutheran Church in America (ELCA), Grand Canyon Synod.</p>
+    <!-- COL 1: CHURCH BRANDING & MISSION -->
+    <!-- wp:column {"width":"30%"} -->
+    <div class="wp-block-column" style="flex-basis:30%">
+      <!-- wp:html -->
+      <a href="/" class="blc-header-brand" aria-label="Bethlehem Lutheran Church Home" style="margin-bottom:1rem">
+        <img src="/wp-content/themes/blcmesa-theme/assets/images/bethlehem-star.webp" alt="Bethlehem Star" width="44" height="44" style="height:44px;width:auto;display:block;filter:drop-shadow(0 0 10px rgba(212,155,40,0.6))" />
+        <div style="display:flex;flex-direction:column;line-height:1.15">
+          <span style="font-family:Cinzel,serif;font-size:1.25rem;font-weight:700;letter-spacing:0.08em;color:#FFFFFF;text-transform:uppercase">BETHLEHEM</span>
+          <span style="font-family:Cinzel,serif;font-size:0.68rem;font-weight:600;letter-spacing:0.18em;color:#D49B28;text-transform:uppercase">LUTHERAN CHURCH</span>
+        </div>
+      </a>
+      <!-- /wp:html -->
+
+      <!-- wp:paragraph {"style":{"typography":{"fontSize":"0.92rem","fontWeight":"600"}},"textColor":"white"} -->
+      <p class="has-white-color has-text-color" style="font-size:0.92rem;font-weight:600;margin:1rem 0 0.35rem 0">Proud member of the ELCA</p>
+      <!-- /wp:paragraph -->
+
+      <!-- wp:paragraph {"style":{"typography":{"fontSize":"0.88rem","lineHeight":"1.6"}},"textColor":"muted"} -->
+      <p class="has-muted-color has-text-color" style="font-size:0.88rem;line-height:1.6;margin:0">Sharing God's Love with Our Community in Mesa and across the Valley.</p>
       <!-- /wp:paragraph -->
     </div>
     <!-- /wp:column -->
 
-    <!-- COL 2: WORSHIP & LOCATION -->
-    <!-- wp:column {"width":"35%"} -->
-    <div class="wp-block-column" style="flex-basis:35%">
-      <!-- wp:heading {"level":4,"style":{"typography":{"fontSize":"1.1rem"}},"textColor":"primary"} -->
-      <h4 class="wp-block-heading has-primary-color has-text-color" style="font-size:1.1rem;margin-bottom:0.75rem">Worship &amp; Office</h4>
-      <!-- /wp:heading -->
-      <!-- wp:paragraph {"style":{"typography":{"fontSize":"0.92rem","lineHeight":"1.65"}},"textColor":"muted"} -->
-      <p class="has-muted-color has-text-color" style="font-size:0.92rem;line-height:1.65"><strong>Sunday Worship:</strong> 9:00 AM (In-person &amp; Online)<br><strong>Address:</strong> 2745 N. 32nd St., Mesa, AZ 85213<br><strong>Phone:</strong> <a href="tel:4808320462">(480) 832-0462</a><br><strong>Office Hours:</strong> Mon &ndash; Thu: 8:30 AM &ndash; 1:30 PM</p>
-      <!-- /wp:paragraph -->
+    <!-- COL 2: QUICK LINKS -->
+    <!-- wp:column {"width":"22%"} -->
+    <div class="wp-block-column" style="flex-basis:22%">
+      <h4 class="blc-footer-heading">Quick Links</h4>
+      <!-- wp:list {"style":{"typography":{"fontSize":"0.9rem","lineHeight":"2"}},"className":"is-style-none"} -->
+      <ul class="wp-block-list is-style-none" style="list-style:none;padding-left:0;margin:0;font-size:0.9rem;line-height:2">
+        <li><a href="/about/">About Us</a></li>
+        <li><a href="/ministries/">Ministries</a></li>
+        <li><a href="/sermons/">Sermons</a></li>
+        <li><a href="/events/">Events</a></li>
+        <li><a href="/giving/">Give</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+      <!-- /wp:list -->
     </div>
     <!-- /wp:column -->
 
-    <!-- COL 3: COMMUNITY LINKS -->
-    <!-- wp:column {"width":"25%"} -->
-    <div class="wp-block-column" style="flex-basis:25%">
-      <!-- wp:heading {"level":4,"style":{"typography":{"fontSize":"1.1rem"}},"textColor":"primary"} -->
-      <h4 class="wp-block-heading has-primary-color has-text-color" style="font-size:1.1rem;margin-bottom:0.75rem">Quick Links</h4>
-      <!-- /wp:heading -->
-      <!-- wp:paragraph {"style":{"typography":{"fontSize":"0.92rem","lineHeight":"1.8"}}} -->
-      <p style="font-size:0.92rem;line-height:1.8">
-        &bull; <a href="https://noahsarkblc.org" target="_blank" rel="noopener noreferrer">Noah's Ark Preschool</a><br>
-        &bull; <a href="/sermons/">Sermon Video Archive</a><br>
-        &bull; <a href="/garden/">Harvest of Hope Garden</a><br>
-        &bull; <a href="/giving/">Online Giving</a>
+    <!-- COL 3: WORSHIP SERVICES -->
+    <!-- wp:column {"width":"22%"} -->
+    <div class="wp-block-column" style="flex-basis:22%">
+      <h4 class="blc-footer-heading">Visit Us</h4>
+      <!-- wp:paragraph {"style":{"typography":{"fontSize":"0.9rem","lineHeight":"1.7"}},"textColor":"muted"} -->
+      <p class="has-muted-color has-text-color" style="font-size:0.9rem;line-height:1.7;margin:0">
+        <strong style="color:#FFFFFF">Sunday Worship:</strong><br>
+        9:00 AM (In-person &amp; Online)<br><br>
+        <strong style="color:#FFFFFF">Fellowship Hour:</strong><br>
+        10:00 AM Coffee &amp; Treats
       </p>
       <!-- /wp:paragraph -->
+    </div>
+    <!-- /wp:column -->
+
+    <!-- COL 4: LOCATION & DIRECTIONS -->
+    <!-- wp:column {"width":"26%"} -->
+    <div class="wp-block-column" style="flex-basis:26%">
+      <h4 class="blc-footer-heading">Location</h4>
+      <!-- wp:paragraph {"style":{"typography":{"fontSize":"0.9rem","lineHeight":"1.6"}},"textColor":"muted"} -->
+      <p class="has-muted-color has-text-color" style="font-size:0.9rem;line-height:1.6;margin:0 0 1rem 0">
+        2745 N 32nd St<br>
+        Mesa, AZ 85213<br>
+        <a href="tel:4808320462" style="color:#D49B28;font-weight:600">(480) 832-0462</a>
+      </p>
+      <!-- /wp:paragraph -->
+
+      <!-- wp:buttons {"className":"blc-btn-gold"} -->
+      <div class="wp-block-buttons blc-btn-gold">
+        <!-- wp:button {"backgroundColor":"accent","textColor":"white","style":{"typography":{"fontSize":"0.82rem","fontWeight":"700","letterSpacing":"0.05em"},"spacing":{"padding":{"top":"0.55rem","bottom":"0.55rem","left":"1.25rem","right":"1.25rem"}}}} -->
+        <div class="wp-block-button has-custom-font-size" style="font-size:0.82rem"><a class="wp-block-button__link has-white-color has-accent-background-color has-text-color has-background wp-element-button" href="https://maps.google.com/?q=2745+N+32nd+St,+Mesa,+AZ+85213" target="_blank" rel="noopener noreferrer" style="padding-top:0.55rem;padding-right:1.25rem;padding-bottom:0.55rem;padding-left:1.25rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase">Get Directions</a></div>
+        <!-- /wp:button -->
+      </div>
+      <!-- /wp:buttons -->
     </div>
     <!-- /wp:column -->
 
   </div>
   <!-- /wp:columns -->
 
-  <!-- wp:separator {"align":"wide","style":{"spacing":{"margin":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|20"}}},"backgroundColor":"warm-gray"} -->
-  <hr class="wp-block-separator alignwide has-warm-gray-background-color has-background" style="margin-top:var(--wp--preset--spacing--30);margin-bottom:var(--wp--preset--spacing--20)"/>
-  <!-- /wp:separator -->
+  <!-- GLOWING SUBTLE DIVIDER BEFORE SOCIAL / LEGAL -->
+  <hr class="blc-gold-divider-subtle" style="margin-top:3rem;margin-bottom:2rem;max-width:1200px" />
 
-  <!-- wp:group {"align":"wide","layout":{"type":"flex","justifyContent":"space-between","flexWrap":"wrap"}} -->
-  <div class="wp-block-group alignwide">
-    <!-- wp:paragraph {"style":{"typography":{"fontSize":"0.85rem"}},"textColor":"muted"} -->
-    <p class="has-muted-color has-text-color" style="font-size:0.85rem">&copy; Bethlehem Lutheran Church (blcmesa.org). All rights reserved.</p>
-    <!-- /wp:paragraph -->
+  <!-- SOCIAL LINKS ROW -->
+  <!-- wp:social-links {"iconColor":"white","iconColorValue":"#FFFFFF","size":"has-normal-icon-size","className":"blc-social-links","layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"blockGap":"1.25rem","margin":{"bottom":"1.5rem"}}}} -->
+  <ul class="wp-block-social-links has-normal-icon-size has-icon-color blc-social-links" style="margin-bottom:1.5rem">
+    <!-- wp:social-link {"url":"https://facebook.com","service":"facebook"} /-->
+    <!-- wp:social-link {"url":"https://instagram.com","service":"instagram"} /-->
+    <!-- wp:social-link {"url":"https://x.com","service":"x"} /-->
+    <!-- wp:social-link {"url":"https://youtube.com","service":"youtube"} /-->
+    <!-- wp:social-link {"url":"mailto:office@blcmesa.org","service":"mail"} /-->
+  </ul>
+  <!-- /wp:social-links -->
 
-    <!-- wp:paragraph {"style":{"typography":{"fontSize":"0.85rem"}},"textColor":"muted"} -->
-    <p class="has-muted-color has-text-color" style="font-size:0.85rem">Mesa, Arizona &bull; Evangelical Lutheran Church in America</p>
+  <!-- COPYRIGHT & LEGAL STRIP -->
+  <!-- wp:group {"align":"wide","layout":{"type":"flex","justifyContent":"center","flexWrap":"wrap"}} -->
+  <div class="wp-block-group alignwide" style="text-align:center">
+    <!-- wp:paragraph {"style":{"typography":{"fontSize":"0.82rem","lineHeight":"1.6"}},"textColor":"muted"} -->
+    <p class="has-muted-color has-text-color" style="font-size:0.82rem;line-height:1.6;margin:0">
+      &copy; 2026 Bethlehem Lutheran Church. All Rights Reserved. &nbsp;&bull;&nbsp; <a href="/privacy-policy/">Privacy Policy</a> &nbsp;&bull;&nbsp; <a href="/terms/">Terms of Use</a>
+    </p>
     <!-- /wp:paragraph -->
   </div>
   <!-- /wp:group -->
+
 </footer>
 <!-- /wp:group -->
