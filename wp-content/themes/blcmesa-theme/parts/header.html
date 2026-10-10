@@ -1,5 +1,5 @@
-<!-- wp:group {"tagName":"header","className":"blc-sticky-header","align":"full","style":{"spacing":{"padding":{"top":"0.75rem","bottom":"0.75rem","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}}},"backgroundColor":"midnight-slate","layout":{"type":"constrained"}} -->
-<header class="wp-block-group blc-sticky-header alignfull has-midnight-slate-background-color has-background" style="padding-top:0.75rem;padding-right:var(--wp--preset--spacing--30);padding-bottom:0.75rem;padding-left:var(--wp--preset--spacing--30)">
+<!-- wp:group {"tagName":"header","className":"blc-sticky-header","align":"full","backgroundColor":"midnight-slate","layout":{"type":"constrained"}} -->
+<header class="wp-block-group blc-sticky-header alignfull has-midnight-slate-background-color has-background">
   <!-- wp:group {"align":"wide","layout":{"type":"flex","justifyContent":"space-between","alignItems":"center","flexWrap":"wrap"}} -->
   <div class="wp-block-group alignwide">
     
@@ -8,10 +8,10 @@
     <div class="wp-block-group">
       <!-- wp:html -->
       <a href="/" class="blc-header-brand" aria-label="Bethlehem Lutheran Church Home">
-        <img src="/wp-content/themes/blcmesa-theme/assets/images/bethlehem-star.webp" alt="Bethlehem Star" width="38" height="38" style="height:38px;width:auto;display:block;filter:drop-shadow(0 0 8px rgba(212,155,40,0.5))" />
-        <div style="display:flex;flex-direction:column;line-height:1.15">
-          <span style="font-family:Cinzel,serif;font-size:1.15rem;font-weight:700;letter-spacing:0.08em;color:#FFFFFF;text-transform:uppercase">BETHLEHEM</span>
-          <span style="font-family:Cinzel,serif;font-size:0.65rem;font-weight:600;letter-spacing:0.18em;color:#D49B28;text-transform:uppercase">LUTHERAN CHURCH</span>
+        <img class="blc-brand-logo" src="/wp-content/themes/blcmesa-theme/assets/images/bethlehem-star.webp" alt="Bethlehem Star" width="38" height="38" />
+        <div class="blc-brand-text">
+          <span class="blc-brand-title">BETHLEHEM</span>
+          <span class="blc-brand-subtitle">LUTHERAN CHURCH</span>
         </div>
       </a>
       <!-- /wp:html -->
@@ -21,7 +21,7 @@
     <!-- NAVIGATION & ACTION CTA -->
     <!-- wp:group {"layout":{"type":"flex","alignItems":"center","flexWrap":"wrap"}} -->
     <div class="wp-block-group">
-      <!-- wp:navigation {"overlayMenu":"mobile","textColor":"white","layout":{"type":"flex","justifyContent":"right","orientation":"horizontal"},"style":{"typography":{"fontSize":"0.85rem","fontWeight":"600","letterSpacing":"0.06em"}}} -->
+      <!-- wp:navigation {"overlayMenu":"mobile","textColor":"white","layout":{"type":"flex","justifyContent":"right","orientation":"horizontal"}} -->
         <!-- wp:navigation-link {"label":"HOME","url":"/"} /-->
         <!-- wp:navigation-link {"label":"ABOUT","url":"/about/"} /-->
         <!-- wp:navigation-submenu {"label":"MINISTRIES","url":"/ministries/"} -->
@@ -35,10 +35,10 @@
         <!-- wp:navigation-link {"label":"CONTACT","url":"/contact/"} /-->
       <!-- /wp:navigation -->
 
-      <!-- wp:buttons {"className":"blc-btn-gold","style":{"spacing":{"margin":{"left":"var:preset|spacing|20"}}}} -->
-      <div class="wp-block-buttons blc-btn-gold" style="margin-left:var(--wp--preset--spacing--20)">
-        <!-- wp:button {"backgroundColor":"accent","textColor":"white","style":{"typography":{"fontSize":"0.8rem","fontWeight":"700","letterSpacing":"0.05em"},"spacing":{"padding":{"top":"0.55rem","bottom":"0.55rem","left":"1.2rem","right":"1.2rem"}}}} -->
-        <div class="wp-block-button has-custom-font-size" style="font-size:0.8rem"><a class="wp-block-button__link has-white-color has-accent-background-color has-text-color has-background wp-element-button" href="/#worship" style="padding-top:0.55rem;padding-right:1.2rem;padding-bottom:0.55rem;padding-left:1.2rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase">Plan Your Visit</a></div>
+      <!-- wp:buttons {"className":"blc-btn-gold"} -->
+      <div class="wp-block-buttons blc-btn-gold">
+        <!-- wp:button {"backgroundColor":"accent","textColor":"white"} -->
+        <div class="wp-block-button"><a class="wp-block-button__link has-white-color has-accent-background-color has-text-color has-background wp-element-button" href="/#worship">Plan Your Visit</a></div>
         <!-- /wp:button -->
       </div>
       <!-- /wp:buttons -->
