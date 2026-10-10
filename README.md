@@ -124,7 +124,7 @@ python3 scripts/sync-media.py --verify-remote
 ```
 
 > [!NOTE]
-> For detailed documentation on all available flags, architecture, and CLI options, see [**`scripts/README.md`**](file://./scripts/README.md).
+> For complete two-way synchronization workflows and live host publishing instructions, see [**`docs/PUBLISHING-WORKFLOW.md`**](file://./docs/PUBLISHING-WORKFLOW.md). For detailed documentation on media sync flags, see [**`scripts/README.md`**](file://./scripts/README.md).
 
 ---
 

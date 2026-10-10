@@ -81,6 +81,15 @@ function blcmesa_scripts() {
         wp_get_theme()->get( 'Version' ),
         true
     );
+
+    // Enqueue smooth Material-style accordion animations
+    wp_enqueue_script(
+        'blcmesa-accordion',
+        get_template_directory_uri() . '/assets/js/accordion.js',
+        array(),
+        wp_get_theme()->get( 'Version' ),
+        true
+    );
 }
 add_action( 'wp_enqueue_scripts', 'blcmesa_scripts' );
 
