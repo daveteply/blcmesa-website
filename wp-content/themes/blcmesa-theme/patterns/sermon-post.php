@@ -8,10 +8,10 @@
 ?>
 <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}},"border":{"radius":"8px","color":"var:preset|color|gray-subtle","width":"1px"}},"backgroundColor":"light","layout":{"type":"constrained"}} -->
 <div class="wp-block-group has-light-background-color has-background" style="border-color:var(--wp--preset--color--gray-subtle);border-width:1px;border-radius:8px;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
-  <!-- wp:embed {"providerNameSlug":"youtube","responsive":true} -->
-  <figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
-  https://www.youtube.com/watch?v=dQw4w9WgXcQ
-  </div><figcaption class="wp-element-caption">Replace with weekly sermon video link</figcaption></figure>
+  <!-- wp:embed {"url":"https://vimeo.com/1232853175","type":"video","providerNameSlug":"vimeo","responsive":true,"className":"wp-embed-aspect-16-9 wp-has-aspect-ratio"} -->
+  <figure class="wp-block-embed is-type-video is-provider-vimeo wp-block-embed-vimeo wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+  https://vimeo.com/1232853175
+  </div><figcaption class="wp-element-caption">Replace with weekly Vimeo sermon video URL</figcaption></figure>
   <!-- /wp:embed -->
 
   <!-- wp:columns {"style":{"spacing":{"margin":{"top":"var:preset|spacing|30"}}}} -->
