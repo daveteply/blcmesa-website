@@ -82,4 +82,4 @@ jobs:
           echo "Compiling Python scripts..."
           python3 -m py_compile scripts/sync-media.py
           pip install ruff
-          ruff check scripts/sync-media.py
+          ruff check --select E,F scripts/sync-media.py
