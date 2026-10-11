@@ -111,7 +111,7 @@ def extract_media_urls(xml_path, include_all_content=True):
         added_count = len(urls) - before_count
         print(f"[*] Discovered {added_count} additional embedded upload URLs in post content.")
 
-    sorted_urls = sorted(list(urls))
+    sorted_urls = sorted(urls)
     print(f"[*] Total unique media files to process: {len(sorted_urls)}")
     return sorted_urls
 
@@ -123,7 +123,7 @@ def load_manifest(manifest_path):
             with open(manifest_path, "r", encoding="utf-8") as f:
                 data = json.load(f)
                 return data
-        except Exception as e:
+        except (json.JSONDecodeError, OSError) as e:
             print(f"[!] Warning: Could not read manifest ({e}). Creating new.")
     return {"version": 2, "created_at": datetime.now().isoformat(), "files": {}}
 
@@ -185,15 +185,15 @@ def get_remote_file_info(url, timeout=12):
             if lm:
                 try:
                     remote_mtime = parsedate_to_datetime(lm)
-                except Exception:
-                    pass
+                except (ValueError, TypeError):
+                    remote_mtime = None
 
             return {
                 "size": remote_size,
                 "last_modified": remote_mtime,
                 "etag": etag.strip('"') if etag else None,
             }
-    except Exception:
+    except (urllib.error.URLError, TimeoutError, OSError):
         return None
 
 
@@ -210,14 +210,13 @@ def download_file(url, target_path, timeout=25):
     req = urllib.request.Request(url, headers=headers)
     sha256 = hashlib.sha256()
 
-    with urllib.request.urlopen(req, timeout=timeout) as response:
-        with open(temp_target, "wb") as out_file:
-            while True:
-                chunk = response.read(65536)
-                if not chunk:
-                    break
-                out_file.write(chunk)
-                sha256.update(chunk)
+    with urllib.request.urlopen(req, timeout=timeout) as response, open(temp_target, "wb") as out_file:
+        while True:
+            chunk = response.read(65536)
+            if not chunk:
+                break
+            out_file.write(chunk)
+            sha256.update(chunk)
 
     # Rename temp to target atomically
     os.replace(temp_target, target_path)
@@ -496,7 +495,7 @@ def main():
                     f"[{idx:4d}/{len(urls):4d}] ({progress_pct:4.1f}%) [OK]   {rel_path} ({format_bytes(size)}) [SHA256: {sha256_hash[:8]}...]"
                 )
                 break
-            except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError, Exception) as err:
+            except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError, OSError) as err:
                 last_error = str(err)
                 if isinstance(err, PermissionError) or "Permission denied" in str(err):
                     print(f"\n[!] Permission Error writing to {target_path}!")
@@ -557,7 +556,7 @@ def main():
     print("========================================================")
     if stats["failed"] > 0:
         print("Tip: Run 'python3 scripts/sync-media.py --retry-failed' to re-attempt failed files.")
-    print("")
+    print()
 
 
 if __name__ == "__main__":

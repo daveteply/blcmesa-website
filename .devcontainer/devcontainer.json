@@ -20,7 +20,8 @@
         "esbenp.prettier-vscode",
         "ms-azuretools.vscode-containers",
         "streetsidesoftware.code-spell-checker",
-        "redhat.vscode-yaml"
+        "redhat.vscode-yaml",
+        "github.vscode-github-actions"
       ],
       "settings": {
         "files.eol": "\n",

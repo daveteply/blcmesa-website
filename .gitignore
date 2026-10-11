@@ -42,6 +42,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 tmp/
+__pycache__/
+*.pyc
 
 # OS metadata
 .DS_Store
