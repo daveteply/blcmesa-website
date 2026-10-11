@@ -1,0 +1,85 @@
+name: Code Quality & Linting
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  php-lint:
+    name: PHP Syntax Check (PHP ${{ matrix.php-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php-version: ['8.1', '8.2']
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up PHP ${{ matrix.php-version }}
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+
+      - name: Lint PHP files
+        run: |
+          echo "Linting all PHP files in wp-content/themes/blcmesa-theme..."
+          find wp-content/themes/blcmesa-theme -type f -name "*.php" -print0 | xargs -0 -n 1 -P 4 php -l
+
+  json-lint:
+    name: Validate JSON Files
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Validate theme.json and other JSON configs
+        run: |
+          echo "Validating theme.json..."
+          python3 -m json.tool wp-content/themes/blcmesa-theme/theme.json > /dev/null
+          echo "Validating .devcontainer/devcontainer.json..."
+          python3 -m json.tool .devcontainer/devcontainer-lock.json > /dev/null
+          echo "✅ All JSON files are valid syntax."
+
+  scripts-lint:
+    name: Shell & Python Script Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check bash script syntax
+        run: |
+          echo "Checking bash syntax with bash -n..."
+          for script in scripts/*.sh; do
+            [ -f "$script" ] || continue
+            bash -n "$script"
+            echo "✅ $script passed syntax check"
+          done
+
+      - name: Run ShellCheck on scripts
+        uses: ludeeus/action-shellcheck@master
+        with:
+          scandir: './scripts'
+          severity: error
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Lint sync-media.py
+        run: |
+          echo "Compiling Python scripts..."
+          python3 -m py_compile scripts/sync-media.py
+          pip install ruff
+          ruff check scripts/sync-media.py
