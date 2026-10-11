@@ -281,6 +281,25 @@
         </div>
       </article>
 
+      <!-- CARD 12: Faith Community Nurse & Wellness Ministry (Image Right) -->
+      <article class="blc-ministry-card blc-card-reverse">
+        <div class="blc-ministry-media blc-media-contain">
+          <img src="/wp-content/uploads/2017/11/icon-heart-stethoscope-clrs.png" alt="Faith Community Nurse Stethoscope and Heart Logo" loading="lazy" />
+        </div>
+        <div class="blc-ministry-content">
+          <span class="blc-ministry-badge">Health &amp; Wholeness</span>
+          <h3 class="blc-ministry-title">Faith Community Nurse &amp; Wellness Ministry</h3>
+          <p>Our Faith Community Nurse ministry is led by Carol Savoie, R.N. Serving body, mind, and spirit, our parish nurse offers confidential health counseling, health education, hospital visits, community healthcare navigation, and wellness advocacy for members and friends of Bethlehem.</p>
+          <div class="blc-ministry-meta">
+            <span><strong>Blood Pressure Screenings:</strong> 1st &amp; 3rd Sundays after worship</span>
+            <span><strong>Parish Nurse:</strong> Carol Savoie, R.N.</span>
+          </div>
+          <div class="blc-ministry-action">
+            <a href="mailto:office@blcmesa.org" class="blc-btn-text"><svg class="blc-btn-icon-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>Connect with Faith Community Nurse</a>
+          </div>
+        </div>
+      </article>
+
     </div>
   </div>
   <!-- /wp:group -->

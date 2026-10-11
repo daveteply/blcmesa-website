@@ -1438,9 +1438,14 @@ html[data-theme="dark"] main a:not(.wp-element-button):not(.blc-header-brand) {
 .blc-page-lead {
   max-width: 680px;
   margin: 0 auto !important;
+  color: var(--wp--preset--color--dark, #2C3539) !important;
+  font-size: 1.15rem !important;
+  line-height: 1.65 !important;
+  opacity: 0.9;
+}
+
+html[data-theme="dark"] .blc-page-lead {
   color: #CBD5E1 !important;
-  font-size: 1.1rem !important;
-  line-height: 1.6 !important;
 }
 
 .blc-page-content-wrapper {
@@ -1466,6 +1471,11 @@ html[data-theme="dark"] main a:not(.wp-element-button):not(.blc-header-brand) {
   font-size: 1rem !important;
   margin-top: 0 !important;
   margin-bottom: 2rem !important;
+  color: #4A5568 !important;
+}
+
+html[data-theme="dark"] .blc-section-subtitle {
+  color: #94A3B8 !important;
 }
 
 /* Accordion / Details Component */
@@ -2553,5 +2563,117 @@ html[data-theme="dark"] .blc-btn-outline-link:hover {
 html[data-theme="dark"] .blc-location-map-wrap {
   border-color: rgba(255, 255, 255, 0.08);
 }
+
+/* -------------------------------------------------------------
+ * 15. Prayers We Use Page Components
+ * ----------------------------------------------------------- */
+.blc-prayers-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.blc-prayer-card {
+  background-color: #FFFFFF;
+  border: 1px solid var(--wp--preset--color--warm-gray, #E2E8F0);
+  border-radius: 12px;
+  padding: 2.25rem 2.5rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+  scroll-margin-top: 100px;
+  position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.blc-prayer-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--blc-gold-primary);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.blc-prayer-card-header {
+  border-bottom: 2px solid var(--wp--preset--color--cream, #FAF8F5);
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.blc-prayer-badge {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blc-gold-primary);
+  margin-bottom: 0.35rem;
+}
+
+.blc-prayer-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--wp--preset--color--primary, #1B365D);
+  margin: 0 0 0.25rem 0;
+}
+
+.blc-prayer-scripture {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  color: var(--wp--preset--color--muted, #64748B);
+  margin: 0;
+  font-style: italic;
+}
+
+.blc-prayer-body {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--wp--preset--color--dark, #2C3539);
+}
+
+.blc-prayer-body p {
+  margin: 0 0 1rem 0;
+}
+
+.blc-prayer-body p:last-child {
+  margin-bottom: 0;
+}
+
+.blc-prayer-amen {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  color: var(--wp--preset--color--primary, #1B365D);
+  letter-spacing: 0.05em;
+  margin-top: 1rem !important;
+}
+
+/* Dark Theme Overrides for Prayers */
+html[data-theme="dark"] .blc-prayer-card {
+  background-color: #151E2B;
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+html[data-theme="dark"] .blc-prayer-card:hover {
+  border-color: var(--blc-gold-primary);
+}
+
+html[data-theme="dark"] .blc-prayer-card-header {
+  border-bottom-color: rgba(255, 255, 255, 0.06);
+}
+
+html[data-theme="dark"] .blc-prayer-title,
+html[data-theme="dark"] .blc-prayer-amen {
+  color: #FAF8F5;
+}
+
+html[data-theme="dark"] .blc-prayer-body {
+  color: #E2E8F0;
+}
+
+html[data-theme="dark"] .blc-prayer-scripture {
+  color: #94A3B8;
+}
+
 
 
