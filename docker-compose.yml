@@ -41,6 +41,7 @@ services:
       WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD:-wordpress_dev_password}
       WORDPRESS_DB_NAME: ${MYSQL_DATABASE:-wordpress}
       WORDPRESS_DEBUG: ${WORDPRESS_DEBUG:-1}
+      BLC_TEST_EMAIL: ${BLC_TEST_EMAIL:-}
       WORDPRESS_CONFIG_EXTRA: |
         define('WP_DEBUG_LOG', true);
         define('WP_DEBUG_DISPLAY', false);

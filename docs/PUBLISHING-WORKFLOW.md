@@ -168,3 +168,9 @@ Once the site is live, staff and volunteers do not need access to Docker, Git, o
 4. Paste the week's Vimeo or YouTube link into the video block.
 5. Update Scripture readings and preacher name.
 6. Click **Publish**.
+
+### 3. Contact Form & Email Notifications
+- The `/contact/` page routes inquiries to the selected department (*Church Office, Pastor, Preschool, Music, Care, Nurse, Youth, Outreach*).
+- **Email Delivery**: Uses standard WordPress `wp_mail()` connected via a free SMTP plugin (e.g., FluentSMTP) to the church's existing mail host.
+- **Local Dev Testing**: Form submissions on local Docker environments mock email delivery by logging to `wp-content/debug.log` without sending live emails. Developers can optionally override destination delivery with `BLC_TEST_EMAIL=dev@example.com`.
+

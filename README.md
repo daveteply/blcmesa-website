@@ -145,3 +145,21 @@ docker compose run --rm wpcli wp plugin list
 # Search and replace URLs (useful when migrating to live domain)
 docker compose run --rm wpcli wp search-replace "http://localhost:8080" "https://blcmesa.org" --all-tables
 ```
+
+---
+
+## 📬 Contact Form & Local Email Testing (`BLC_TEST_EMAIL`)
+
+The contact form (`/contact/`) includes server-side sanitization, CSRF nonce protection, an invisible honeypot (`blc_hp_check`), and non-spoofable parameterized recipient routing.
+
+### Testing Locally Without Sending External Mail
+- **Default Mock Mode**: When running on `localhost`, submissions safely mock email delivery by logging the full formatted message into [`wp-content/debug.log`](file://./wp-content/debug.log). No real church staff email addresses are contacted.
+- **Personal Test Inbox Override (`BLC_TEST_EMAIL`)**: If you want to test actual email delivery to your personal inbox:
+  1. Add `BLC_TEST_EMAIL=developer@example.com` to your `.env` or container environment.
+  2. All contact submissions will route directly to your personal email with `[DEV TEST - Intended for: <staff_email>]` prepended to the subject.
+
+### HTML Email Template & Bethlehem Star Branding
+- Rendered via modular PHP template at [`wp-content/themes/blcmesa-theme/templates/emails/contact-notification.php`](file://./wp-content/themes/blcmesa-theme/templates/emails/contact-notification.php).
+- Automatically embeds the Bethlehem Star logo as a self-contained base64 data URI so images display reliably in email clients without external image hosting.
+- Formatted with church gold and navy styling and a direct "Reply to Sender" button.
+
