@@ -165,25 +165,46 @@ function blcmesa_handle_contact_submission() {
 
     $sent = false;
     $log_notice = '';
-    $mock_email = null;
+
+    // Always prepare the structured mock payload for browser console.info inspection
+    $mock_email = array(
+        'to'          => "{$dest_title} <{$dest_email}>",
+        'from'        => "{$name} <{$email}>",
+        'phone'       => $phone ?: '(None)',
+        'subject'     => $mail_subject,
+        'message'     => $message,
+        'submittedAt' => $submitted_date,
+    );
 
     if ( ! empty( $test_override_email ) && is_email( $test_override_email ) ) {
         // Direct all outgoing test emails to the configured test mailbox
-        $mail_subject = "[DEV TEST - Intended for: {$dest_email}] " . $mail_subject;
-        $sent = wp_mail( $test_override_email, $mail_subject, $mail_body, $headers );
-        $log_notice = "Sent to test override mailbox: {$test_override_email}";
+        $test_subject = "[DEV TEST - Intended for: {$dest_email}] " . $mail_subject;
+        $mock_email['testOverride'] = $test_override_email;
+
+        // Catch any PHPMailer / wp_mail errors gracefully
+        $mail_error = '';
+        $mail_failed_handler = function( $wp_error ) use ( &$mail_error ) {
+            if ( is_wp_error( $wp_error ) ) {
+                $mail_error = $wp_error->get_error_message();
+            }
+        };
+        add_action( 'wp_mail_failed', $mail_failed_handler );
+
+        $sent = wp_mail( $test_override_email, $test_subject, $mail_body, $headers );
+        remove_action( 'wp_mail_failed', $mail_failed_handler );
+
+        if ( $sent ) {
+            $log_notice = "Sent to test override mailbox: {$test_override_email}";
+        } elseif ( $is_local_env ) {
+            // Local environment has no outbound mailer daemon configured
+            $sent = true;
+            $log_notice = 'Local Docker has no SMTP server configured. Form output logged to browser console.info instead.';
+            $mock_email['mailError'] = $mail_error ?: 'No local mail transport configured in Docker container';
+        }
     } elseif ( $is_local_env ) {
         // Local testing environment: mock email and provide payload for browser console.info
         $sent = true;
         $log_notice = 'Local Test Mode: Submission logged to browser console (no external email sent).';
-        $mock_email = array(
-            'to'          => "{$dest_title} <{$dest_email}>",
-            'from'        => "{$name} <{$email}>",
-            'phone'       => $phone ?: '(None)',
-            'subject'     => $mail_subject,
-            'message'     => $message,
-            'submittedAt' => $submitted_date,
-        );
     } else {
         // Production: send through standard WordPress mailer / SMTP
         $sent = wp_mail( $dest_email, $mail_subject, $mail_body, $headers );
@@ -209,7 +230,7 @@ function blcmesa_handle_contact_submission() {
     } else {
         $fail_msg = 'There was a temporary problem sending your message. Please call the church office at (480) 832-0462.';
         if ( $is_ajax ) {
-            wp_send_json_error( array( 'message' => $fail_msg ), 500 );
+            wp_send_json_error( array( 'message' => $fail_msg ) );
         } else {
             wp_die( esc_html( $fail_msg ) );
         }

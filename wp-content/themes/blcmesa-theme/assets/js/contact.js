@@ -139,12 +139,18 @@
 
               if (data.data?.mockEmail) {
                 console.group('%c📧 [BLC Dev Test] Mock Contact Form Submission', 'color: #D49B28; font-weight: bold; font-size: 13px;');
-                console.info('To:          ', data.data.mockEmail.to);
-                console.info('From:        ', data.data.mockEmail.from);
-                console.info('Phone:       ', data.data.mockEmail.phone);
-                console.info('Subject:     ', data.data.mockEmail.subject);
-                console.info('Submitted At:', data.data.mockEmail.submittedAt);
-                console.info('Message:     \n' + data.data.mockEmail.message);
+                console.info('To:           ', data.data.mockEmail.to);
+                console.info('From:         ', data.data.mockEmail.from);
+                console.info('Phone:        ', data.data.mockEmail.phone);
+                console.info('Subject:      ', data.data.mockEmail.subject);
+                console.info('Submitted At: ', data.data.mockEmail.submittedAt);
+                if (data.data.mockEmail.testOverride) {
+                  console.info('Test Mailbox: ', data.data.mockEmail.testOverride);
+                }
+                if (data.data.mockEmail.mailError) {
+                  console.warn('Note:         ', data.data.mockEmail.mailError);
+                }
+                console.info('Message:      \n' + data.data.mockEmail.message);
                 console.groupEnd();
               }
 
