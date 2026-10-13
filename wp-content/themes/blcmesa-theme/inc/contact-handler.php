@@ -14,6 +14,28 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * Optional SMTP Support for Local Development / Testing.
+ * If SMTP_USER and SMTP_PASS are set in .env, configure PHPMailer to send real mail.
+ */
+function blcmesa_configure_dev_smtp( $phpmailer ) {
+    $smtp_user = getenv( 'SMTP_USER' ) ?: ( defined( 'SMTP_USER' ) ? SMTP_USER : '' );
+    $smtp_pass = getenv( 'SMTP_PASS' ) ?: ( defined( 'SMTP_PASS' ) ? SMTP_PASS : '' );
+
+    if ( ! empty( $smtp_user ) && ! empty( $smtp_pass ) ) {
+        $phpmailer->isSMTP();
+        $phpmailer->Host       = getenv( 'SMTP_HOST' ) ?: 'smtp.gmail.com';
+        $phpmailer->SMTPAuth   = true;
+        $phpmailer->Port       = (int) ( getenv( 'SMTP_PORT' ) ?: 587 );
+        $phpmailer->SMTPSecure = getenv( 'SMTP_SECURE' ) ?: 'tls';
+        $phpmailer->Username   = $smtp_user;
+        $phpmailer->Password   = $smtp_pass;
+        $phpmailer->From       = $smtp_user;
+        $phpmailer->FromName   = 'BLC Website';
+    }
+}
+add_action( 'phpmailer_init', 'blcmesa_configure_dev_smtp' );
+
+/**
  * Returns the server-side whitelist mapping recipient keys to church mailboxes.
  * Real email addresses are defined strictly here and are NEVER exposed to client-side markup.
  *
