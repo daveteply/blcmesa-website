@@ -53,6 +53,16 @@ function blcmesa_theme_head_script() {
 add_action( 'wp_head', 'blcmesa_theme_head_script', 1 );
 
 /**
+ * Centralized URL Redirects Handler
+ */
+require_once get_template_directory() . '/inc/redirects.php';
+
+/**
+ * Contact Form Submission Handler
+ */
+require_once get_template_directory() . '/inc/contact-handler.php';
+
+/**
  * Enqueue scripts and styles.
  */
 function blcmesa_scripts() {
@@ -90,6 +100,28 @@ function blcmesa_scripts() {
         wp_get_theme()->get( 'Version' ),
         true
     );
+
+    // Enqueue contact form routing on contact page
+    if ( is_page( 'contact' ) ) {
+        wp_enqueue_script(
+            'blcmesa-contact',
+            get_template_directory_uri() . '/assets/js/contact.js',
+            array(),
+            wp_get_theme()->get( 'Version' ),
+            true
+        );
+
+        wp_localize_script(
+            'blcmesa-contact',
+            'blcContactData',
+            array(
+                'ajaxUrl'         => admin_url( 'admin-ajax.php' ),
+                'nonce'           => wp_create_nonce( 'blc_contact_nonce' ),
+                'isLocal'         => ( isset( $_SERVER['HTTP_HOST'] ) && ( str_contains( $_SERVER['HTTP_HOST'], 'localhost' ) || str_contains( $_SERVER['HTTP_HOST'], '127.0.0.1' ) ) ),
+                'validRecipients' => array_keys( blcmesa_get_contact_recipient_map() ),
+            )
+        );
+    }
 }
 add_action( 'wp_enqueue_scripts', 'blcmesa_scripts' );
 
@@ -115,9 +147,4 @@ function blcmesa_register_pattern_categories() {
     );
 }
 add_action( 'init', 'blcmesa_register_pattern_categories' );
-
-/**
- * Centralized URL Redirects Handler
- */
-require_once get_template_directory() . '/inc/redirects.php';
 

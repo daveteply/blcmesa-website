@@ -75,7 +75,7 @@
             <span><strong>Format:</strong> Zoom &amp; In-Person Options</span>
           </div>
           <div class="blc-ministry-action">
-            <a href="mailto:office@blcmesa.org" class="blc-btn-text"><svg class="blc-btn-icon-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>Contact Office for Study Link</a>
+            <a href="/contact/?to=office" class="blc-btn-text"><svg class="blc-btn-icon-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>Contact Office for Study Link</a>
           </div>
         </div>
       </article>
@@ -94,7 +94,7 @@
             <span><strong>Director:</strong> Bekka Weinberger</span>
           </div>
           <div class="blc-ministry-action">
-            <a href="mailto:office@blcmesa.org" class="blc-btn-text"><svg class="blc-btn-icon-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>Join the Music Team</a>
+            <a href="/contact/?to=music" class="blc-btn-text"><svg class="blc-btn-icon-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>Join the Music Team</a>
           </div>
         </div>
       </article>
@@ -151,7 +151,7 @@
             <span><strong>Focus:</strong> Middle School, High School &amp; Young Adults</span>
           </div>
           <div class="blc-ministry-action">
-            <a href="mailto:office@blcmesa.org" class="blc-btn-text"><svg class="blc-btn-icon-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>Connect with Youth Leaders</a>
+            <a href="/contact/?to=youth" class="blc-btn-text"><svg class="blc-btn-icon-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>Connect with Youth Leaders</a>
           </div>
         </div>
       </article>
@@ -225,7 +225,7 @@
             <span><strong>Nature:</strong> Confidential, one-to-one Christian care</span>
           </div>
           <div class="blc-ministry-action">
-            <a href="mailto:office@blcmesa.org" class="blc-btn-text"><svg class="blc-btn-icon-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>Request Stephen Ministry Care</a>
+            <a href="/contact/?to=care" class="blc-btn-text"><svg class="blc-btn-icon-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>Request Stephen Ministry Care</a>
           </div>
         </div>
       </article>
@@ -295,7 +295,7 @@
             <span><strong>Parish Nurse:</strong> Carol Savoie, R.N.</span>
           </div>
           <div class="blc-ministry-action">
-            <a href="mailto:office@blcmesa.org" class="blc-btn-text"><svg class="blc-btn-icon-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>Connect with Faith Community Nurse</a>
+            <a href="/contact/?to=nurse" class="blc-btn-text"><svg class="blc-btn-icon-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>Connect with Faith Community Nurse</a>
           </div>
         </div>
       </article>
@@ -352,7 +352,7 @@
             <span><strong>Partner:</strong> Lutheran Social Services of the SW</span>
           </div>
           <div class="blc-ministry-action">
-            <a href="mailto:office@blcmesa.org" class="blc-btn-text"><svg class="blc-btn-icon-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>Volunteer with I-HELP</a>
+            <a href="/contact/?to=outreach" class="blc-btn-text"><svg class="blc-btn-icon-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>Volunteer with I-HELP</a>
           </div>
         </div>
       </article>

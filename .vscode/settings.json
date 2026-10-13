@@ -2,6 +2,7 @@
   "cSpell.words": [
     "akismet",
     "alignfull",
+    "alignwide",
     "bcmath",
     "blcmesa",
     "bmewburn",
@@ -11,7 +12,10 @@
     "esbenp",
     "filesize",
     "intelephense",
+    "noahsark",
+    "nopriv",
     "PHPMYADMIN",
+    "unslash",
     "wpcli"
   ],
   "intelephense.stubs": [
