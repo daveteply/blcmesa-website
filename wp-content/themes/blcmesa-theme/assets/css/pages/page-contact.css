@@ -1,0 +1,260 @@
+/* -------------------------------------------------------------
+ * 20. Contact Page Styles
+ * ----------------------------------------------------------- */
+.blc-contact-grid {
+  gap: var(--wp--preset--spacing--40, 2rem) !important;
+  margin-top: 1.5rem;
+}
+
+.blc-contact-card-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--wp--preset--color--primary, #1B365D);
+  margin-bottom: 1.25rem !important;
+  border-bottom: 2px solid var(--blc-gold-primary);
+  padding-bottom: 0.5rem;
+}
+
+.blc-contact-info-card,
+.blc-contact-staff-card,
+.blc-contact-form-card {
+  margin-bottom: 1.5rem;
+}
+
+.blc-contact-detail-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  margin-bottom: 1.15rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.blc-contact-detail-row:last-child {
+  margin-bottom: 0;
+}
+
+.blc-contact-detail-icon {
+  flex-shrink: 0;
+  color: var(--blc-gold-primary);
+  margin-top: 0.2rem;
+}
+
+.blc-staff-directory-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.blc-staff-directory-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 0.9rem;
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 6px;
+  gap: 0.5rem;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.blc-staff-directory-item:hover {
+  border-color: var(--blc-gold-primary);
+  background: rgba(212, 155, 40, 0.05);
+}
+
+.blc-staff-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.blc-staff-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--wp--preset--color--primary, #1B365D);
+}
+
+.blc-staff-role {
+  font-size: 0.82rem;
+  color: #64748B;
+}
+
+.blc-staff-contact-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--blc-gold-primary);
+  background: transparent;
+  border: 1px solid var(--blc-gold-primary);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.blc-staff-contact-btn:hover {
+  background: var(--blc-gold-primary);
+  color: #FFFFFF;
+  box-shadow: 0 2px 8px var(--blc-gold-glow);
+}
+
+/* Contact Form */
+.blc-contact-form {
+  margin-top: 1.25rem;
+}
+
+.blc-form-field {
+  margin-bottom: 1.15rem;
+}
+
+.blc-form-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.blc-form-half {
+  flex: 1;
+}
+
+.blc-form-label {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: var(--wp--preset--color--primary, #1B365D);
+}
+
+.blc-required {
+  color: #DC2626;
+  font-weight: bold;
+}
+
+.blc-form-input,
+.blc-form-select,
+.blc-form-textarea {
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: inherit;
+  background-color: #FFFFFF;
+  border: 1px solid var(--wp--preset--color--warm-gray, #CBD5E1);
+  border-radius: 6px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+.blc-form-input:focus,
+.blc-form-select:focus,
+.blc-form-textarea:focus {
+  outline: none;
+  border-color: var(--blc-gold-primary);
+  box-shadow: 0 0 0 3px var(--blc-gold-glow);
+}
+
+.blc-form-privacy-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0.75rem 0.9rem;
+  background: rgba(212, 155, 40, 0.08);
+  border-left: 3px solid var(--blc-gold-primary);
+  border-radius: 4px;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: #475569;
+  margin-bottom: 1.25rem;
+}
+
+.blc-form-privacy-note svg {
+  flex-shrink: 0;
+  color: var(--blc-gold-primary);
+  margin-top: 0.1rem;
+}
+
+.blc-form-feedback {
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1.25rem;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.blc-feedback-success {
+  background: #ECFDF5;
+  border: 1px solid #10B981;
+  color: #065F46;
+}
+
+.blc-feedback-error {
+  background: #FEF2F2;
+  border: 1px solid #EF4444;
+  color: #991B1B;
+}
+
+.blc-form-submit-btn {
+  border: 0;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.blc-form-submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Dark Theme Overrides for Contact Page */
+html[data-theme="dark"] .blc-contact-card-title,
+html[data-theme="dark"] .blc-staff-name,
+html[data-theme="dark"] .blc-form-label {
+  color: #FAF8F5;
+}
+
+html[data-theme="dark"] .blc-staff-directory-item {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+html[data-theme="dark"] .blc-staff-directory-item:hover {
+  background: rgba(212, 155, 40, 0.12);
+  border-color: var(--blc-gold-primary);
+}
+
+html[data-theme="dark"] .blc-staff-role {
+  color: #94A3B8;
+}
+
+html[data-theme="dark"] .blc-form-input,
+html[data-theme="dark"] .blc-form-select,
+html[data-theme="dark"] .blc-form-textarea {
+  background-color: #0F1722;
+  border-color: rgba(255, 255, 255, 0.15);
+  color: #FAF8F5;
+}
+
+html[data-theme="dark"] .blc-form-privacy-note {
+  background: rgba(212, 155, 40, 0.15);
+  color: #CBD5E1;
+}
+
+@media (max-width: 768px) {
+  .blc-contact-grid {
+    flex-direction: column !important;
+  }
+  .blc-contact-info-col,
+  .blc-contact-form-col {
+    flex-basis: 100% !important;
+    width: 100% !important;
+  }
+  .blc-form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+}
