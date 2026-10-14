@@ -24,6 +24,10 @@ function blcmesa_get_redirect_map()
         // Legacy Sermon & Service URLs
         'lutheran-church-services-mesa' => '/sermons/',
 
+        // Legacy Giving URLs
+        'ways-to-give'                  => '/giving/',
+        'a-new-way-to-give'             => '/giving/',
+
         // Legacy News & Info URLs
         'prayers-we-use'                => '/prayers-we-use/',
         'faqs'                          => '/about/#faq',
