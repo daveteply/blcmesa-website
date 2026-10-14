@@ -1,0 +1,211 @@
+/* -------------------------------------------------------------
+ * 15. Theme Mode Support (Light / Dark / System)
+ * ----------------------------------------------------------- */
+html {
+  color-scheme: light;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* Gutenberg Core Color Presets Overrides */
+  --wp--preset--color--cream: #0C1017;
+  --wp--preset--color--warm-gray: rgba(255, 255, 255, 0.08);
+  --wp--preset--color--dark: #E2E8F0;
+  --wp--preset--color--navy-dark: #FAF8F5;
+  --wp--preset--color--primary: #E8B85A;
+  --wp--preset--color--muted: #94A3B8;
+
+  /* Theme-specific custom variables */
+  --blc-cream: #0C1017;
+}
+
+/* In dark mode, white background containers (cards, callouts) become dark slate */
+html[data-theme="dark"] .has-white-background-color {
+  background-color: #151E2B !important;
+}
+
+/* In dark mode, white text elements remain crisp bright white */
+html[data-theme="dark"] .has-white-color {
+  color: #FFFFFF !important;
+}
+
+/* Smooth background and text transition */
+body,
+.blc-card,
+.blc-card-cream,
+.blc-noahs-ark-feature,
+.blc-photo-placeholder-card,
+.blc-elca-callout {
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Dark mode body fallback */
+html[data-theme="dark"] body {
+  background-color: #0C1017;
+  color: #E2E8F0;
+}
+
+/* Dark mode cards */
+html[data-theme="dark"] .blc-card,
+html[data-theme="dark"] .blc-card-cream {
+  background-color: #151E2B !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+}
+
+html[data-theme="dark"] .blc-card-title {
+  color: #FAF8F5 !important;
+}
+
+html[data-theme="dark"] .blc-card-text {
+  color: #94A3B8 !important;
+}
+
+html[data-theme="dark"] .blc-card-text strong {
+  color: #FAF8F5 !important;
+}
+
+/* Dark mode values list */
+html[data-theme="dark"] .blc-values-list li {
+  color: #CBD5E1 !important;
+}
+
+html[data-theme="dark"] .blc-values-list strong {
+  color: #FAF8F5 !important;
+}
+
+/* Dark mode ELCA callout */
+html[data-theme="dark"] .blc-elca-callout {
+  background-color: #151E2B !important;
+  border-color: rgba(212, 155, 40, 0.3) !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
+}
+
+html[data-theme="dark"] .blc-elca-title {
+  color: #FAF8F5;
+}
+
+html[data-theme="dark"] .blc-elca-desc {
+  color: #94A3B8;
+}
+
+/* Dark mode Noah's Ark feature */
+html[data-theme="dark"] .blc-noahs-ark-feature {
+  background-color: #151E2B !important;
+  border-color: rgba(212, 155, 40, 0.25) !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
+}
+
+html[data-theme="dark"] .blc-noahs-ark-title {
+  color: #FAF8F5;
+}
+
+html[data-theme="dark"] .blc-noahs-ark-desc {
+  color: #94A3B8;
+}
+
+/* Dark mode Life at Bethlehem community cards */
+html[data-theme="dark"] .blc-photo-placeholder-card {
+  background: #151E2B;
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+html[data-theme="dark"] .blc-photo-placeholder-title {
+  color: #FAF8F5;
+}
+
+html[data-theme="dark"] .blc-photo-placeholder-text {
+  color: #94A3B8;
+}
+
+html[data-theme="dark"] .blc-photo-placeholder-img-wrap {
+  background: #0E141E;
+}
+
+/* Dark mode headings in general content */
+html[data-theme="dark"] main h1,
+html[data-theme="dark"] main h2,
+html[data-theme="dark"] main h3 {
+  color: #FAF8F5;
+}
+
+/* Dark mode links inside content */
+html[data-theme="dark"] main a:not(.wp-element-button):not(.blc-header-brand) {
+  color: var(--blc-gold-hover);
+}
+
+/* -------------------------------------------------------------
+ * 16. Theme Mode Toggle Button
+ * ----------------------------------------------------------- */
+.blc-theme-toggle-wrap {
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+}
+
+.blc-theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(212, 155, 40, 0.35);
+  border-radius: 50%;
+  color: #F5E6D3;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.blc-theme-toggle:hover,
+.blc-theme-toggle:focus-visible {
+  background: rgba(212, 155, 40, 0.2);
+  border-color: var(--blc-gold-hover);
+  color: #FFFFFF;
+  box-shadow: 0 0 12px rgba(212, 155, 40, 0.4);
+  transform: translateY(-1px);
+}
+
+.blc-theme-toggle:active {
+  transform: translateY(0);
+}
+
+.blc-theme-icon {
+  width: 17px;
+  height: 17px;
+  stroke: currentColor;
+  stroke-width: 2;
+  transition: transform 0.25s ease;
+}
+
+.blc-theme-toggle:hover .blc-theme-icon {
+  transform: rotate(15deg) scale(1.08);
+}
+
+@media (min-width: 782px) and (max-width: 1024px) {
+  .blc-sticky-header .wp-block-navigation .wp-block-navigation-item__link {
+    padding: 0.45rem 0.55rem !important;
+    font-size: 0.8rem !important;
+  }
+}
+
+@media (max-width: 781px) {
+  .blc-theme-toggle-wrap {
+    margin: 0;
+  }
+
+  .blc-theme-toggle {
+    width: 34px;
+    height: 34px;
+  }
+
+  .blc-theme-icon {
+    width: 16px;
+    height: 16px;
+  }
+}
