@@ -16,6 +16,8 @@ echo ""
 bash "${SCRIPT_DIR}/create-prayers-page.sh"
 echo ""
 bash "${SCRIPT_DIR}/create-contact-page.sh"
+echo ""
+bash "${SCRIPT_DIR}/create-giving-page.sh"
 
 echo ""
 echo "=========================================================="
