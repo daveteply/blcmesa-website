@@ -21,10 +21,16 @@ fi
 
 echo "Restoring database from: ${RESTORE_FILE}..."
 
-if [[ "${RESTORE_FILE}" == *.gz ]]; then
-  gunzip -c "${RESTORE_FILE}" | docker compose run --rm -T wpcli wp db import -
+if [ -f /var/www/html/wp-load.php ] && command -v wp >/dev/null 2>&1; then
+  WP_IMPORT="wp --path=/var/www/html db import -"
 else
-  docker compose run --rm -T wpcli wp db import - < "${RESTORE_FILE}"
+  WP_IMPORT="docker compose run --rm -T wpcli wp db import -"
+fi
+
+if [[ "${RESTORE_FILE}" == *.gz ]]; then
+  gunzip -c "${RESTORE_FILE}" | ${WP_IMPORT}
+else
+  ${WP_IMPORT} < "${RESTORE_FILE}"
 fi
 
 echo "✅ Database restore completed successfully!"

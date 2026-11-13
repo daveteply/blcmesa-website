@@ -27,23 +27,30 @@ echo "=========================================================="
 echo " Starting / Verifying BLC Mesa WordPress Dev Platform"
 echo "=========================================================="
 
-# Ensure docker compose is running
-docker compose up -d
+# Detect whether running inside the Dev Container (/var/www/html mounted) or on the host
+if [ -f /var/www/html/wp-load.php ] && command -v wp >/dev/null 2>&1; then
+  WP_CLI="wp --path=/var/www/html"
+  echo "Detected Dev Container environment (using local WP-CLI)..."
+else
+  WP_CLI="docker compose run --rm wpcli wp"
+  # Ensure docker compose is running
+  docker compose up -d
 
-echo "Waiting for MariaDB database to be healthy..."
-until docker compose ps db | grep -q "(healthy)"; do
-  sleep 2
-done
-echo "MariaDB is ready and healthy."
+  echo "Waiting for MariaDB database to be healthy..."
+  until docker compose ps db | grep -q "(healthy)"; do
+    sleep 2
+  done
+  echo "MariaDB is ready and healthy."
+fi
 
 # Wait for WordPress core files to be installed in container
 echo "Checking WordPress installation..."
 MAX_TRIES=30
 COUNT=0
-until docker compose run --rm wpcli wp core is-installed 2>/dev/null || [ $COUNT -ge $MAX_TRIES ]; do
+until ${WP_CLI} core is-installed 2>/dev/null || [ $COUNT -ge $MAX_TRIES ]; do
   if [ $COUNT -eq 0 ]; then
     echo "WordPress is not yet installed. Initializing automated installation..."
-    docker compose run --rm wpcli wp core install \
+    ${WP_CLI} core install \
       --url="${WP_SITE_URL}" \
       --title="${WP_SITE_TITLE}" \
       --admin_user="${WP_ADMIN_USER}" \
@@ -58,13 +65,13 @@ done
 
 # Configure WordPress options
 echo "Configuring site options..."
-docker compose run --rm wpcli wp option update timezone_string "${WP_TIMEZONE}" || true
-docker compose run --rm wpcli wp option update blogdescription "A home to share God's love and grace in Mesa, Arizona" || true
-docker compose run --rm wpcli wp rewrite structure '/%postname%/' || true
+${WP_CLI} option update timezone_string "${WP_TIMEZONE}" || true
+${WP_CLI} option update blogdescription "A home to share God's love and grace in Mesa, Arizona" || true
+${WP_CLI} rewrite structure '/%postname%/' || true
 
 # Activate custom Gutenberg Block Theme
 echo "Activating theme: ${WP_ACTIVE_THEME}..."
-docker compose run --rm wpcli wp theme activate "${WP_ACTIVE_THEME}" || true
+${WP_CLI} theme activate "${WP_ACTIVE_THEME}" || true
 
 echo ""
 echo "=========================================================="

@@ -16,6 +16,10 @@ TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
 BACKUP_FILE="${BACKUP_DIR}/blcmesa_db_${TIMESTAMP}.sql.gz"
 
 echo "Creating database backup from MariaDB container..."
-docker compose run --rm wpcli wp db export - | gzip > "${BACKUP_FILE}"
+if [ -f /var/www/html/wp-load.php ] && command -v wp >/dev/null 2>&1; then
+  wp --path=/var/www/html db export - | gzip > "${BACKUP_FILE}"
+else
+  docker compose run --rm wpcli wp db export - | gzip > "${BACKUP_FILE}"
+fi
 
 echo "✅ Backup successfully saved to: ${BACKUP_FILE}"

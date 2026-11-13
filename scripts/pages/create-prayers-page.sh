@@ -7,8 +7,12 @@ cd "${PROJECT_ROOT}"
 
 CONTENT_FILE="${PROJECT_ROOT}/wp-content/themes/blcmesa-theme/patterns/prayers-content.html"
 
-# In this repo, WordPress runtime and WP-CLI run via the containerized wpcli service
-WP_CLI="docker compose run --rm -T wpcli wp"
+# Automatically use local WP-CLI inside Dev Container or docker compose on host
+if [ -f /var/www/html/wp-load.php ] && command -v wp >/dev/null 2>&1; then
+  WP_CLI="wp --path=/var/www/html"
+else
+  WP_CLI="docker compose run --rm -T wpcli wp"
+fi
 
 echo "=========================================================="
 echo " Publishing 'Prayers We Use' Page to WordPress (/prayers-we-use/)"
