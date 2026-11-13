@@ -17,7 +17,11 @@ PACKAGE_FILE="${BACKUP_DIR}/blcmesa_migration_package_${TIMESTAMP}.zip"
 mkdir -p "${TEMP_EXPORT_DIR}" "${BACKUP_DIR}"
 
 echo "1. Exporting current database..."
-docker compose run --rm -T wpcli wp db export "${TEMP_EXPORT_DIR}/database.sql"
+if [ -f /var/www/html/wp-load.php ] && command -v wp >/dev/null 2>&1; then
+  wp --path=/var/www/html db export "${TEMP_EXPORT_DIR}/database.sql"
+else
+  docker compose run --rm -T wpcli wp db export "${TEMP_EXPORT_DIR}/database.sql"
+fi
 
 echo "2. Copying themes and plugins..."
 mkdir -p "${TEMP_EXPORT_DIR}/wp-content"

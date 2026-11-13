@@ -28,8 +28,8 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Set working directory and adjust ownership for vscode user
+# Set working directory, add vscode user to www-data group, and adjust ownership
 WORKDIR /workspace
-RUN chown -R vscode:vscode /workspace
+RUN usermod -aG www-data vscode && chown -R vscode:vscode /workspace
 
 USER vscode

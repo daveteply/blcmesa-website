@@ -130,21 +130,23 @@ python3 scripts/sync-media.py --verify-remote
 
 ## 🛠️ Handy WP-CLI Commands
 
-You can run WP-CLI commands either inside the Dev Container terminal or from the host using Docker Compose:
+Inside the **VS Code Dev Container terminal**, [`wp-cli.yml`](file://./wp-cli.yml) is pre-configured so you can run `wp` commands directly from `/workspace`:
 
 ```bash
 # Check WordPress status
-docker compose run --rm wpcli wp core is-installed
+wp core is-installed
 
 # List active themes
-docker compose run --rm wpcli wp theme list
+wp theme list
 
 # List active plugins
-docker compose run --rm wpcli wp plugin list
+wp plugin list
 
 # Search and replace URLs (useful when migrating to live domain)
-docker compose run --rm wpcli wp search-replace "http://localhost:8080" "https://blcmesa.org" --all-tables
+wp search-replace "http://localhost:8080" "https://blcmesa.org" --all-tables
 ```
+
+*(If running from your external WSL terminal outside the Dev Container, prefix with `docker compose run --rm wpcli`, e.g., `docker compose run --rm wpcli wp theme list`.)*
 
 ---
 
