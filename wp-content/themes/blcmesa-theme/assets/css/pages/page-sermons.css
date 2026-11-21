@@ -129,11 +129,14 @@
   margin: 0 0 1rem 0;
 }
 
-.blc-worship-card-footer {
+.blc-worship-card-footer,
+.blc-worship-card p.blc-worship-card-footer {
   border-top: 1px solid #EDF2F7;
   padding-top: 0.75rem;
   font-size: 0.85rem;
   color: #64748B;
+  flex: 0 0 auto;
+  margin: 0;
 }
 
 .blc-worship-card-footer strong {
@@ -441,7 +444,8 @@ html[data-theme="dark"] .blc-worship-card p {
   color: #CBD5E1;
 }
 
-html[data-theme="dark"] .blc-worship-card-footer {
+html[data-theme="dark"] .blc-worship-card-footer,
+html[data-theme="dark"] .blc-worship-card p.blc-worship-card-footer {
   border-top-color: rgba(255, 255, 255, 0.08);
   color: #94A3B8;
 }

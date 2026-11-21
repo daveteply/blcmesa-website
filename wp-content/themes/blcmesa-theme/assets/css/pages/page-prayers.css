@@ -40,7 +40,7 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--blc-gold-primary);
-  margin-bottom: 0.35rem;
+  margin: 0 0 0.35rem 0;
 }
 
 .blc-prayer-title {
