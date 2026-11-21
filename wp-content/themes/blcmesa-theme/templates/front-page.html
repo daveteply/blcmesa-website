@@ -1,377 +1,397 @@
-<!-- HERO BANNER SECTION (Crosses, Bethlehem Star, Title, Script Accent & Dual CTAs) -->
 <!-- wp:group {"align":"full","className":"blc-hero-section","backgroundColor":"obsidian","textColor":"white","layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull blc-hero-section has-white-color has-obsidian-background-color has-text-color has-background">
-
-  <!-- TOP: BETHLEHEM STAR LOGO & CHURCH TITLE -->
-  <div class="blc-hero-brand">
-    <img class="blc-hero-star" src="/wp-content/themes/blcmesa-theme/assets/images/bethlehem-star.webp" alt="Bethlehem Star" width="60" height="60" fetchpriority="high" />
-    <div class="blc-hero-brand-text">
-      <span class="blc-hero-brand-title">BETHLEHEM</span>
-      <span class="blc-hero-brand-subtitle">LUTHERAN CHURCH</span>
-    </div>
+<!-- wp:html -->
+<div class="blc-hero-brand">
+  <img class="blc-hero-star" src="/wp-content/themes/blcmesa-theme/assets/images/bethlehem-star.webp" alt="Bethlehem Star" width="60" height="60" fetchpriority="high" />
+  <div class="blc-hero-brand-text">
+    <span class="blc-hero-brand-title">BETHLEHEM</span>
+    <span class="blc-hero-brand-subtitle">LUTHERAN CHURCH</span>
   </div>
+</div>
+<!-- /wp:html -->
 
-  <!-- MIDDLE: SILHOUETTE CROSSES SPACING -->
-  <div class="blc-hero-spacer"></div>
+<!-- wp:html -->
+<div class="blc-hero-spacer"></div>
+<!-- /wp:html -->
 
-  <!-- BOTTOM: HEADLINE, SCRIPT ACCENT & CALL TO ACTION BUTTONS -->
-  <div class="blc-hero-content">
-    <h1 class="wp-block-heading blc-hero-title">A Home to Share God's Love and Grace</h1>
-    
-    <p class="blc-script-accent blc-hero-script">All Are Welcome</p>
+<!-- wp:group {"className":"blc-hero-content","layout":{"type":"default"}} -->
+<div class="wp-block-group blc-hero-content">
+<!-- wp:heading {"level":1,"className":"blc-hero-title"} -->
+<h1 class="wp-block-heading blc-hero-title">A Home to Share God's Love and Grace</h1>
+<!-- /wp:heading -->
 
-    <!-- wp:buttons {"className":"blc-hero-buttons","layout":{"type":"flex","justifyContent":"center","flexWrap":"wrap"}} -->
-    <div class="wp-block-buttons blc-hero-buttons">
-      <!-- wp:button {"className":"blc-btn-gold"} -->
-      <div class="wp-block-button blc-btn-gold"><a class="wp-block-button__link wp-element-button" href="#worship">Plan Your Visit</a></div>
-      <!-- /wp:button -->
+<!-- wp:paragraph {"className":"blc-script-accent blc-hero-script"} -->
+<p class="blc-script-accent blc-hero-script">All Are Welcome</p>
+<!-- /wp:paragraph -->
 
-      <!-- wp:button {"className":"blc-btn-outline"} -->
-      <div class="wp-block-button blc-btn-outline"><a class="wp-block-button__link wp-element-button" href="/sermons/">Watch Sermons</a></div>
-      <!-- /wp:button -->
-    </div>
-    <!-- /wp:buttons -->
-  </div>
+<!-- wp:buttons {"className":"blc-hero-buttons","layout":{"type":"flex","justifyContent":"center","flexWrap":"wrap"}} -->
+<div class="wp-block-buttons blc-hero-buttons">
+<!-- wp:button {"className":"blc-btn-gold"} -->
+<div class="wp-block-button blc-btn-gold"><a class="wp-block-button__link wp-element-button" href="#worship">Plan Your Visit</a></div>
+<!-- /wp:button -->
 
+<!-- wp:button {"className":"blc-btn-outline"} -->
+<div class="wp-block-button blc-btn-outline"><a class="wp-block-button__link wp-element-button" href="/sermons/">Watch Sermons</a></div>
+<!-- /wp:button -->
+</div>
+<!-- /wp:buttons -->
+</div>
+<!-- /wp:group -->
 </div>
 <!-- /wp:group -->
 
-<!-- STICKY NAVIGATION (Below hero on homepage) -->
 <!-- wp:template-part {"slug":"header","tagName":"header"} /-->
 
+<!-- wp:group {"tagName":"main","layout":{"type":"default"}} -->
 <main class="wp-block-group">
+<!-- wp:group {"align":"wide","className":"blc-quick-info","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignwide blc-quick-info" id="worship">
+<!-- wp:columns -->
+<div class="wp-block-columns">
+<!-- wp:column {"className":"blc-card","backgroundColor":"white"} -->
+<div class="wp-block-column blc-card has-white-background-color has-background">
+<!-- wp:paragraph {"className":"blc-card-icon"} -->
+<p class="blc-card-icon">🕘</p>
+<!-- /wp:paragraph -->
 
-  <!-- QUICK INFO STRIP -->
-  <!-- wp:group {"align":"wide","className":"blc-quick-info","layout":{"type":"constrained"}} -->
-  <div id="worship" class="wp-block-group alignwide blc-quick-info">
-    <!-- wp:columns -->
-    <div class="wp-block-columns">
-      
-      <!-- CARD 1: SUNDAY WORSHIP -->
-      <!-- wp:column {"className":"blc-card","backgroundColor":"white"} -->
-      <div class="wp-block-column blc-card has-white-background-color has-background">
-        <!-- wp:paragraph {"className":"blc-card-icon"} -->
-        <p class="blc-card-icon">&#x1F558;</p>
-        <!-- /wp:paragraph -->
-        <!-- wp:heading {"level":3,"className":"blc-card-title","textColor":"navy-dark"} -->
-        <h3 class="wp-block-heading blc-card-title has-navy-dark-color has-text-color">Sunday Worship</h3>
-        <!-- /wp:heading -->
-        <!-- wp:paragraph {"className":"blc-card-text","textColor":"muted"} -->
-        <p class="blc-card-text has-muted-color has-text-color"><strong>9:00 AM Every Sunday</strong><br>In-person in the Sanctuary &amp; live-streamed online. Stay after for warm coffee and friendly conversation.</p>
-        <!-- /wp:paragraph -->
-        <!-- PENDING REVIEW WITH PASTOR BRIAN: Confirm if Saturday 6:00 PM Online worship service should be added here -->
-      </div>
-      <!-- /wp:column -->
+<!-- wp:heading {"level":3,"className":"blc-card-title","textColor":"navy-dark"} -->
+<h3 class="wp-block-heading blc-card-title has-navy-dark-color has-text-color">Sunday Worship</h3>
+<!-- /wp:heading -->
 
-      <!-- CARD 2: LOCATION & PARKING -->
-      <!-- wp:column {"className":"blc-card","backgroundColor":"white"} -->
-      <div class="wp-block-column blc-card has-white-background-color has-background">
-        <!-- wp:paragraph {"className":"blc-card-icon"} -->
-        <p class="blc-card-icon">&#x1F4CD;</p>
-        <!-- /wp:paragraph -->
-        <!-- wp:heading {"level":3,"className":"blc-card-title","textColor":"navy-dark"} -->
-        <h3 class="wp-block-heading blc-card-title has-navy-dark-color has-text-color">Location &amp; Parking</h3>
-        <!-- /wp:heading -->
-        <!-- wp:paragraph {"className":"blc-card-text","textColor":"muted"} -->
-        <p class="blc-card-text has-muted-color has-text-color"><strong>2745 N. 32nd St., Mesa, AZ</strong><br>North of McDowell Rd. Ample parking and an accessible campus for all.</p>
-        <!-- /wp:paragraph -->
-      </div>
-      <!-- /wp:column -->
+<!-- wp:paragraph {"className":"blc-card-text","textColor":"muted"} -->
+<p class="blc-card-text has-muted-color has-text-color"><strong>9:00 AM Every Sunday</strong><br>In-person in the Sanctuary &amp; live-streamed online. Stay after for warm coffee and friendly conversation.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:column -->
 
-      <!-- CARD 3: WHAT TO EXPECT -->
-      <!-- wp:column {"className":"blc-card","backgroundColor":"white"} -->
-      <div class="wp-block-column blc-card has-white-background-color has-background">
-        <!-- wp:paragraph {"className":"blc-card-icon"} -->
-        <p class="blc-card-icon">&#x2728;</p>
-        <!-- /wp:paragraph -->
-        <!-- wp:heading {"level":3,"className":"blc-card-title","textColor":"navy-dark"} -->
-        <h3 class="wp-block-heading blc-card-title has-navy-dark-color has-text-color">What to Expect</h3>
-        <!-- /wp:heading -->
-        <!-- wp:paragraph {"className":"blc-card-text","textColor":"muted"} -->
-        <p class="blc-card-text has-muted-color has-text-color"><strong>Come As You Are</strong><br>Casual dress, open communion for all baptized believers, and children always welcome.</p>
-        <!-- /wp:paragraph -->
-      </div>
-      <!-- /wp:column -->
+<!-- wp:column {"className":"blc-card","backgroundColor":"white"} -->
+<div class="wp-block-column blc-card has-white-background-color has-background">
+<!-- wp:paragraph {"className":"blc-card-icon"} -->
+<p class="blc-card-icon">📍</p>
+<!-- /wp:paragraph -->
 
-    </div>
-    <!-- /wp:columns -->
+<!-- wp:heading {"level":3,"className":"blc-card-title","textColor":"navy-dark"} -->
+<h3 class="wp-block-heading blc-card-title has-navy-dark-color has-text-color">Location &amp; Parking</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"className":"blc-card-text","textColor":"muted"} -->
+<p class="blc-card-text has-muted-color has-text-color"><strong>2745 N. 32nd St., Mesa, AZ</strong><br>North of McDowell Rd. Ample parking and an accessible campus for all.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:column -->
+
+<!-- wp:column {"className":"blc-card","backgroundColor":"white"} -->
+<div class="wp-block-column blc-card has-white-background-color has-background">
+<!-- wp:paragraph {"className":"blc-card-icon"} -->
+<p class="blc-card-icon">✨</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"className":"blc-card-title","textColor":"navy-dark"} -->
+<h3 class="wp-block-heading blc-card-title has-navy-dark-color has-text-color">What to Expect</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"className":"blc-card-text","textColor":"muted"} -->
+<p class="blc-card-text has-muted-color has-text-color"><strong>Come As You Are</strong><br>Casual dress, open communion for all baptized believers, and children always welcome.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:column -->
+</div>
+<!-- /wp:columns -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"align":"wide","className":"blc-elca-callout","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignwide blc-elca-callout">
+<!-- wp:html -->
+<div class="blc-elca-callout-inner">
+  <div class="blc-elca-logo-col">
+    <a href="https://www.elca.org/" target="_blank" rel="noopener noreferrer" class="blc-elca-logo-link" aria-label="Visit Evangelical Lutheran Church in America website (opens in new tab)">
+      <img src="/wp-content/themes/blcmesa-theme/assets/images/elca/ELCA_4c_globe.webp" alt="ELCA Brandmark" class="blc-elca-globe-img" width="120" height="118" loading="lazy" />
+    </a>
   </div>
-  <!-- /wp:group -->
-
-  <!-- ELCA AFFILIATION CALLOUT (Option A) -->
-  <!-- wp:group {"align":"wide","className":"blc-elca-callout","layout":{"type":"constrained"}} -->
-  <div class="wp-block-group alignwide blc-elca-callout">
-    <div class="blc-elca-callout-inner">
-      <div class="blc-elca-logo-col">
-        <a href="https://www.elca.org/" target="_blank" rel="noopener noreferrer" class="blc-elca-logo-link" aria-label="Visit Evangelical Lutheran Church in America website (opens in new tab)">
-          <img src="/wp-content/themes/blcmesa-theme/assets/images/elca/ELCA_4c_globe.webp" alt="ELCA Brandmark" class="blc-elca-globe-img" width="120" height="118" loading="lazy" />
-        </a>
-      </div>
-      <div class="blc-elca-text-col">
-        <p class="blc-section-eyebrow has-accent-color has-text-color">Affiliation &amp; Community</p>
-        <h2 class="wp-block-heading blc-elca-title">Proud Member of the Evangelical Lutheran Church in America</h2>
-        <p class="blc-elca-desc">Bethlehem Lutheran Church is a warm, spirit-touched faith community where all ages grow in God’s love and grace, located in Mesa, Arizona. We embrace diversity, build strength through relationships of care &amp; concern, and walk together in faith.</p>
-        <p class="blc-elca-link-wrap">
-          <a href="https://www.elca.org/" target="_blank" rel="noopener noreferrer" class="blc-external-link">Learn More About the ELCA <span class="blc-external-icon" aria-hidden="true">&#x2197;</span></a>
-        </p>
-      </div>
-    </div>
+  <div class="blc-elca-text-col">
+    <p class="blc-section-eyebrow has-accent-color has-text-color">Affiliation &amp; Community</p>
+    <h2 class="wp-block-heading blc-elca-title">Proud Member of the Evangelical Lutheran Church in America</h2>
+    <p class="blc-elca-desc">Bethlehem Lutheran Church is a warm, spirit-touched faith community where all ages grow in God’s love and grace, located in Mesa, Arizona. We embrace diversity, build strength through relationships of care &amp; concern, and walk together in faith.</p>
+    <p class="blc-elca-link-wrap">
+      <a href="https://www.elca.org/" target="_blank" rel="noopener noreferrer" class="blc-external-link">Learn More About the ELCA <span class="blc-external-icon" aria-hidden="true">&#x2197;</span></a>
+    </p>
   </div>
-  <!-- /wp:group -->
+</div>
+<!-- /wp:html -->
+</div>
+<!-- /wp:group -->
 
-  <!-- WELCOME / ABOUT SECTION -->
-  <!-- wp:group {"align":"wide","layout":{"type":"constrained"}} -->
-  <div class="wp-block-group alignwide">
-    <!-- wp:columns {"verticalAlignment":"center"} -->
-    <div class="wp-block-columns are-vertically-aligned-center">
-      
-      <!-- LEFT COLUMN: WELCOME QUOTE -->
-      <!-- wp:column {"verticalAlignment":"center","width":"55%"} -->
-      <div class="wp-block-column is-vertically-aligned-center">
-        <!-- wp:paragraph {"className":"blc-section-eyebrow","textColor":"accent"} -->
-        <p class="blc-section-eyebrow has-accent-color has-text-color">Welcome to Bethlehem</p>
-        <!-- /wp:paragraph -->
-        
-        <!-- wp:heading {"level":2} -->
-        <h2 class="wp-block-heading">A community rooted in faith, open to questions, and active in love.</h2>
-        <!-- /wp:heading -->
-        
-        <!-- wp:paragraph {"textColor":"dark"} -->
-        <p class="has-dark-color has-text-color">At Bethlehem Lutheran Church, we believe church should be a sanctuary of genuine acceptance. Led by Pastor Brian Weinberger, our congregation gathers to celebrate the grace of Jesus Christ and to serve our neighbors in Mesa and across the Valley.</p>
-        <!-- /wp:paragraph -->
+<!-- wp:group {"align":"wide","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignwide">
+<!-- wp:columns {"verticalAlignment":"center"} -->
+<div class="wp-block-columns are-vertically-aligned-center">
+<!-- wp:column {"verticalAlignment":"center","width":"55%"} -->
+<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:55%">
+<!-- wp:paragraph {"className":"blc-section-eyebrow","textColor":"accent"} -->
+<p class="blc-section-eyebrow has-accent-color has-text-color">Welcome to Bethlehem</p>
+<!-- /wp:paragraph -->
 
-        <!-- wp:paragraph {"textColor":"muted"} -->
-        <p class="has-muted-color has-text-color">Whether you are searching for a church home, asking life's deeper questions, or seeking a loving preschool for your child, our doors and hearts are open to you.</p>
-        <!-- /wp:paragraph -->
+<!-- wp:heading -->
+<h2 class="wp-block-heading">A community rooted in faith, open to questions, and active in love.</h2>
+<!-- /wp:heading -->
 
-        <!-- wp:buttons -->
-        <div class="wp-block-buttons">
-          <!-- wp:button {"className":"blc-btn-gold"} -->
-          <div class="wp-block-button blc-btn-gold"><a class="wp-block-button__link wp-element-button" href="/about/">Learn More About Our Beliefs</a></div>
-          <!-- /wp:button -->
-        </div>
-        <!-- /wp:buttons -->
-      </div>
-      <!-- /wp:column -->
+<!-- wp:paragraph {"textColor":"dark"} -->
+<p class="has-dark-color has-text-color">At Bethlehem Lutheran Church, we believe church should be a sanctuary of genuine acceptance. Led by Pastor Brian Weinberger, our congregation gathers to celebrate the grace of Jesus Christ and to serve our neighbors in Mesa and across the Valley.</p>
+<!-- /wp:paragraph -->
 
-      <!-- RIGHT COLUMN: CORE VALUES BOX -->
-      <!-- wp:column {"verticalAlignment":"center","width":"45%","className":"blc-card blc-card-padded","backgroundColor":"white"} -->
-      <div class="wp-block-column is-vertically-aligned-center blc-card blc-card-padded has-white-background-color has-background">
-        <!-- wp:heading {"level":3,"className":"blc-card-title","textColor":"navy-dark"} -->
-        <h3 class="wp-block-heading blc-card-title has-navy-dark-color has-text-color">&#x271D;&#xFE0F; Core Values of Our Church</h3>
-        <!-- /wp:heading -->
+<!-- wp:paragraph {"textColor":"muted"} -->
+<p class="has-muted-color has-text-color">Whether you are searching for a church home, asking life's deeper questions, or seeking a loving preschool for your child, our doors and hearts are open to you.</p>
+<!-- /wp:paragraph -->
 
-        <!-- wp:list {"className":"blc-values-list"} -->
-        <ul class="wp-block-list blc-values-list">
-          <li><strong>Grace First:</strong> God's love is a gift, unconditional and freely given to all.</li>
-          <li><strong>All Means All:</strong> We welcome diversity of background, perspective, and identity.</li>
-          <li><strong>Hands-On Service:</strong> Putting faith into action through our Community Garden and food ministry.</li>
-          <li><strong>Lifelong Growth:</strong> Nurturing faith from Noah's Ark preschool through senior adult studies.</li>
-        </ul>
-        <!-- /wp:list -->
-      </div>
-      <!-- /wp:column -->
+<!-- wp:buttons -->
+<div class="wp-block-buttons">
+<!-- wp:button {"className":"blc-btn-gold"} -->
+<div class="wp-block-button blc-btn-gold"><a class="wp-block-button__link wp-element-button" href="/about/">Learn More About Our Beliefs</a></div>
+<!-- /wp:button -->
+</div>
+<!-- /wp:buttons -->
+</div>
+<!-- /wp:column -->
 
+<!-- wp:column {"verticalAlignment":"center","width":"45%","className":"blc-card blc-card-padded","backgroundColor":"white"} -->
+<div class="wp-block-column is-vertically-aligned-center blc-card blc-card-padded has-white-background-color has-background" style="flex-basis:45%">
+<!-- wp:heading {"level":3,"className":"blc-card-title","textColor":"navy-dark"} -->
+<h3 class="wp-block-heading blc-card-title has-navy-dark-color has-text-color">✝️ Core Values of Our Church</h3>
+<!-- /wp:heading -->
+
+<!-- wp:list {"className":"blc-values-list"} -->
+<ul class="wp-block-list blc-values-list"><!-- wp:list-item -->
+<li><strong>Grace First:</strong> God's love is a gift, unconditional and freely given to all.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>All Means All:</strong> We welcome diversity of background, perspective, and identity.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>Hands-On Service:</strong> Putting faith into action through our Community Garden and food ministry.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>Lifelong Growth:</strong> Nurturing faith from Noah's Ark preschool through senior adult studies.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+</div>
+<!-- /wp:column -->
+</div>
+<!-- /wp:columns -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"align":"wide","className":"blc-community-photos-section","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignwide blc-community-photos-section">
+<!-- wp:group {"className":"blc-section-header-center","layout":{"type":"default"}} -->
+<div class="wp-block-group blc-section-header-center">
+<!-- wp:paragraph {"className":"blc-section-eyebrow","textColor":"accent"} -->
+<p class="blc-section-eyebrow has-accent-color has-text-color">Life at Bethlehem</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Growing in Grace, Serving in Love</h2>
+<!-- /wp:heading -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:html -->
+<div class="blc-community-photo-grid">
+  <div class="blc-photo-placeholder-card">
+    <div class="blc-photo-placeholder-img-wrap">
+      <img src="/wp-content/uploads/2023/08/BTS_English_WorshipGraphics_Blessings_1024x768.jpg" alt="Worship and Prayer at Bethlehem" class="blc-community-card-img" width="1024" height="768" loading="lazy" />
     </div>
-    <!-- /wp:columns -->
-  </div>
-  <!-- /wp:group -->
-
-  <!-- LIFE AT BETHLEHEM - COMMUNITY PHOTOS PLACEHOLDER -->
-  <!-- wp:group {"align":"wide","className":"blc-community-photos-section","layout":{"type":"constrained"}} -->
-  <div class="wp-block-group alignwide blc-community-photos-section">
-    <div class="blc-section-header-center">
-      <p class="blc-section-eyebrow has-accent-color has-text-color">Life at Bethlehem</p>
-      <h2 class="wp-block-heading">Growing in Grace, Serving in Love</h2>
-    </div>
-    
-    <div class="blc-community-photo-grid">
-      <!-- PHOTO SLOT 1: WORSHIP & PRAISE -->
-      <div class="blc-photo-placeholder-card">
-        <div class="blc-photo-placeholder-img-wrap">
-          <img src="/wp-content/uploads/2023/08/BTS_English_WorshipGraphics_Blessings_1024x768.jpg" alt="Worship and Prayer at Bethlehem" class="blc-community-card-img" width="1024" height="768" loading="lazy" />
-        </div>
-        <div class="blc-photo-placeholder-body">
-          <h3 class="blc-photo-placeholder-title">Joyful Worship</h3>
-          <p class="blc-photo-placeholder-text">Gathering together each Sunday to praise God, share open communion, and find spiritual renewal.</p>
-        </div>
-      </div>
-
-      <!-- PHOTO SLOT 2: FELLOWSHIP & COFFEE -->
-      <div class="blc-photo-placeholder-card">
-        <div class="blc-photo-placeholder-img-wrap">
-          <img src="/wp-content/uploads/2024/01/coffee-header-2.jpg" alt="Sunday Fellowship Hour" class="blc-community-card-img" width="1296" height="728" loading="lazy" />
-        </div>
-        <div class="blc-photo-placeholder-body">
-          <h3 class="blc-photo-placeholder-title">Warm Fellowship</h3>
-          <p class="blc-photo-placeholder-text">Connecting over fresh coffee and treats after worship. A welcoming place where everyone belongs.</p>
-        </div>
-      </div>
-
-      <!-- PHOTO SLOT 3: HARVEST OF HOPE GARDEN -->
-      <div class="blc-photo-placeholder-card">
-        <div class="blc-photo-placeholder-img-wrap">
-          <img src="/wp-content/uploads/2017/11/p-programs-garden.jpg" alt="Harvest of Hope Community Garden" class="blc-community-card-img" width="960" height="450" loading="lazy" />
-        </div>
-        <div class="blc-photo-placeholder-body">
-          <h3 class="blc-photo-placeholder-title">Community Garden</h3>
-          <p class="blc-photo-placeholder-text">Growing fresh organic vegetables for local food banks and neighbors in need right on our campus.</p>
-        </div>
-      </div>
+    <div class="blc-photo-placeholder-body">
+      <h3 class="blc-photo-placeholder-title">Joyful Worship</h3>
+      <p class="blc-photo-placeholder-text">Gathering together each Sunday to praise God, share open communion, and find spiritual renewal.</p>
     </div>
   </div>
-  <!-- /wp:group -->
-
-  <!-- NOAH'S ARK PRESCHOOL FEATURE BANNER (Option A) -->
-  <!-- wp:group {"align":"wide","className":"blc-noahs-ark-feature","backgroundColor":"white","layout":{"type":"constrained"}} -->
-  <div class="wp-block-group alignwide blc-noahs-ark-feature has-white-background-color has-background">
-    <div class="blc-noahs-ark-grid">
-      <div class="blc-noahs-ark-image-col">
-        <img src="/wp-content/uploads/2017/10/bk-noahs-ark-kiddos.jpg" alt="Children learning and growing at Noah's Ark Preschool" class="blc-noahs-ark-img" width="1200" height="559" loading="lazy" />
-      </div>
-      <div class="blc-noahs-ark-text-col">
-        <p class="blc-section-eyebrow has-accent-color has-text-color">A Ministry of Bethlehem Lutheran Church</p>
-        <h2 class="wp-block-heading blc-noahs-ark-title">Noah's Ark Preschool &amp; Kindergarten</h2>
-        <p class="blc-noahs-ark-desc">A friendly, loving environment where children learn, explore, and grow in faith. Providing high-quality, certified early education and kindergarten to Mesa families for decades with compassionate, dedicated teachers.</p>
-        <!-- wp:buttons -->
-        <div class="wp-block-buttons">
-          <!-- wp:button {"className":"blc-btn-gold"} -->
-          <div class="wp-block-button blc-btn-gold">
-            <a class="wp-block-button__link wp-element-button" href="https://noahsarkblc.org/" target="_blank" rel="noopener noreferrer">Visit Preschool Website <span class="blc-external-icon" aria-hidden="true">&#x2197;</span></a>
-          </div>
-          <!-- /wp:button -->
-        </div>
-        <!-- /wp:buttons -->
-      </div>
+  <div class="blc-photo-placeholder-card">
+    <div class="blc-photo-placeholder-img-wrap">
+      <img src="/wp-content/uploads/2024/01/coffee-header-2.jpg" alt="Sunday Fellowship Hour" class="blc-community-card-img" width="1296" height="728" loading="lazy" />
+    </div>
+    <div class="blc-photo-placeholder-body">
+      <h3 class="blc-photo-placeholder-title">Warm Fellowship</h3>
+      <p class="blc-photo-placeholder-text">Connecting over fresh coffee and treats after worship. A welcoming place where everyone belongs.</p>
     </div>
   </div>
-  <!-- /wp:group -->
-
-  <!-- MINISTRIES SECTION -->
-  <!-- wp:group {"align":"full","className":"blc-ministries-section","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"backgroundColor":"white","layout":{"type":"constrained"}} -->
-  <div class="wp-block-group alignfull blc-ministries-section has-white-background-color has-background" style="padding-top:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--40)">
-    
-    <!-- wp:group {"align":"wide","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|40"}}},"layout":{"type":"flex","justifyContent":"space-between","alignItems":"flex-end","flexWrap":"wrap"}} -->
-    <div class="wp-block-group alignwide" style="margin-bottom:var(--wp--preset--spacing--40)">
-      <div>
-        <!-- wp:paragraph {"className":"blc-section-eyebrow","textColor":"accent"} -->
-        <p class="blc-section-eyebrow has-accent-color has-text-color">Our Ministries</p>
-        <!-- /wp:paragraph -->
-        <!-- wp:heading {"level":2} -->
-        <h2 class="wp-block-heading">Serving Mesa With Heart &amp; Purpose</h2>
-        <!-- /wp:heading -->
-      </div>
+  <div class="blc-photo-placeholder-card">
+    <div class="blc-photo-placeholder-img-wrap">
+      <img src="/wp-content/uploads/2017/11/p-programs-garden.jpg" alt="Harvest of Hope Community Garden" class="blc-community-card-img" width="960" height="450" loading="lazy" />
     </div>
-    <!-- /wp:group -->
-
-    <!-- wp:columns {"align":"wide"} -->
-    <div class="wp-block-columns alignwide">
-      
-      <!-- MINISTRY 1: COMMUNITY GARDEN -->
-      <!-- wp:column {"className":"blc-card-cream","backgroundColor":"cream"} -->
-      <div class="wp-block-column blc-card-cream has-cream-background-color has-background">
-        <!-- wp:heading {"level":3,"className":"blc-card-title","textColor":"navy-dark"} -->
-        <h3 class="wp-block-heading blc-card-title has-navy-dark-color has-text-color">&#x1F33F; Harvest of Hope Garden</h3>
-        <!-- /wp:heading -->
-        <!-- wp:paragraph {"className":"blc-card-text","textColor":"muted"} -->
-        <p class="blc-card-text has-muted-color has-text-color">Our community garden grows fresh, nutritious vegetables for local food banks and neighbors in need in collaboration with the City of Mesa.</p>
-        <!-- /wp:paragraph -->
-        <!-- wp:paragraph {"className":"blc-card-link"} -->
-        <p class="blc-card-link"><a href="/ministries/#community-outreach">Get Involved in the Garden &rarr;</a></p>
-        <!-- /wp:paragraph -->
-      </div>
-      <!-- /wp:column -->
-
-      <!-- MINISTRY 2: BIBLE STUDY -->
-      <!-- wp:column {"className":"blc-card-cream","backgroundColor":"cream"} -->
-      <div class="wp-block-column blc-card-cream has-cream-background-color has-background">
-        <!-- wp:heading {"level":3,"className":"blc-card-title","textColor":"navy-dark"} -->
-        <h3 class="wp-block-heading blc-card-title has-navy-dark-color has-text-color">&#x1F4D6; Bible Study &amp; Prayer</h3>
-        <!-- /wp:heading -->
-        <!-- wp:paragraph {"className":"blc-card-text","textColor":"muted"} -->
-        <p class="blc-card-text has-muted-color has-text-color">Weekly in-person and online Zoom studies exploring Scripture, theology, and mutual prayer support. All questions and perspectives welcome.</p>
-        <!-- /wp:paragraph -->
-        <!-- wp:paragraph {"className":"blc-card-link"} -->
-        <p class="blc-card-link"><a href="/ministries/#worship-discipleship">Join a Study Group &rarr;</a></p>
-        <!-- /wp:paragraph -->
-      </div>
-      <!-- /wp:column -->
-
-      <!-- MINISTRY 3: FELLOWSHIP & CARE -->
-      <!-- wp:column {"className":"blc-card-cream","backgroundColor":"cream"} -->
-      <div class="wp-block-column blc-card-cream has-cream-background-color has-background">
-        <!-- wp:heading {"level":3,"className":"blc-card-title","textColor":"navy-dark"} -->
-        <h3 class="wp-block-heading blc-card-title has-navy-dark-color has-text-color">&#x1F91D; Fellowship &amp; Care</h3>
-        <!-- /wp:heading -->
-        <!-- wp:paragraph {"className":"blc-card-text","textColor":"muted"} -->
-        <p class="blc-card-text has-muted-color has-text-color">Music ministry, quilters, youth activities, and pastoral support. We walk alongside one another through all seasons of life.</p>
-        <!-- /wp:paragraph -->
-        <!-- wp:paragraph {"className":"blc-card-link"} -->
-        <p class="blc-card-link"><a href="/ministries/">Explore All Ministries &rarr;</a></p>
-        <!-- /wp:paragraph -->
-      </div>
-      <!-- /wp:column -->
-
+    <div class="blc-photo-placeholder-body">
+      <h3 class="blc-photo-placeholder-title">Community Garden</h3>
+      <p class="blc-photo-placeholder-text">Growing fresh organic vegetables for local food banks and neighbors in need right on our campus.</p>
     </div>
-    <!-- /wp:columns -->
-
   </div>
-  <!-- /wp:group -->
+</div>
+<!-- /wp:html -->
+</div>
+<!-- /wp:group -->
 
-  <!-- LATEST SERMON / MEDIA FEATURE -->
-  <!-- wp:group {"align":"wide","layout":{"type":"constrained"}} -->
-  <div class="wp-block-group alignwide">
-    
-    <!-- wp:group {"className":"blc-card blc-card-featured","backgroundColor":"white","layout":{"type":"constrained"}} -->
-    <div class="wp-block-group blc-card blc-card-featured has-white-background-color has-background">
-      
-      <!-- wp:columns {"verticalAlignment":"center"} -->
-      <div class="wp-block-columns are-vertically-aligned-center">
-        <!-- wp:column {"width":"50%"} -->
-        <div class="wp-block-column">
-          <!-- wp:paragraph {"className":"blc-section-eyebrow","textColor":"accent"} -->
-          <p class="blc-section-eyebrow has-accent-color has-text-color">Latest Worship Message</p>
-          <!-- /wp:paragraph -->
+<!-- wp:group {"align":"wide","className":"blc-noahs-ark-feature","backgroundColor":"white","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignwide blc-noahs-ark-feature has-white-background-color has-background">
+<!-- wp:group {"className":"blc-noahs-ark-grid","layout":{"type":"default"}} -->
+<div class="wp-block-group blc-noahs-ark-grid">
+<!-- wp:html -->
+<div class="blc-noahs-ark-image-col">
+  <img src="/wp-content/uploads/2017/10/bk-noahs-ark-kiddos.jpg" alt="Children learning and growing at Noah's Ark Preschool" class="blc-noahs-ark-img" width="1200" height="559" loading="lazy" />
+</div>
+<!-- /wp:html -->
 
-          <!-- wp:heading {"level":2,"textColor":"navy-dark"} -->
-          <h2 class="wp-block-heading has-navy-dark-color has-text-color">Sunday Worship Service</h2>
-          <!-- /wp:heading -->
+<!-- wp:group {"className":"blc-noahs-ark-text-col","layout":{"type":"default"}} -->
+<div class="wp-block-group blc-noahs-ark-text-col">
+<!-- wp:paragraph {"className":"blc-section-eyebrow","textColor":"accent"} -->
+<p class="blc-section-eyebrow has-accent-color has-text-color">A Ministry of Bethlehem Lutheran Church</p>
+<!-- /wp:paragraph -->
 
-          <!-- wp:paragraph {"className":"blc-card-text","textColor":"muted"} -->
-          <p class="blc-card-text has-muted-color has-text-color">Missed a Sunday or worshiping from home? Watch our most recent weekly sermon broadcast, follow along with the bulletin, and explore our complete message archive on Vimeo.</p>
-          <!-- /wp:paragraph -->
+<!-- wp:heading {"className":"blc-noahs-ark-title"} -->
+<h2 class="wp-block-heading blc-noahs-ark-title">Noah's Ark Preschool &amp; Kindergarten</h2>
+<!-- /wp:heading -->
 
-          <!-- wp:buttons -->
-          <div class="wp-block-buttons">
-            <!-- wp:button {"className":"blc-btn-gold"} -->
-            <div class="wp-block-button blc-btn-gold"><a class="wp-block-button__link wp-element-button" href="https://vimeo.com/blcmesa" target="_blank" rel="noopener noreferrer">Watch on Vimeo <span class="blc-external-icon" aria-hidden="true">&#x2197;</span></a></div>
-            <!-- /wp:button -->
-            <!-- wp:button {"className":"blc-btn-outline"} -->
-            <div class="wp-block-button blc-btn-outline"><a class="wp-block-button__link wp-element-button" href="/sermons/">Browse All Sermons</a></div>
-            <!-- /wp:button -->
-          </div>
-          <!-- /wp:buttons -->
-        </div>
-        <!-- /wp:column -->
+<!-- wp:paragraph {"className":"blc-noahs-ark-desc"} -->
+<p class="blc-noahs-ark-desc">A friendly, loving environment where children learn, explore, and grow in faith. Providing high-quality, certified early education and kindergarten to Mesa families for decades with compassionate, dedicated teachers.</p>
+<!-- /wp:paragraph -->
 
-        <!-- wp:column {"width":"50%"} -->
-        <div class="wp-block-column">
-          <!-- wp:embed {"url":"https://vimeo.com/1232853175","type":"video","providerNameSlug":"vimeo","responsive":true,"className":"wp-embed-aspect-16-9 wp-has-aspect-ratio"} -->
-          <figure class="wp-block-embed is-type-video is-provider-vimeo wp-block-embed-vimeo wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
-          https://vimeo.com/1232853175
-          </div></figure>
-          <!-- /wp:embed -->
-        </div>
-        <!-- /wp:column -->
-      </div>
-      <!-- /wp:columns -->
+<!-- wp:buttons -->
+<div class="wp-block-buttons">
+<!-- wp:button {"className":"blc-btn-gold"} -->
+<div class="wp-block-button blc-btn-gold"><a class="wp-block-button__link wp-element-button" href="https://noahsarkblc.org/" target="_blank" rel="noopener noreferrer">Visit Preschool Website <span class="blc-external-icon" aria-hidden="true">↗</span></a></div>
+<!-- /wp:button -->
+</div>
+<!-- /wp:buttons -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
 
-    </div>
-    <!-- /wp:group -->
+<!-- wp:group {"align":"full","className":"blc-ministries-section","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"backgroundColor":"white","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull blc-ministries-section has-white-background-color has-background" style="padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--40)">
+<!-- wp:group {"align":"wide","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|40"}}},"layout":{"type":"flex","justifyContent":"space-between","alignItems":"flex-end","flexWrap":"wrap"}} -->
+<div class="wp-block-group alignwide" style="margin-bottom:var(--wp--preset--spacing--40)">
+<!-- wp:group {"layout":{"type":"default"}} -->
+<div class="wp-block-group">
+<!-- wp:paragraph {"className":"blc-section-eyebrow","textColor":"accent"} -->
+<p class="blc-section-eyebrow has-accent-color has-text-color">Our Ministries</p>
+<!-- /wp:paragraph -->
 
-  </div>
-  <!-- /wp:group -->
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Serving Mesa With Heart &amp; Purpose</h2>
+<!-- /wp:heading -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
 
+<!-- wp:columns {"align":"wide"} -->
+<div class="wp-block-columns alignwide">
+<!-- wp:column {"className":"blc-card-cream","backgroundColor":"cream"} -->
+<div class="wp-block-column blc-card-cream has-cream-background-color has-background">
+<!-- wp:heading {"level":3,"className":"blc-card-title","textColor":"navy-dark"} -->
+<h3 class="wp-block-heading blc-card-title has-navy-dark-color has-text-color">🌿 Harvest of Hope Garden</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"className":"blc-card-text","textColor":"muted"} -->
+<p class="blc-card-text has-muted-color has-text-color">Our community garden grows fresh, nutritious vegetables for local food banks and neighbors in need in collaboration with the City of Mesa.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"className":"blc-card-link"} -->
+<p class="blc-card-link"><a href="/ministries/#community-outreach">Get Involved in the Garden →</a></p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:column -->
+
+<!-- wp:column {"className":"blc-card-cream","backgroundColor":"cream"} -->
+<div class="wp-block-column blc-card-cream has-cream-background-color has-background">
+<!-- wp:heading {"level":3,"className":"blc-card-title","textColor":"navy-dark"} -->
+<h3 class="wp-block-heading blc-card-title has-navy-dark-color has-text-color">📖 Bible Study &amp; Prayer</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"className":"blc-card-text","textColor":"muted"} -->
+<p class="blc-card-text has-muted-color has-text-color">Weekly in-person and online Zoom studies exploring Scripture, theology, and mutual prayer support. All questions and perspectives welcome.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"className":"blc-card-link"} -->
+<p class="blc-card-link"><a href="/ministries/#worship-discipleship">Join a Study Group →</a></p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:column -->
+
+<!-- wp:column {"className":"blc-card-cream","backgroundColor":"cream"} -->
+<div class="wp-block-column blc-card-cream has-cream-background-color has-background">
+<!-- wp:heading {"level":3,"className":"blc-card-title","textColor":"navy-dark"} -->
+<h3 class="wp-block-heading blc-card-title has-navy-dark-color has-text-color">🤝 Fellowship &amp; Care</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"className":"blc-card-text","textColor":"muted"} -->
+<p class="blc-card-text has-muted-color has-text-color">Music ministry, quilters, youth activities, and pastoral support. We walk alongside one another through all seasons of life.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"className":"blc-card-link"} -->
+<p class="blc-card-link"><a href="/ministries/">Explore All Ministries →</a></p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:column -->
+</div>
+<!-- /wp:columns -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"align":"wide","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignwide">
+<!-- wp:group {"className":"blc-card blc-card-featured","backgroundColor":"white","layout":{"type":"constrained"}} -->
+<div class="wp-block-group blc-card blc-card-featured has-white-background-color has-background">
+<!-- wp:columns {"verticalAlignment":"center"} -->
+<div class="wp-block-columns are-vertically-aligned-center">
+<!-- wp:column {"width":"50%"} -->
+<div class="wp-block-column" style="flex-basis:50%">
+<!-- wp:paragraph {"className":"blc-section-eyebrow","textColor":"accent"} -->
+<p class="blc-section-eyebrow has-accent-color has-text-color">Latest Worship Message</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"textColor":"navy-dark"} -->
+<h2 class="wp-block-heading has-navy-dark-color has-text-color">Sunday Worship Service</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"className":"blc-card-text","textColor":"muted"} -->
+<p class="blc-card-text has-muted-color has-text-color">Missed a Sunday or worshiping from home? Watch our most recent weekly sermon broadcast, follow along with the bulletin, and explore our complete message archive on Vimeo.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:buttons -->
+<div class="wp-block-buttons">
+<!-- wp:button {"className":"blc-btn-gold"} -->
+<div class="wp-block-button blc-btn-gold"><a class="wp-block-button__link wp-element-button" href="https://vimeo.com/blcmesa" target="_blank" rel="noopener noreferrer">Watch on Vimeo <span class="blc-external-icon" aria-hidden="true">↗</span></a></div>
+<!-- /wp:button -->
+
+<!-- wp:button {"className":"blc-btn-outline"} -->
+<div class="wp-block-button blc-btn-outline"><a class="wp-block-button__link wp-element-button" href="/sermons/">Browse All Sermons</a></div>
+<!-- /wp:button -->
+</div>
+<!-- /wp:buttons -->
+</div>
+<!-- /wp:column -->
+
+<!-- wp:column {"width":"50%"} -->
+<div class="wp-block-column" style="flex-basis:50%">
+<!-- wp:embed {"url":"https://vimeo.com/1232853175","type":"video","providerNameSlug":"vimeo","responsive":true,"className":"wp-embed-aspect-16-9 wp-has-aspect-ratio"} -->
+<figure class="wp-block-embed is-type-video is-provider-vimeo wp-block-embed-vimeo wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+https://vimeo.com/1232853175
+</div></figure>
+<!-- /wp:embed -->
+</div>
+<!-- /wp:column -->
+</div>
+<!-- /wp:columns -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
 </main>
+<!-- /wp:group -->
 
 <!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

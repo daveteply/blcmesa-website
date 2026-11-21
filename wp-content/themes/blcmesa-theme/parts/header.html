@@ -1,88 +1,83 @@
-<!-- wp:group {"tagName":"header","className":"blc-sticky-header","align":"full","backgroundColor":"midnight-slate","layout":{"type":"constrained"}} -->
-<header class="wp-block-group blc-sticky-header alignfull has-midnight-slate-background-color has-background">
-  <!-- wp:group {"className":"blc-header-container","align":"wide","layout":{"type":"flex","flexWrap":"wrap"}} -->
-  <div class="wp-block-group blc-header-container alignwide">
-    
-    <!-- BRAND LOGO & THEME TOGGLE (Logo Left, Toggle Right) -->
-    <!-- wp:group {"className":"blc-brand-row","layout":{"type":"flex","justifyContent":"space-between","alignItems":"center","flexWrap":"nowrap"}} -->
-    <div class="wp-block-group blc-brand-row">
-      <!-- wp:html -->
-      <a href="/" class="blc-header-brand" aria-label="Bethlehem Lutheran Church Home">
-        <img class="blc-brand-logo" src="/wp-content/themes/blcmesa-theme/assets/images/bethlehem-star.webp" alt="Bethlehem Star" width="38" height="38" />
-        <div class="blc-brand-text">
-          <span class="blc-brand-title">BETHLEHEM</span>
-          <span class="blc-brand-subtitle">LUTHERAN CHURCH</span>
-        </div>
-      </a>
-      <!-- /wp:html -->
-
-      <!-- COLOR THEME TOGGLE (Smart 2-State Light / Dark synced with OS) -->
-      <!-- wp:html -->
-      <div class="blc-theme-toggle-wrap">
-        <button type="button" class="blc-theme-toggle" title="Toggle color theme">
-          <span class="blc-theme-state blc-theme-state-to-dark">
-            <svg class="blc-theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-            </svg>
-            <span class="blc-visually-hidden">Switch to dark theme</span>
-          </span>
-          <span class="blc-theme-state blc-theme-state-to-light">
-            <svg class="blc-theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <circle cx="12" cy="12" r="5"></circle>
-              <line x1="12" y1="1" x2="12" y2="3"></line>
-              <line x1="12" y1="21" x2="12" y2="23"></line>
-              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-              <line x1="1" y1="12" x2="3" y2="12"></line>
-              <line x1="21" y1="12" x2="23" y2="12"></line>
-              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-            </svg>
-            <span class="blc-visually-hidden">Switch to light theme</span>
-          </span>
-        </button>
-      </div>
-      <!-- /wp:html -->
-    </div>
-    <!-- /wp:group -->
-
-    <!-- NAVIGATION & ACTION CTA -->
-    <!-- wp:group {"className":"blc-nav-row","layout":{"type":"flex","justifyContent":"space-between","alignItems":"center","flexWrap":"wrap"}} -->
-    <div class="wp-block-group blc-nav-row">
-      <!-- wp:navigation {"overlayMenu":"mobile","textColor":"white","layout":{"type":"flex","justifyContent":"left","orientation":"horizontal"}} -->
-        <!-- wp:navigation-link {"label":"HOME","url":"/"} /-->
-        <!-- wp:navigation-submenu {"label":"ABOUT","url":"/about/"} -->
-          <!-- wp:navigation-link {"label":"Our Leadership","url":"/about/#leadership"} /-->
-          <!-- wp:navigation-link {"label":"About Bethlehem","url":"/about/#about-bethlehem"} /-->
-          <!-- wp:navigation-link {"label":"Our History","url":"/about/#history"} /-->
-          <!-- wp:navigation-link {"label":"Visitor FAQs","url":"/about/#faq"} /-->
-        <!-- /wp:navigation-submenu -->
-        <!-- wp:navigation-submenu {"label":"MINISTRIES","url":"/ministries/"} -->
-          <!-- wp:navigation-link {"label":"Worship & Discipleship","url":"/ministries/#worship-discipleship"} /-->
-          <!-- wp:navigation-link {"label":"Children & Families","url":"/ministries/#children-youth"} /-->
-          <!-- wp:navigation-link {"label":"Fellowship & Care","url":"/ministries/#fellowship-care"} /-->
-          <!-- wp:navigation-link {"label":"Community Outreach","url":"/ministries/#community-outreach"} /-->
-        <!-- /wp:navigation-submenu -->
-        <!-- wp:navigation-submenu {"label":"SERMONS","url":"/sermons/"} -->
-          <!-- wp:navigation-link {"label":"Sermons & Worship","url":"/sermons/"} /-->
-          <!-- wp:navigation-link {"label":"Prayers We Use","url":"/prayers-we-use/"} /-->
-        <!-- /wp:navigation-submenu -->
-        <!-- wp:navigation-link {"label":"EVENTS","url":"/events/"} /-->
-        <!-- wp:navigation-link {"label":"GIVING","url":"/giving/"} /-->
-        <!-- wp:navigation-link {"label":"CONTACT","url":"/contact/"} /-->
-      <!-- /wp:navigation -->
-
-      <!-- wp:buttons {"className":"blc-btn-gold"} -->
-      <div class="wp-block-buttons blc-btn-gold">
-        <!-- wp:button {"backgroundColor":"accent","textColor":"white"} -->
-        <div class="wp-block-button"><a class="wp-block-button__link has-white-color has-accent-background-color has-text-color has-background wp-element-button" href="/#worship">Plan Your Visit</a></div>
-        <!-- /wp:button -->
-      </div>
-      <!-- /wp:buttons -->
-    </div>
-    <!-- /wp:group -->
-
+<!-- wp:group {"tagName":"header","align":"full","className":"blc-sticky-header","backgroundColor":"midnight-slate","layout":{"type":"constrained"}} -->
+<header class="wp-block-group alignfull blc-sticky-header has-midnight-slate-background-color has-background">
+<!-- wp:group {"align":"wide","className":"blc-header-container","layout":{"type":"flex","flexWrap":"wrap"}} -->
+<div class="wp-block-group alignwide blc-header-container">
+<!-- wp:group {"className":"blc-brand-row","layout":{"type":"flex","justifyContent":"space-between","alignItems":"center","flexWrap":"nowrap"}} -->
+<div class="wp-block-group blc-brand-row">
+<!-- wp:html -->
+<a href="/" class="blc-header-brand" aria-label="Bethlehem Lutheran Church Home">
+  <img class="blc-brand-logo" src="/wp-content/themes/blcmesa-theme/assets/images/bethlehem-star.webp" alt="Bethlehem Star" width="38" height="38" />
+  <div class="blc-brand-text">
+    <span class="blc-brand-title">BETHLEHEM</span>
+    <span class="blc-brand-subtitle">LUTHERAN CHURCH</span>
   </div>
-  <!-- /wp:group -->
+</a>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="blc-theme-toggle-wrap">
+  <button type="button" class="blc-theme-toggle" title="Toggle color theme">
+    <span class="blc-theme-state blc-theme-state-to-dark">
+      <svg class="blc-theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+      <span class="blc-visually-hidden">Switch to dark theme</span>
+    </span>
+    <span class="blc-theme-state blc-theme-state-to-light">
+      <svg class="blc-theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+      <span class="blc-visually-hidden">Switch to light theme</span>
+    </span>
+  </button>
+</div>
+<!-- /wp:html -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"blc-nav-row","layout":{"type":"flex","justifyContent":"space-between","alignItems":"center","flexWrap":"wrap"}} -->
+<div class="wp-block-group blc-nav-row">
+<!-- wp:navigation {"overlayMenu":"mobile","textColor":"white","layout":{"type":"flex","justifyContent":"left","orientation":"horizontal"}} -->
+<!-- wp:navigation-link {"label":"HOME","url":"/"} /-->
+<!-- wp:navigation-submenu {"label":"ABOUT","url":"/about/"} -->
+<!-- wp:navigation-link {"label":"Our Leadership","url":"/about/#leadership"} /-->
+<!-- wp:navigation-link {"label":"About Bethlehem","url":"/about/#about-bethlehem"} /-->
+<!-- wp:navigation-link {"label":"Our History","url":"/about/#history"} /-->
+<!-- wp:navigation-link {"label":"Visitor FAQs","url":"/about/#faq"} /-->
+<!-- /wp:navigation-submenu -->
+<!-- wp:navigation-submenu {"label":"MINISTRIES","url":"/ministries/"} -->
+<!-- wp:navigation-link {"label":"Worship & Discipleship","url":"/ministries/#worship-discipleship"} /-->
+<!-- wp:navigation-link {"label":"Children & Families","url":"/ministries/#children-youth"} /-->
+<!-- wp:navigation-link {"label":"Fellowship & Care","url":"/ministries/#fellowship-care"} /-->
+<!-- wp:navigation-link {"label":"Community Outreach","url":"/ministries/#community-outreach"} /-->
+<!-- /wp:navigation-submenu -->
+<!-- wp:navigation-submenu {"label":"SERMONS","url":"/sermons/"} -->
+<!-- wp:navigation-link {"label":"Sermons & Worship","url":"/sermons/"} /-->
+<!-- wp:navigation-link {"label":"Prayers We Use","url":"/prayers-we-use/"} /-->
+<!-- /wp:navigation-submenu -->
+<!-- wp:navigation-link {"label":"EVENTS","url":"/events/"} /-->
+<!-- wp:navigation-link {"label":"GIVING","url":"/giving/"} /-->
+<!-- wp:navigation-link {"label":"CONTACT","url":"/contact/"} /-->
+<!-- /wp:navigation -->
+
+<!-- wp:buttons {"className":"blc-btn-gold"} -->
+<div class="wp-block-buttons blc-btn-gold">
+<!-- wp:button {"backgroundColor":"accent","textColor":"white"} -->
+<div class="wp-block-button"><a class="wp-block-button__link has-white-color has-accent-background-color has-text-color has-background wp-element-button" href="/#worship">Plan Your Visit</a></div>
+<!-- /wp:button -->
+</div>
+<!-- /wp:buttons -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
 </header>
 <!-- /wp:group -->

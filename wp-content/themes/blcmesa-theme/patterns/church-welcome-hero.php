@@ -12,11 +12,11 @@
   <h1 class="wp-block-heading has-text-align-center has-white-color has-text-color" style="font-size:var(--wp--preset--font-size--2x-large)">Welcome to Bethlehem Lutheran Church</h1>
   <!-- /wp:heading -->
 
-  <!-- wp:paragraph {"textAlign":"center","style":{"typography":{"fontSize":"var:preset|font-size|large"}}} -->
+  <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"var:preset|font-size|large"}}} -->
   <p class="has-text-align-center" style="font-size:var(--wp--preset--font-size--large)">A home to share God's love and grace in Mesa, Arizona</p>
   <!-- /wp:paragraph -->
 
-  <!-- wp:paragraph {"textAlign":"center","style":{"typography":{"fontSize":"var:preset|font-size|medium"}}} -->
+  <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"var:preset|font-size|medium"}}} -->
   <p class="has-text-align-center" style="font-size:var(--wp--preset--font-size--medium)"><strong>Sunday Worship: 9:00 AM</strong> &bull; 2745 N. 32nd St., Mesa, AZ</p>
   <!-- /wp:paragraph -->
 

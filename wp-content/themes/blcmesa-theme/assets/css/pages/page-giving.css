@@ -160,7 +160,7 @@
 }
 
 .blc-giving-card-detail p {
-  margin: 0.35rem 0 0 0;
+  margin: 0;
 }
 
 .blc-address-box {
@@ -170,6 +170,7 @@
 
 .blc-giving-card-action {
   margin-top: auto;
+  margin-bottom: 0;
   padding-top: 0.5rem;
 }
 
