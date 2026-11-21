@@ -1,125 +1,117 @@
 /**
- * Bethlehem Lutheran Church - Theme Mode Toggle Handler
- * Supports Light, Dark, and System (OS default) preferences with localStorage persistence.
+ * Bethlehem Lutheran Church - Smart 2-State Color Scheme Toggle
+ *
+ * Follows Modern Web Guidance `dark-mode-toggle`:
+ * - Synchronizes `<meta name="color-scheme">` ("light dark", "light", "dark").
+ * - Flips immediately to the opposite of the currently rendered scheme.
+ * - Stores an explicit override only when diverging from the OS preference;
+ *   removes the stored key when returning to the OS preference so the site
+ *   resumes tracking automatic OS theme changes.
+ * - Never removes a stored override when the OS preference later changes to match it.
  */
 (function () {
   'use strict';
 
-  var STORAGE_KEY = 'blc-color-theme';
-  var mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+  const STORAGE_KEY = 'color-scheme';
+  const LEGACY_STORAGE_KEY = 'blc-color-theme';
+  const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
-  function getStoredPreference() {
-    try {
-      return localStorage.getItem(STORAGE_KEY) || 'system';
-    } catch (e) {
-      return 'system';
-    }
-  }
-
-  function setStoredPreference(pref) {
-    try {
-      localStorage.setItem(STORAGE_KEY, pref);
-    } catch (e) {
-      // Storage unavailable or disabled
-    }
-  }
-
-  function resolveEffectiveTheme(pref) {
-    if (pref === 'dark' || pref === 'light') {
-      return pref;
-    }
+  function getSystemScheme() {
     return mediaQuery.matches ? 'dark' : 'light';
   }
 
-  function applyTheme(pref) {
-    var effective = resolveEffectiveTheme(pref);
-    var root = document.documentElement;
-
-    root.setAttribute('data-theme', effective);
-    root.setAttribute('data-theme-pref', pref);
-
-    updateToggleButtons(pref, effective);
+  function getStoredScheme() {
+    try {
+      const value = localStorage.getItem(STORAGE_KEY);
+      if (value === 'light' || value === 'dark') {
+        return value;
+      }
+      const legacy = localStorage.getItem(LEGACY_STORAGE_KEY);
+      if (legacy === 'light' || legacy === 'dark') {
+        localStorage.setItem(STORAGE_KEY, legacy);
+        localStorage.removeItem(LEGACY_STORAGE_KEY);
+        return legacy;
+      }
+      if (legacy !== null) {
+        localStorage.removeItem(LEGACY_STORAGE_KEY);
+      }
+    } catch (e) {
+      // Storage unavailable or blocked; fall back to system scheme
+    }
+    return null;
   }
 
-  function getNextPreference(currentPref) {
-    if (currentPref === 'system') return 'light';
-    if (currentPref === 'light') return 'dark';
-    return 'system';
+  function persistScheme(scheme) {
+    try {
+      if (scheme === 'light' || scheme === 'dark') {
+        localStorage.setItem(STORAGE_KEY, scheme);
+      } else {
+        localStorage.removeItem(STORAGE_KEY);
+      }
+    } catch (e) {
+      // Storage unavailable or blocked; scheme still applies for current page
+    }
   }
 
-  function updateToggleButtons(pref, effective) {
-    var buttons = document.querySelectorAll('.blc-theme-toggle');
-    if (!buttons.length) return;
+  function getMetaColorScheme() {
+    let meta = document.querySelector('meta[name="color-scheme"]');
+    if (!meta && document.head) {
+      meta = document.createElement('meta');
+      meta.name = 'color-scheme';
+      document.head.prepend(meta);
+    }
+    return meta;
+  }
 
-    var titles = {
-      system: 'Theme: System (Auto - matches your device). Click for Light.',
-      light: 'Theme: Light. Click for Dark.',
-      dark: 'Theme: Dark. Click for System.'
-    };
+  function applyScheme(storedScheme) {
+    const meta = getMetaColorScheme();
+    if (meta) {
+      meta.content = storedScheme || 'light dark';
+    }
 
-    var ariaLabels = {
-      system: 'Color theme is System. Currently displaying ' + effective + ' mode. Click to switch to Light mode.',
-      light: 'Color theme is Light mode. Click to switch to Dark mode.',
-      dark: 'Color theme is Dark mode. Click to switch to System mode.'
-    };
+    const effective = storedScheme || getSystemScheme();
+    document.documentElement.setAttribute('data-theme', effective);
 
+    const buttons = document.querySelectorAll('.blc-theme-toggle');
+    const title = effective === 'dark' ? 'Switch to light theme' : 'Switch to dark theme';
     buttons.forEach(function (btn) {
-      btn.setAttribute('data-current-pref', pref);
-      btn.setAttribute('data-effective-theme', effective);
-      btn.setAttribute('aria-label', ariaLabels[pref] || 'Toggle color theme');
-      btn.setAttribute('title', titles[pref] || 'Toggle color theme');
-
-      // Update visible icon states
-      var iconLight = btn.querySelector('.blc-theme-icon-light');
-      var iconDark = btn.querySelector('.blc-theme-icon-dark');
-      var iconSystem = btn.querySelector('.blc-theme-icon-system');
-
-      if (iconLight) iconLight.style.display = (pref === 'light') ? 'inline-block' : 'none';
-      if (iconDark) iconDark.style.display = (pref === 'dark') ? 'inline-block' : 'none';
-      if (iconSystem) iconSystem.style.display = (pref === 'system') ? 'inline-block' : 'none';
+      btn.setAttribute('title', title);
     });
   }
 
   function handleToggleClick(e) {
     e.preventDefault();
-    var currentPref = getStoredPreference();
-    var nextPref = getNextPreference(currentPref);
+    const systemScheme = getSystemScheme();
+    const renderedScheme = getStoredScheme() || systemScheme;
+    const targetScheme = renderedScheme === 'dark' ? 'light' : 'dark';
 
-    setStoredPreference(nextPref);
-    applyTheme(nextPref);
+    // Divergence is checked only at storage time: store literal override if
+    // different from OS, or clear storage to resume following OS preference.
+    const nextStored = targetScheme !== systemScheme ? targetScheme : null;
+    persistScheme(nextStored);
+    applyScheme(nextStored);
   }
 
   function init() {
-    var currentPref = getStoredPreference();
-    applyTheme(currentPref);
+    applyScheme(getStoredScheme());
 
-    // Bind click events to all toggle buttons on page
-    var buttons = document.querySelectorAll('.blc-theme-toggle');
-    buttons.forEach(function (btn) {
+    document.querySelectorAll('.blc-theme-toggle').forEach(function (btn) {
       btn.removeEventListener('click', handleToggleClick);
       btn.addEventListener('click', handleToggleClick);
     });
 
-    // Listen for OS system theme changes
-    if (mediaQuery.addEventListener) {
-      mediaQuery.addEventListener('change', function () {
-        if (getStoredPreference() === 'system') {
-          applyTheme('system');
-        }
-      });
-    } else if (mediaQuery.addListener) {
-      mediaQuery.addListener(function () {
-        if (getStoredPreference() === 'system') {
-          applyTheme('system');
-        }
-      });
-    }
+    // React to OS changes without ever removing an explicit user override
+    mediaQuery.addEventListener('change', function () {
+      const stored = getStoredScheme();
+      if (!stored) {
+        applyScheme(null);
+      }
+    });
 
-    // Synchronize across multiple browser tabs
+    // Synchronize theme overrides across open browser tabs
     window.addEventListener('storage', function (e) {
-      if (e.key === STORAGE_KEY) {
-        var newPref = e.newValue || 'system';
-        applyTheme(newPref);
+      if (e.key === STORAGE_KEY || e.key === null) {
+        applyScheme(getStoredScheme());
       }
     });
   }

@@ -34,6 +34,8 @@ function blcmesa_get_redirect_map()
         'faith-community-nurse'         => '/ministries/#fellowship-care',
         'the-nurses-corner'             => '/ministries/#fellowship-care',
         'harvest-garden'                => '/ministries/#community-outreach',
+        'garden'                        => '/ministries/#community-outreach',
+        'bible-study'                   => '/ministries/#worship-discipleship',
         'youth-groups'                  => '/ministries/#children-youth',
         'news-info'                     => '/about/',
         'newsletters'                   => '/events/',

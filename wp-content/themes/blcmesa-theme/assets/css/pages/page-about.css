@@ -121,7 +121,7 @@ details.wp-block-details.blc-details-item summary::-webkit-details-marker {
   display: none;
 }
 
-/* Angular Material-style rotating chevron */
+/* Rotating chevron marker */
 details.wp-block-details.blc-details-item summary::after {
   content: "";
   display: inline-block;
@@ -130,13 +130,36 @@ details.wp-block-details.blc-details-item summary::after {
   border-right: 2.2px solid var(--blc-gold-primary);
   border-bottom: 2.2px solid var(--blc-gold-primary);
   transform: rotate(45deg);
-  transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
   margin-left: 1.25rem;
   flex-shrink: 0;
 }
 
 details.wp-block-details.blc-details-item[open] summary::after {
   transform: rotate(-135deg);
+}
+
+/* Native CSS <details> slide animation (progressive enhancement with reduced-motion respect) */
+details.wp-block-details.blc-details-item::details-content {
+  interpolate-size: allow-keywords;
+  overflow: clip;
+  contain: layout;
+}
+
+details.wp-block-details.blc-details-item:not([open])::details-content {
+  block-size: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  details.wp-block-details.blc-details-item summary::after {
+    transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+  }
+
+  details.wp-block-details.blc-details-item::details-content {
+    transition: block-size, content-visibility, display;
+    transition-duration: 0.3s;
+    transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
+    transition-behavior: allow-discrete;
+  }
 }
 
 details.wp-block-details.blc-details-item[open] summary {

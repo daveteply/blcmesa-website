@@ -16,6 +16,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
     git \
     wget \
+    zip \
     unzip \
     ca-certificates \
     && apt-get clean -y && rm -rf /var/lib/apt/lists/*

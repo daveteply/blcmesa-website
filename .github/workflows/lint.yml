@@ -15,10 +15,10 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php-version: ['8.1', '8.2']
+        php-version: ['8.3', '8.4']
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Set up PHP ${{ matrix.php-version }}
         uses: shivammathur/setup-php@v2
@@ -35,18 +35,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
-          python-version: '3.11'
+          python-version: '3.12'
 
-      - name: Validate theme.json and other JSON configs
+      - name: Validate theme.json and DevContainer JSON configs
         run: |
           echo "Validating theme.json..."
           python3 -m json.tool wp-content/themes/blcmesa-theme/theme.json > /dev/null
           echo "Validating .devcontainer/devcontainer.json..."
+          python3 -m json.tool .devcontainer/devcontainer.json > /dev/null
+          echo "Validating .devcontainer/devcontainer-lock.json..."
           python3 -m json.tool .devcontainer/devcontainer-lock.json > /dev/null
           echo "✅ All JSON files are valid syntax."
 
@@ -55,27 +57,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Check bash script syntax
         run: |
           echo "Checking bash syntax with bash -n..."
-          for script in scripts/*.sh; do
-            [ -f "$script" ] || continue
+          while IFS= read -r -d '' script; do
             bash -n "$script"
             echo "✅ $script passed syntax check"
-          done
+          done < <(find scripts -type f -name "*.sh" -print0)
 
       - name: Run ShellCheck on scripts
-        uses: ludeeus/action-shellcheck@master
-        with:
-          scandir: './scripts'
-          severity: error
+        run: |
+          echo "Running ShellCheck (error severity) across scripts..."
+          find scripts -type f -name "*.sh" -print0 | xargs -0 shellcheck -S error
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
-          python-version: '3.11'
+          python-version: '3.12'
 
       - name: Lint sync-media.py
         run: |

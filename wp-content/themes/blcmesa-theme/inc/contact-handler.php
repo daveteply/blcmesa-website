@@ -142,16 +142,26 @@ function blcmesa_handle_contact_submission() {
     $dest_title = $recipient_map[ $recipient ]['title'];
     $dest_email = $recipient_map[ $recipient ]['email'];
 
-    // 6. Build Email Subject & Render HTML Template
+    // 6. Local Testing & Mocking Mode Detection
+    // NOTE: Do NOT treat WP_DEBUG as local mode; enabling debug logging on Cloudways
+    // must never silently disable live production email delivery.
+    $test_override_email = getenv( 'BLC_TEST_EMAIL' ) ?: ( defined( 'BLC_TEST_EMAIL' ) ? BLC_TEST_EMAIL : '' );
+    $is_local_env = ( defined( 'WP_ENVIRONMENT_TYPE' ) && WP_ENVIRONMENT_TYPE === 'local' )
+        || ( isset( $_SERVER['HTTP_HOST'] ) && ( str_contains( $_SERVER['HTTP_HOST'], 'localhost' ) || str_contains( $_SERVER['HTTP_HOST'], '127.0.0.1' ) ) );
+
+    // 7. Build Email Subject & Render HTML Template
     $mail_subject = ! empty( $subject )
         ? "[BLC Website] {$subject} ({$dest_title})"
         : "[BLC Website Inquiry] Message for {$dest_title}";
 
-    // Base64 encode Bethlehem Star logo for self-contained email branding
-    $logo_path = get_template_directory() . '/assets/images/bethlehem-star.png';
+    // Use a hosted HTTPS URL in production (Gmail/Outlook strip base64 data URIs),
+    // falling back to base64 only in local environments where localhost isn't publicly reachable.
+    $logo_path     = get_template_directory() . '/assets/images/bethlehem-star.png';
     $logo_data_uri = '';
-    if ( file_exists( $logo_path ) ) {
-        $logo_data = base64_encode( (string) file_get_contents( $logo_path ) );
+    if ( ! $is_local_env ) {
+        $logo_data_uri = get_template_directory_uri() . '/assets/images/bethlehem-star.png';
+    } elseif ( file_exists( $logo_path ) ) {
+        $logo_data     = base64_encode( (string) file_get_contents( $logo_path ) );
         $logo_data_uri = 'data:image/png;base64,' . $logo_data;
     }
 
@@ -179,24 +189,20 @@ function blcmesa_handle_contact_submission() {
         "Reply-To: {$name} <{$email}>",
     );
 
-    // 7. Local Testing & Mocking Mode Detection
-    $test_override_email = getenv( 'BLC_TEST_EMAIL' ) ?: ( defined( 'BLC_TEST_EMAIL' ) ? BLC_TEST_EMAIL : '' );
-    $is_local_env = ( defined( 'WP_ENVIRONMENT_TYPE' ) && WP_ENVIRONMENT_TYPE === 'local' )
-        || ( isset( $_SERVER['HTTP_HOST'] ) && ( str_contains( $_SERVER['HTTP_HOST'], 'localhost' ) || str_contains( $_SERVER['HTTP_HOST'], '127.0.0.1' ) ) )
-        || ( defined( 'WP_DEBUG' ) && WP_DEBUG );
+    $sent          = false;
+    $log_notice    = '';
+    $is_debug_mock = $is_local_env || ( ! empty( $test_override_email ) && is_email( $test_override_email ) );
 
-    $sent = false;
-    $log_notice = '';
-
-    // Always prepare the structured mock payload for browser console.info inspection
-    $mock_email = array(
+    // Only build the debug payload in local or explicit test-override mode so real
+    // staff email addresses are NEVER exposed to production visitors' browsers.
+    $mock_email = $is_debug_mock ? array(
         'to'          => "{$dest_title} <{$dest_email}>",
         'from'        => "{$name} <{$email}>",
         'phone'       => $phone ?: '(None)',
         'subject'     => $mail_subject,
         'message'     => $message,
         'submittedAt' => $submitted_date,
-    );
+    ) : null;
 
     if ( ! empty( $test_override_email ) && is_email( $test_override_email ) ) {
         // Direct all outgoing test emails to the configured test mailbox
@@ -239,12 +245,15 @@ function blcmesa_handle_contact_submission() {
         }
 
         if ( $is_ajax ) {
-            wp_send_json_success( array(
-                'message'    => $success_msg,
-                'recipient'  => $dest_title,
-                'testNotice' => $log_notice,
-                'mockEmail'  => $mock_email,
-            ) );
+            $response_data = array(
+                'message'   => $success_msg,
+                'recipient' => $dest_title,
+            );
+            if ( $is_debug_mock && null !== $mock_email ) {
+                $response_data['testNotice'] = $log_notice;
+                $response_data['mockEmail']  = $mock_email;
+            }
+            wp_send_json_success( $response_data );
         } else {
             wp_safe_redirect( home_url( '/contact/?status=sent' ) );
             exit;

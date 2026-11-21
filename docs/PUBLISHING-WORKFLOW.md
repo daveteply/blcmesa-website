@@ -113,37 +113,53 @@ bash scripts/restore-db.sh backups/blcmesa_db_YYYYMMDD_HHMMSS.sql.gz
 
 ---
 
-## 🚀 Phase 3: Pushing Your Revamped Site to Live Production
+## 🚀 Phase 3: Pushing Your Revamped Site to Cloudways Production
 
-When leadership reviews and approves the new site:
+> [!CAUTION]
+> **Initial Launch vs. Ongoing Updates**: Only import `database.sql` **once** during the initial Cloudways launch. Once church admins begin editing pages, posting sermons, or uploading media in WordPress on Cloudways, **never re-import a local `database.sql`**—doing so will overwrite their live changes. For all subsequent code/theme updates, deploy **only the theme** using `scripts/export-theme.sh` (or Cloudways Git Deployment).
 
-### 1. Generate the Production Hosting Package
-Run the automated export script from your **WSL terminal**:
+### 1. Initial One-Time Launch Package
+Generate the initial full migration package (DB sanitized for MariaDB 10.11+, custom theme, non-default plugins, uploads):
 
 ```bash
 bash scripts/export-for-hosting.sh
 ```
 
 This creates `backups/blcmesa_migration_package_<timestamp>.zip` containing:
-- `database.sql`: Sanitized database export with localhost URLs replaced with `https://blcmesa.org`.
+- `database.sql`: Full database export (with MariaDB 11+ sandbox comments stripped for Cloudways MariaDB 10.11 compatibility).
 - `wp-content/themes/blcmesa-theme`: Complete Gutenberg FSE theme.
-- `wp-content/plugins`: Active plugins.
+- `wp-content/plugins`: Non-default plugins (default `akismet`/`hello.php` excluded).
 - `wp-content/uploads`: Synchronized images and media.
-- `README.txt`: Host-specific deployment instructions.
+- `README_MIGRATION.txt`: Cloudways deployment checklist.
 
-### 2. Deploy to Production Host
-- **Option A (Standard Hosting File Manager / SFTP + phpMyAdmin)**:
-  1. Upload `wp-content/themes/blcmesa-theme` to your live host's `wp-content/themes/`.
-  2. Upload `wp-content/uploads/` to `wp-content/uploads/`.
-  3. Import `database.sql` into the host's MySQL database via phpMyAdmin.
-- **Option B (WP-CLI on Host / SSH)**:
-  ```bash
-  wp db import database.sql
-  wp theme activate blcmesa-theme
-  wp rewrite flush --hard
-  ```
-- **Option C (Migration Plugin)**:
-  Install *All-in-One WP Migration* or *Duplicator* to import the package with one click.
+### 2. Initial Deploy to Cloudways
+1. Provision a WordPress application on Cloudways with **PHP 8.3 or 8.4** and **MariaDB 10.11+**.
+2. Upload `wp-content/themes/blcmesa-theme`, `wp-content/uploads/`, and any custom plugins to `public_html/wp-content/` via SFTP/SSH.
+3. Import `database.sql` via SSH/WP-CLI (or Cloudways Database Manager) and run URL replacement:
+   ```bash
+   wp db import database.sql
+   wp search-replace "http://localhost:8080" "https://blcmesa.org" --all-tables --precise
+   wp theme activate blcmesa-theme
+   wp rewrite flush --hard
+   wp cache flush
+   ```
+4. **Cloudways Post-Launch Settings**:
+   - **Exclude `/contact/` from Breeze & Varnish full-page caching** so contact form CSRF nonces do not expire.
+   - **Configure SMTP**: Cloudways disables PHP `mail()` by default; install **FluentSMTP** (or Cloudways Elastic Email) authenticated for `office@blcmesa.org` with SPF/DKIM/DMARC.
+
+### 3. Ongoing Code & Theme Updates (Safe While Church Admins Edit Live)
+After launch, when you update theme styles, templates, or scripts in Git:
+1. Bump `Version:` in `wp-content/themes/blcmesa-theme/style.css` (busts Cloudways Varnish/Breeze CSS & JS caches).
+2. Generate a **theme-only** zip (touches neither the database nor uploads):
+   ```bash
+   bash scripts/export-theme.sh
+   ```
+3. Upload `backups/blcmesa-theme_<version>_<timestamp>.zip` via **WP Admin → Appearance → Themes → Add New → Upload Theme** (*Replace current with uploaded*) or sync `wp-content/themes/blcmesa-theme/` via **Cloudways Deployment via Git** / SFTP.
+4. Purge Breeze & Varnish caches on Cloudways.
+5. Perform **WordPress core & plugin updates** directly on Cloudways (ideally via a Cloudways Staging clone or after taking an on-demand backup), and periodically run `docker compose pull` locally to stay in sync.
+
+> [!NOTE]
+> If church admins edit the Header, Footer, or Templates inside **Appearance → Editor**, WordPress saves overrides in the database that take precedence over theme `.html` files. Keep church admins editing **Pages & Posts**, while layout/template updates live in Git.
 
 ---
 

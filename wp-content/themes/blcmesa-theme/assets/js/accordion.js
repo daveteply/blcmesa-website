@@ -1,9 +1,20 @@
 /**
- * BLC Mesa - Smooth Accordion Animations
- * Provides buttery-smooth Angular Material-style expand/collapse transitions
- * for native WordPress <details> blocks with cubic-bezier easing.
+ * BLC Mesa - Smooth Accordion Animation Fallback
+ *
+ * Modern Chromium browsers animate `<details>::details-content` natively via
+ * CSS `interpolate-size: allow-keywords` + `transition-behavior: allow-discrete`.
+ * This script exits immediately when native CSS animation is supported or when
+ * the user prefers reduced motion, providing a lightweight Web Animations API
+ * fallback for browsers without `interpolate-size` support (e.g., Firefox/Safari).
  */
 document.addEventListener('DOMContentLoaded', function () {
+  if (
+    (window.CSS && typeof window.CSS.supports === 'function' && window.CSS.supports('interpolate-size', 'allow-keywords')) ||
+    (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)
+  ) {
+    return;
+  }
+
   const detailsList = document.querySelectorAll('details.blc-details-item');
 
   detailsList.forEach(function (details) {

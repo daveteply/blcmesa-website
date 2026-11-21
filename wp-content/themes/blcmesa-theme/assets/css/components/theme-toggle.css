@@ -1,14 +1,70 @@
 /* -------------------------------------------------------------
- * 15. Theme Mode Support (Light / Dark / System)
+ * 15. Theme Mode Support (Smart 2-State + <meta name="color-scheme">)
  * ----------------------------------------------------------- */
-html {
+:root {
+  /* Keep base light dark so OS preference works even without JavaScript */
+  color-scheme: light dark;
+  --color-scheme: light;
+
+  /* Raw light/dark surface & text tokens */
+  --blc-surface-cream-light: #FAF8F5;
+  --blc-surface-cream-dark: #0C1017;
+  --blc-surface-warm-gray-light: #EFECE6;
+  --blc-surface-warm-gray-dark: rgba(255, 255, 255, 0.08);
+  --blc-text-dark-light: #2C3539;
+  --blc-text-dark-dark: #E2E8F0;
+  --blc-text-navy-light: #0E2138;
+  --blc-text-navy-dark: #FAF8F5;
+  --blc-text-primary-light: #1B365D;
+  --blc-text-primary-dark: #E8B85A;
+  --blc-text-muted-light: #8E9AAB;
+  --blc-text-muted-dark: #94A3B8;
+
+  /* Fallback tokens for browsers without light-dark() */
+  --blc-cream: var(--blc-surface-cream-light);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(:has(> head > meta[name="color-scheme"][content="light"])) {
+    --color-scheme: dark;
+    --wp--preset--color--cream: var(--blc-surface-cream-dark);
+    --wp--preset--color--warm-gray: var(--blc-surface-warm-gray-dark);
+    --wp--preset--color--dark: var(--blc-text-dark-dark);
+    --wp--preset--color--navy-dark: var(--blc-text-navy-dark);
+    --wp--preset--color--primary: var(--blc-text-primary-dark);
+    --wp--preset--color--muted: var(--blc-text-muted-dark);
+    --blc-cream: var(--blc-surface-cream-dark);
+  }
+}
+
+/* Map <meta name="color-scheme"> back to CSS color-scheme so the cascade follows it */
+:root:has(> head > meta[name="color-scheme"][content="dark"]) {
+  color-scheme: dark;
+  --color-scheme: dark;
+}
+
+:root:has(> head > meta[name="color-scheme"][content="light"]) {
   color-scheme: light;
+  --color-scheme: light;
+}
+
+/* Modern light-dark() tokens automatically track computed color-scheme */
+@supports (color: light-dark(white, black)) {
+  :root {
+    --wp--preset--color--cream: light-dark(var(--blc-surface-cream-light), var(--blc-surface-cream-dark));
+    --wp--preset--color--warm-gray: light-dark(var(--blc-surface-warm-gray-light), var(--blc-surface-warm-gray-dark));
+    --wp--preset--color--dark: light-dark(var(--blc-text-dark-light), var(--blc-text-dark-dark));
+    --wp--preset--color--navy-dark: light-dark(var(--blc-text-navy-light), var(--blc-text-navy-dark));
+    --wp--preset--color--primary: light-dark(var(--blc-text-primary-light), var(--blc-text-primary-dark));
+    --wp--preset--color--muted: light-dark(var(--blc-text-muted-light), var(--blc-text-muted-dark));
+    --blc-cream: light-dark(var(--blc-surface-cream-light), var(--blc-surface-cream-dark));
+  }
 }
 
 html[data-theme="dark"] {
   color-scheme: dark;
 
-  /* Gutenberg Core Color Presets Overrides */
+  /* Gutenberg Core Color Presets Overrides (fallback for browsers without :has / light-dark) */
   --wp--preset--color--cream: #0C1017;
   --wp--preset--color--warm-gray: rgba(255, 255, 255, 0.08);
   --wp--preset--color--dark: #E2E8F0;
@@ -18,6 +74,50 @@ html[data-theme="dark"] {
 
   /* Theme-specific custom variables */
   --blc-cream: #0C1017;
+}
+
+/* Accessible visually hidden text for toggle action labels */
+.blc-visually-hidden {
+  position: absolute;
+  clip-path: inset(50%);
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  white-space: nowrap;
+}
+
+/* CSS-driven 2-state toggle visibility (works without JS and updates on OS changes) */
+.blc-theme-state {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blc-theme-state-to-light {
+  display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(:has(> head > meta[name="color-scheme"][content="light"])):not([data-theme="light"]) .blc-theme-state-to-dark {
+    display: none;
+  }
+
+  :root:not(:has(> head > meta[name="color-scheme"][content="light"])):not([data-theme="light"]) .blc-theme-state-to-light {
+    display: inline-flex;
+  }
+}
+
+:root:has(> head > meta[name="color-scheme"][content="dark"]) .blc-theme-state-to-dark,
+html[data-theme="dark"] .blc-theme-state-to-dark {
+  display: none;
+}
+
+:root:has(> head > meta[name="color-scheme"][content="dark"]) .blc-theme-state-to-light,
+html[data-theme="dark"] .blc-theme-state-to-light {
+  display: inline-flex;
 }
 
 /* In dark mode, white background containers (cards, callouts) become dark slate */

@@ -12,7 +12,8 @@ This directory contains automation utilities for local development, media synchr
 | [`init-site.sh`](file://./init-site.sh) | Bash / WP-CLI | Initializes WordPress core, applies site settings, and activates the theme |
 | [`backup-db.sh`](file://./backup-db.sh) | Bash / Docker | Exports a compressed SQL backup snapshot from MariaDB to `backups/` |
 | [`restore-db.sh`](file://./restore-db.sh) | Bash / Docker | Restores a database snapshot from a `.sql` or `.sql.gz` file |
-| [`export-for-hosting.sh`](file://./export-for-hosting.sh) | Bash / Zip | Generates a standalone production zip package ready for any web host |
+| [`export-for-hosting.sh`](file://./export-for-hosting.sh) | Bash / Zip | Generates a one-time initial Cloudways migration zip (DB + custom theme + uploads) |
+| [`export-theme.sh`](file://./export-theme.sh) | Bash / Zip | Generates a safe theme-only zip (`blcmesa-theme`) for ongoing Cloudways re-uploads without touching the live DB |
 
 ---
 
@@ -115,11 +116,24 @@ bash scripts/restore-db.sh backups/blcmesa_db_YYYYMMDD_HHMMSS.sql.gz
 
 ## 5. Hosting Migration Packager (`export-for-hosting.sh`)
 
-Bundles the active theme, custom plugins, media uploads, and a fresh database dump into a production-ready `.zip` archive.
+Bundles `blcmesa-theme`, non-default plugins, media uploads, and a MariaDB 10.11-compatible database dump into a one-time initial launch `.zip` archive.
 
 ```bash
 bash scripts/export-for-hosting.sh
 ```
 
 - Output: `backups/blcmesa_migration_package_<timestamp>.zip`
-- Includes `README_MIGRATION.txt` with step-by-step instructions for importing into standard hosts (Bluehost, DreamHost, SiteGround, WP Engine).
+- Includes `README_MIGRATION.txt` with Cloudways deployment steps.
+- **Warning**: Use for initial launch only; never re-import `database.sql` after church admins begin editing live.
+
+---
+
+## 6. Theme-Only Update Packager (`export-theme.sh`)
+
+Packages **only** `wp-content/themes/blcmesa-theme` for safe ongoing Cloudways re-uploads while church admins continue editing pages, sermons, and uploads in WordPress.
+
+```bash
+bash scripts/export-theme.sh
+```
+
+- Output: `backups/blcmesa-theme_<version>_<timestamp>.zip`
