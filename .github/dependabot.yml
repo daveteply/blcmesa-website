@@ -52,3 +52,7 @@ updates:
       docker-compose:
         patterns:
           - "*"
+    ignore:
+      # Keep local MariaDB aligned with existing db_data volume & Cloudways MariaDB
+      - dependency-name: "mariadb"
+        update-types: ["version-update:semver-major"]
