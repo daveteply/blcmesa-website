@@ -10,7 +10,7 @@
       "configureZshAsDefaultShell": true
     },
     "ghcr.io/devcontainers/features/node:1": {
-      "version": "22"
+      "version": "lts"
     }
   },
   "customizations": {
@@ -57,7 +57,6 @@
           "mcrypt",
           "mysql",
           "mysqli",
-          "password_compat",
           "pcntl",
           "pcre",
           "PDO",

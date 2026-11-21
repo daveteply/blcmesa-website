@@ -19,6 +19,7 @@ wp-content/themes/*
 # WordPress Content Uploads, Upgrades, & Caches
 wp-content/uploads/
 wp-content/upgrade/
+wp-content/upgrade-temp-backup/
 wp-content/cache/
 wp-content/backups/
 wp-content/advanced-cache.php
@@ -44,6 +45,7 @@ yarn-error.log*
 tmp/
 __pycache__/
 *.pyc
+.ruff_cache/
 
 # OS metadata
 .DS_Store
