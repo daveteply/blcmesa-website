@@ -1,0 +1,371 @@
+/* -------------------------------------------------------------
+ * 2. Sticky Navigation Bar
+ * ----------------------------------------------------------- */
+.wp-site-blocks {
+  overflow: visible !important;
+}
+
+header.wp-block-template-part,
+.wp-block-template-part:has(.blc-sticky-header),
+.blc-sticky-header {
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 9999 !important;
+}
+
+.blc-sticky-header {
+  background-color: rgba(21, 29, 40, 0.96);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-top: 1px solid rgba(212, 155, 40, 0.4);
+  border-bottom: 1px solid rgba(212, 155, 40, 0.25);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+  padding: 0.6rem var(--wp--preset--spacing--30);
+  transition: all 0.3s ease-in-out;
+}
+
+.blc-header-container {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.45rem !important;
+  width: 100% !important;
+}
+
+/* Brand Row: Logo Flexboxed to Left, Theme Toggle Flexboxed to Right */
+.blc-brand-row {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+/* Navigation Row: Navigation items and Plan Your Visit button */
+.blc-nav-row {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  width: 100% !important;
+  padding-top: 0.35rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.blc-header-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  text-decoration: none !important;
+}
+
+.blc-header-brand:hover {
+  opacity: 0.92;
+}
+
+.blc-brand-logo {
+  height: 38px;
+  width: auto;
+  display: block;
+  filter: drop-shadow(0 0 8px rgba(212, 155, 40, 0.5));
+}
+
+.blc-brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.blc-brand-title {
+  font-family: Cinzel, serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #FFFFFF;
+  text-transform: uppercase;
+}
+
+.blc-brand-subtitle {
+  font-family: Cinzel, serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--blc-gold-primary);
+  text-transform: uppercase;
+}
+
+.blc-sticky-header .wp-block-navigation,
+.blc-sticky-header .wp-block-navigation .wp-block-navigation-item,
+.blc-sticky-header .wp-block-navigation .wp-block-navigation-item__link,
+.blc-sticky-header .wp-block-navigation .wp-block-navigation__responsive-container-open,
+html[data-theme="dark"] .blc-sticky-header .wp-block-navigation,
+html[data-theme="dark"] .blc-sticky-header .wp-block-navigation .wp-block-navigation-item,
+html[data-theme="dark"] .blc-sticky-header .wp-block-navigation .wp-block-navigation-item__link,
+html[data-theme="dark"] .blc-sticky-header .wp-block-navigation .wp-block-navigation__responsive-container-open {
+  color: #FFFFFF !important;
+  font-family: Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.blc-sticky-header .wp-block-navigation .wp-block-navigation-item__link {
+  padding: 0.5rem 0.75rem;
+}
+
+.blc-sticky-header .wp-block-navigation .wp-block-navigation-item__link:hover,
+.blc-sticky-header .wp-block-navigation .wp-block-navigation-item.current-menu-item .wp-block-navigation-item__link,
+html[data-theme="dark"] .blc-sticky-header .wp-block-navigation .wp-block-navigation-item__link:hover,
+html[data-theme="dark"] .blc-sticky-header .wp-block-navigation .wp-block-navigation-item.current-menu-item .wp-block-navigation-item__link {
+  color: var(--blc-gold-hover) !important;
+  text-shadow: 0 0 12px rgba(212, 155, 40, 0.6);
+}
+
+/* Submenu Dropdown Container & Links (Desktop & Tablet) */
+@media (min-width: 782px) {
+  .blc-sticky-header .wp-block-navigation__responsive-container-open {
+    display: none !important;
+  }
+
+  .blc-sticky-header .wp-block-navigation__responsive-container {
+    display: flex !important;
+    position: static !important;
+    width: auto !important;
+    height: auto !important;
+    background: transparent !important;
+  }
+
+  .blc-sticky-header .wp-block-navigation__responsive-container-close {
+    display: none !important;
+  }
+
+  .blc-sticky-header .wp-block-navigation .wp-block-navigation__submenu-container {
+    background-color: #151D28 !important;
+    border: 1px solid rgba(212, 155, 40, 0.3) !important;
+    border-radius: 6px !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6) !important;
+    padding: 0.5rem 0 !important;
+  }
+
+  .blc-sticky-header .wp-block-navigation .wp-block-navigation__submenu-container .wp-block-navigation-item__link,
+  html[data-theme="dark"] .blc-sticky-header .wp-block-navigation .wp-block-navigation__submenu-container .wp-block-navigation-item__link {
+    color: #FFFFFF !important;
+    font-size: 0.82rem !important;
+    padding: 0.5rem 1rem !important;
+    display: block !important;
+    text-transform: none !important;
+  }
+
+  .blc-sticky-header .wp-block-navigation .wp-block-navigation__submenu-container .wp-block-navigation-item__link:hover,
+  html[data-theme="dark"] .blc-sticky-header .wp-block-navigation .wp-block-navigation__submenu-container .wp-block-navigation-item__link:hover {
+    background-color: rgba(212, 155, 40, 0.15) !important;
+    color: var(--blc-gold-hover) !important;
+  }
+}
+
+/* External link indicator for Noah's Ark Preschool in navigation */
+.wp-block-navigation a[href*="noahsarkblc.org"]::after {
+  content: " \2197";
+  font-size: 0.85em;
+  opacity: 0.85;
+  display: inline-block;
+  margin-left: 0.25rem;
+  color: var(--blc-gold-primary);
+  vertical-align: baseline;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.wp-block-navigation a[href*="noahsarkblc.org"]:hover::after {
+  transform: translate(2px, -2px);
+  opacity: 1;
+  color: var(--blc-gold-hover);
+}
+
+.blc-sticky-header .blc-btn-gold {
+  margin-left: var(--wp--preset--spacing--20);
+}
+
+.blc-sticky-header .blc-btn-gold .wp-block-button__link {
+  font-family: Montserrat, sans-serif !important;
+  font-size: 0.8rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  padding: 0.55rem 1.2rem !important;
+}
+
+/* -------------------------------------------------------------
+ * 2b. Mobile Navigation Overlay (Clean Fullscreen Fade)
+ * ----------------------------------------------------------- */
+@media (max-width: 781px) {
+  .blc-sticky-header .wp-block-navigation__responsive-container-open {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #FFFFFF !important;
+    background: transparent !important;
+    border: 1px solid rgba(212, 155, 40, 0.45) !important;
+    border-radius: 6px !important;
+    padding: 0.4rem 0.6rem !important;
+    cursor: pointer;
+  }
+
+  .blc-sticky-header .wp-block-navigation__responsive-container-open:hover {
+    background: rgba(212, 155, 40, 0.15) !important;
+    border-color: var(--blc-gold-primary) !important;
+  }
+
+  /* When closed on mobile */
+  .blc-sticky-header .wp-block-navigation__responsive-container:not(.is-menu-open) {
+    display: none !important;
+  }
+
+  /* Clean Fullscreen Fade-In Overlay */
+  .blc-sticky-header .wp-block-navigation__responsive-container.is-menu-open {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background-color: #151D28 !important;
+    z-index: 100000 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    padding: 4.5rem 1.5rem 2.5rem 1.5rem !important;
+    box-sizing: border-box !important;
+    overflow-y: auto !important;
+    animation: blcNavFadeIn 0.25s ease forwards !important;
+  }
+
+  @keyframes blcNavFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .blc-sticky-header .wp-block-navigation__responsive-close {
+    position: static !important;
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .blc-sticky-header .wp-block-navigation__responsive-container-close {
+    position: fixed !important;
+    top: 1.25rem !important;
+    right: 1.25rem !important;
+    left: auto !important;
+    bottom: auto !important;
+    margin: 0 !important;
+    z-index: 100005 !important;
+    color: #FFFFFF !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(212, 155, 40, 0.5) !important;
+    border-radius: 6px !important;
+    padding: 0.45rem 0.75rem !important;
+    cursor: pointer !important;
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.2s ease !important;
+  }
+
+  .blc-sticky-header .wp-block-navigation__responsive-container-close:hover {
+    background: rgba(212, 155, 40, 0.2) !important;
+    border-color: var(--blc-gold-hover) !important;
+  }
+
+  .blc-sticky-header .wp-block-navigation__responsive-container-content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    width: 100% !important;
+    max-width: 380px !important;
+    gap: 0.35rem !important;
+    margin: 1.5rem auto !important;
+    padding: 0 !important;
+  }
+
+  .blc-sticky-header .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item {
+    width: 100% !important;
+    text-align: center !important;
+    list-style: none !important;
+  }
+
+  .blc-sticky-header .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item__link {
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+    color: #FFFFFF !important;
+    padding: 0.65rem 0.5rem !important;
+    display: inline-block !important;
+    text-align: center !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    transition: color 0.2s ease, text-shadow 0.2s ease !important;
+  }
+
+  .blc-sticky-header .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item__link:hover,
+  .blc-sticky-header .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item.current-menu-item > .wp-block-navigation-item__link {
+    color: var(--blc-gold-hover) !important;
+    text-shadow: 0 0 12px rgba(212, 155, 40, 0.7) !important;
+  }
+
+  /* Submenu Container (MINISTRIES dropdown items) on Mobile - Matched Line Spacing */
+  .blc-sticky-header .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__submenu-container {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0.35rem !important;
+    width: 100% !important;
+  }
+
+  /* Submenu links on mobile: identical vertical rhythm and padding */
+  .blc-sticky-header .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__submenu-container .wp-block-navigation-item__link {
+    font-size: 0.95rem !important;
+    font-weight: 500 !important;
+    text-transform: none !important;
+    letter-spacing: 0.04em !important;
+    color: #CBD5E1 !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 0.45rem 0.5rem !important;
+    display: inline-block !important;
+    text-align: center !important;
+    width: auto !important;
+    line-height: 1.4 !important;
+    transition: color 0.2s ease, text-shadow 0.2s ease !important;
+  }
+
+  .blc-sticky-header .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__submenu-container .wp-block-navigation-item__link:hover {
+    color: var(--blc-gold-hover) !important;
+    background: transparent !important;
+    text-shadow: 0 0 10px rgba(212, 155, 40, 0.6) !important;
+  }
+
+  /* Submenu toggle caret button on mobile */
+  .blc-sticky-header .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-submenu__toggle {
+    color: var(--blc-gold-primary) !important;
+    background: transparent !important;
+    border: none !important;
+    cursor: pointer !important;
+    padding: 0.25rem !important;
+    vertical-align: middle !important;
+  }
+}

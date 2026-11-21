@@ -1,0 +1,18 @@
+/*
+Theme Name: BLC Mesa
+Theme URI: https://blcmesa.org
+Author: Bethlehem Lutheran Church Mesa
+Author URI: https://blcmesa.org
+Description: Clean, modern Gutenberg Full Site Editing (FSE) block theme for Bethlehem Lutheran Church. Built for volunteer ease of use and performance.
+Version: 1.2.0
+Requires at least: 6.5
+Tested up to: 7.1
+Requires PHP: 8.2
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: blcmesa
+Tags: full-site-editing, block-patterns, block-styles, wide-blocks, one-column, custom-colors
+*/
+
+/* Stylesheets are enqueued directly in functions.php via wp_enqueue_style()
+ * so each file loads in parallel with versioned cache-busting query strings. */

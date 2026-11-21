@@ -1,0 +1,20 @@
+/* -------------------------------------------------------------
+ * 1. Global Utilities & Variables
+ * ----------------------------------------------------------- */
+:root {
+  --blc-gold-primary: #D49B28;
+  --blc-gold-hover: #E8B85A;
+  --blc-gold-glow: rgba(212, 155, 40, 0.45);
+  --blc-obsidian: #0C1017;
+  --blc-midnight-slate: #151D28;
+  --blc-cream: #FAF8F5;
+  --blc-white: #FFFFFF;
+}
+
+/* Remove default block gap above template parts (header, footer) */
+.wp-block-template-part,
+header.wp-block-template-part,
+footer.wp-block-template-part {
+  margin-block-start: 0 !important;
+  margin-top: 0 !important;
+}

@@ -1,0 +1,340 @@
+/* -------------------------------------------------------------
+ * 12. Ministries & Programs Page Components
+ * ----------------------------------------------------------- */
+
+/* In-Page Category Sub-Nav Pills */
+.blc-subnav-container {
+  margin-top: 1.5rem !important;
+  margin-bottom: 3.5rem !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.blc-subnav-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.blc-subnav-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6rem 1.25rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 9999px;
+  background-color: var(--wp--preset--color--cream, #FAF8F5);
+  color: var(--blc-midnight-slate);
+  border: 1px solid var(--wp--preset--color--warm-gray, #E2E8F0);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.blc-subnav-pill:hover {
+  background-color: var(--blc-gold-primary);
+  color: #FFFFFF !important;
+  border-color: var(--blc-gold-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(212, 155, 40, 0.25);
+}
+
+/* Category Sections & Grids */
+.blc-category-section {
+  scroll-margin-top: 100px;
+  margin-bottom: 4.5rem !important;
+}
+
+.blc-ministries-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+  margin-top: 2rem;
+}
+
+/* Ministry Card */
+.blc-ministry-card {
+  display: flex;
+  flex-direction: row;
+  background-color: #FFFFFF;
+  border: 1px solid var(--wp--preset--color--warm-gray, #E2E8F0);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.blc-ministry-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  border-color: rgba(212, 155, 40, 0.4);
+}
+
+/* Alternating Reverse Card on Desktop */
+@media (min-width: 860px) {
+  .blc-ministry-card.blc-card-reverse {
+    flex-direction: row-reverse;
+  }
+}
+
+/* Media Container */
+.blc-ministry-media {
+  flex: 0 0 380px;
+  max-width: 380px;
+  background-color: #F8FAFC;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blc-ministry-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.blc-ministry-media.blc-media-contain img {
+  object-fit: cover;
+}
+
+.blc-ministry-media.blc-media-logo {
+  background-color: #FFFFFF;
+  padding: 1.5rem 1.5rem;
+}
+
+.blc-ministry-media.blc-media-logo img {
+  width: auto;
+  max-width: 92%;
+  max-height: 220px;
+  object-fit: contain;
+  transition: transform 0.25s ease;
+}
+
+.blc-ministry-media.blc-media-logo-zoom img {
+  max-width: 96%;
+  max-height: 250px;
+  transform: scale(1.12);
+}
+
+.blc-ministry-card:hover .blc-ministry-media.blc-media-logo-zoom img {
+  transform: scale(1.16);
+}
+
+.blc-ministry-media.blc-media-icon {
+  background: linear-gradient(135deg, rgba(212, 155, 40, 0.08) 0%, rgba(21, 29, 40, 0.05) 100%);
+  padding: 3rem 2rem;
+}
+
+.blc-icon-badge {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  border: 2px solid var(--blc-gold-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--blc-gold-primary);
+  box-shadow: 0 4px 16px rgba(212, 155, 40, 0.2);
+}
+
+.blc-icon-badge svg {
+  width: 42px;
+  height: 42px;
+}
+
+/* Ministry Card Content */
+.blc-ministry-content {
+  flex: 1;
+  padding: 2.25rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.blc-ministry-badge {
+  display: inline-block;
+  align-self: flex-start;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--blc-gold-primary);
+  margin-bottom: 0.6rem;
+}
+
+.blc-ministry-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--blc-midnight-slate);
+  margin: 0 0 0.85rem 0;
+  line-height: 1.3;
+}
+
+.blc-ministry-content p {
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: #475569;
+  margin: 0 0 1.25rem 0;
+}
+
+.blc-ministry-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.88rem;
+  color: #64748B;
+  background-color: var(--wp--preset--color--cream, #FAF8F5);
+  border-left: 3px solid var(--blc-gold-primary);
+  padding: 0.75rem 1rem;
+  border-radius: 0 6px 6px 0;
+  margin-bottom: 1.25rem;
+}
+
+.blc-ministry-meta strong {
+  color: var(--blc-midnight-slate);
+}
+
+.blc-ministry-action {
+  margin-top: 0.25rem;
+}
+
+.blc-btn-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--blc-gold-primary);
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.blc-btn-text:hover {
+  color: var(--blc-gold-hover);
+  transform: translateX(3px);
+}
+
+.blc-btn-text .blc-btn-icon-mail {
+  display: inline-flex;
+  width: 17px;
+  height: 17px;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+.blc-btn-text .blc-external-icon {
+  font-size: 0.95em;
+  line-height: 1;
+  vertical-align: baseline;
+  transition: transform 0.2s ease;
+}
+
+.blc-btn-text:hover .blc-external-icon {
+  transform: translate(2px, -2px);
+}
+
+/* Mobile Responsiveness for Ministry Cards */
+@media (max-width: 859px) {
+  .blc-ministry-card {
+    flex-direction: column !important;
+  }
+  
+  .blc-ministry-media {
+    flex: none;
+    max-width: 100%;
+    width: 100%;
+    min-height: 220px;
+    max-height: 280px;
+  }
+  
+  .blc-ministry-media.blc-media-logo {
+    padding: 2rem 1rem;
+  }
+  
+  .blc-ministry-content {
+    padding: 1.75rem 1.5rem;
+  }
+  
+  .blc-ministry-title {
+    font-size: 1.3rem;
+  }
+  
+  .blc-subnav-pills {
+    gap: 0.5rem;
+  }
+  
+  .blc-subnav-pill {
+    font-size: 0.82rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* -------------------------------------------------------------
+ * Dark Mode Overrides for Ministries Page
+ * ----------------------------------------------------------- */
+html[data-theme="dark"] .blc-subnav-pill {
+  background-color: #151E2B;
+  color: #E2E8F0;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+html[data-theme="dark"] .blc-subnav-pill:hover {
+  background-color: var(--blc-gold-primary);
+  color: #FFFFFF !important;
+  border-color: var(--blc-gold-primary);
+}
+
+html[data-theme="dark"] .blc-ministry-card {
+  background-color: #151E2B;
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+}
+
+html[data-theme="dark"] .blc-ministry-card:hover {
+  border-color: var(--blc-gold-primary);
+}
+
+html[data-theme="dark"] .blc-ministry-media {
+  background-color: #0C1017;
+}
+
+html[data-theme="dark"] .blc-ministry-media.blc-media-logo {
+  background-color: #FFFFFF; /* keep crisp white background for transparent logos */
+}
+
+html[data-theme="dark"] .blc-ministry-media.blc-media-icon {
+  background: linear-gradient(135deg, rgba(212, 155, 40, 0.12) 0%, rgba(12, 16, 23, 0.5) 100%);
+}
+
+html[data-theme="dark"] .blc-icon-badge {
+  background-color: #151E2B;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+html[data-theme="dark"] .blc-ministry-title {
+  color: #FAF8F5;
+}
+
+html[data-theme="dark"] .blc-ministry-content p {
+  color: #CBD5E1;
+}
+
+html[data-theme="dark"] .blc-ministry-meta {
+  background-color: rgba(255, 255, 255, 0.04);
+  color: #94A3B8;
+  border-left-color: var(--blc-gold-primary);
+}
+
+html[data-theme="dark"] .blc-ministry-meta strong {
+  color: #FAF8F5;
+}
