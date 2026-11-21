@@ -68,7 +68,7 @@ services:
       - blcmesa-net
 
   db:
-    image: mariadb:13
+    image: mariadb:11
     restart: unless-stopped
     ports:
       - "${DB_PORT:-3306}:3306"
