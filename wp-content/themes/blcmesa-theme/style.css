@@ -4,43 +4,15 @@ Theme URI: https://blcmesa.org
 Author: Bethlehem Lutheran Church Mesa
 Author URI: https://blcmesa.org
 Description: Clean, modern Gutenberg Full Site Editing (FSE) block theme for Bethlehem Lutheran Church. Built for volunteer ease of use and performance.
-Version: 1.1.0
+Version: 1.2.0
 Requires at least: 6.5
 Tested up to: 7.1
-Requires PHP: 8.0
+Requires PHP: 8.2
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: blcmesa
 Tags: full-site-editing, block-patterns, block-styles, wide-blocks, one-column, custom-colors
 */
 
-/* =============================================================
- * 1. Base & Design System Foundation
- * =========================================================== */
-@import url('assets/css/base/fonts.css');
-@import url('assets/css/base/variables.css');
-@import url('assets/css/base/typography.css');
-
-/* =============================================================
- * 2. Shared Global Components & Chrome
- * =========================================================== */
-@import url('assets/css/components/navigation.css');
-@import url('assets/css/components/buttons.css');
-@import url('assets/css/components/cards.css');
-@import url('assets/css/components/footer.css');
-@import url('assets/css/components/theme-toggle.css');
-
-/* =============================================================
- * 3. Front Page Sections (Hero, Features, Community Photos)
- * =========================================================== */
-@import url('assets/css/home.css');
-
-/* =============================================================
- * 4. Page-Specific Layouts & Templates
- * =========================================================== */
-@import url('assets/css/pages/page-about.css');
-@import url('assets/css/pages/page-ministries.css');
-@import url('assets/css/pages/page-sermons.css');
-@import url('assets/css/pages/page-prayers.css');
-@import url('assets/css/pages/page-contact.css');
-@import url('assets/css/pages/page-giving.css');
+/* Stylesheets are enqueued directly in functions.php via wp_enqueue_style()
+ * so each file loads in parallel with versioned cache-busting query strings. */
