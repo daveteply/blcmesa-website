@@ -1,0 +1,79 @@
+name: Sync Cloudways Deploy Branch
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'wp-content/themes/blcmesa-theme/**'
+      - '.github/workflows/sync-deploy-branch.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-deploy-theme
+  cancel-in-progress: false
+
+jobs:
+  sync-theme:
+    name: Publish blcmesa-theme to deploy-theme branch
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v7
+
+      - name: Set up PHP for pre-deploy syntax check
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+
+      - name: Validate theme before publishing
+        run: |
+          test -f wp-content/themes/blcmesa-theme/style.css
+          find wp-content/themes/blcmesa-theme -type f -name "*.php" -print0 | xargs -0 -n 1 -P 4 php -l
+          python3 -m json.tool wp-content/themes/blcmesa-theme/theme.json > /dev/null
+          echo "✅ Theme PHP and theme.json validated."
+
+      - name: Sync theme files to deploy-theme branch
+        run: |
+          set -euo pipefail
+
+          SOURCE_SHA="$(git rev-parse --short HEAD)"
+          THEME_VERSION="$(grep -m1 '^Version:' wp-content/themes/blcmesa-theme/style.css | awk '{print $2}' | tr -d '\r' || echo 'dev')"
+          STAGE_DIR="$(mktemp -d)"
+          trap 'rm -rf "${STAGE_DIR}"' EXIT
+
+          rsync -a \
+            --exclude='.DS_Store' \
+            --exclude='Thumbs.db' \
+            wp-content/themes/blcmesa-theme/ "${STAGE_DIR}/"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          if git ls-remote --exit-code --heads origin deploy-theme >/dev/null 2>&1; then
+            git fetch origin deploy-theme
+            git checkout -B deploy-theme origin/deploy-theme
+          else
+            git checkout --orphan deploy-theme
+            git rm -rf --quiet .
+          fi
+
+          rsync -a --delete --exclude='.git' "${STAGE_DIR}/" ./
+
+          # Guard: ensure theme root landed cleanly before committing
+          test -f style.css
+          test -f functions.php
+          test -f theme.json
+
+          git add --all
+          if git diff --cached --quiet; then
+            echo "ℹ️ No theme changes detected for deploy-theme."
+            exit 0
+          fi
+
+          git commit -m "Deploy blcmesa-theme v${THEME_VERSION} (main@${SOURCE_SHA})"
+          git push origin deploy-theme
+          echo "✅ Published blcmesa-theme v${THEME_VERSION} (main@${SOURCE_SHA}) to deploy-theme."
