@@ -154,7 +154,13 @@ After launch, when you update theme styles, templates, or scripts in Git:
    ```bash
    bash scripts/export-theme.sh
    ```
-3. Upload `backups/blcmesa-theme_<version>_<timestamp>.zip` via **WP Admin → Appearance → Themes → Add New → Upload Theme** (*Replace current with uploaded*) or sync `wp-content/themes/blcmesa-theme/` via **Cloudways Deployment via Git** / SFTP.
+3. Deploy the theme using **either** method:
+   - **Cloudways Deployment via Git (Recommended):**
+     - Merging changes in `wp-content/themes/blcmesa-theme/` into `main` automatically runs `.github/workflows/sync-deploy-branch.yml`, which validates the theme and publishes **only** the theme root files to the `deploy-theme` branch.
+     - In Cloudways (**Application → Deployment via Git**), connect using Cloudways' generated SSH key (added as a read-only GitHub Deploy Key), select branch **`deploy-theme`**, and set **Deployment Path** to `public_html/wp-content/themes/blcmesa-theme/`.
+     - Click **Pull** in Cloudways to update the theme without touching WordPress core, plugins, uploads, or the database.
+   - **Manual Theme Zip Upload:**
+     - Upload `backups/blcmesa-theme_<version>_<timestamp>.zip` via **WP Admin → Appearance → Themes → Add New → Upload Theme** (*Replace current with uploaded*).
 4. Purge Breeze & Varnish caches on Cloudways.
 5. Perform **WordPress core & plugin updates** directly on Cloudways (ideally via a Cloudways Staging clone or after taking an on-demand backup), and periodically run `docker compose pull` locally to stay in sync.
 
