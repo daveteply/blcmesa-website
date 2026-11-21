@@ -8,8 +8,15 @@ cd "${PROJECT_ROOT}"
 
 # Load environment variables if .env exists
 if [ -f .env ]; then
-  # Export non-commented lines from .env
-  export $(grep -v '^#' .env | xargs -d '\n')
+  while IFS='=' read -r key value || [ -n "${key}" ]; do
+    [[ "${key}" =~ ^[A-Za-z_][A-Za-z0-9_]*$ ]] || continue
+    value="${value%$'\r'}"
+    value="${value#\"}"
+    value="${value%\"}"
+    value="${value#\'}"
+    value="${value%\'}"
+    export "${key}=${value}"
+  done < .env
 fi
 
 # Fallback defaults
