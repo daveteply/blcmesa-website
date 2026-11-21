@@ -176,23 +176,23 @@
           <input type="text" name="blc_hp_check" class="blc-hp-field" style="display:none !important;" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
           <div class="blc-form-field">
-            <label for="contact-name" class="blc-form-label">Your Name <span class="blc-required">*</span></label>
-            <input type="text" id="contact-name" name="name" class="blc-form-input" required placeholder="First and Last Name" />
+            <label for="contact-name" class="blc-form-label">Your Name <span class="blc-required" aria-hidden="true">*</span></label>
+            <input type="text" id="contact-name" name="name" class="blc-form-input" autocomplete="name" enterkeyhint="next" required placeholder="First and Last Name" />
           </div>
 
           <div class="blc-form-row">
             <div class="blc-form-field blc-form-half">
-              <label for="contact-email" class="blc-form-label">Email Address <span class="blc-required">*</span></label>
-              <input type="email" id="contact-email" name="email" class="blc-form-input" required placeholder="you@example.com" />
+              <label for="contact-email" class="blc-form-label">Email Address <span class="blc-required" aria-hidden="true">*</span></label>
+              <input type="email" id="contact-email" name="email" class="blc-form-input" autocomplete="email" autocorrect="off" autocapitalize="none" spellcheck="false" enterkeyhint="next" required placeholder="you@example.com" />
             </div>
             <div class="blc-form-field blc-form-half">
               <label for="contact-phone" class="blc-form-label">Phone Number <span class="blc-text-muted">(Optional)</span></label>
-              <input type="tel" id="contact-phone" name="phone" class="blc-form-input" placeholder="(480) 555-0123" />
+              <input type="tel" id="contact-phone" name="phone" class="blc-form-input" autocomplete="tel" enterkeyhint="next" placeholder="(480) 555-0123" />
             </div>
           </div>
 
           <div class="blc-form-field">
-            <label for="contact-recipient" class="blc-form-label">Recipient / Ministry Area <span class="blc-required">*</span></label>
+            <label for="contact-recipient" class="blc-form-label">Recipient / Ministry Area <span class="blc-required" aria-hidden="true">*</span></label>
             <select id="contact-recipient" name="recipient" class="blc-form-select" required>
               <option value="office">Church Office &amp; General Inquiries</option>
               <option value="pastor">Pastor &amp; Pastoral Care</option>
@@ -207,11 +207,11 @@
 
           <div class="blc-form-field">
             <label for="contact-subject" class="blc-form-label">Subject</label>
-            <input type="text" id="contact-subject" name="subject" class="blc-form-input" placeholder="How can we help you?" />
+            <input type="text" id="contact-subject" name="subject" class="blc-form-input" enterkeyhint="next" placeholder="How can we help you?" />
           </div>
 
           <div class="blc-form-field">
-            <label for="contact-message" class="blc-form-label">Message <span class="blc-required">*</span></label>
+            <label for="contact-message" class="blc-form-label">Message <span class="blc-required" aria-hidden="true">*</span></label>
             <textarea id="contact-message" name="message" class="blc-form-textarea" rows="5" required placeholder="Write your message or prayer request here..."></textarea>
           </div>
 
@@ -224,7 +224,7 @@
             <span><strong>Privacy Protected:</strong> Your information is kept strictly confidential and only transmitted internally to the selected church ministry leader.</span>
           </div>
 
-          <div id="contact-form-feedback" class="blc-form-feedback" style="display:none;">
+          <div id="contact-form-feedback" class="blc-form-feedback" role="status" aria-live="polite" aria-atomic="true" style="display:none;">
             <p><strong>Thank you for contacting Bethlehem Lutheran Church!</strong> Your message has been received and our office will follow up shortly.</p>
           </div>
 

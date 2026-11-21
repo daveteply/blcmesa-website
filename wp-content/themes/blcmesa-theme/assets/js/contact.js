@@ -125,53 +125,58 @@
         feedbackBox.className = 'blc-form-feedback';
       }
 
+      function renderFeedback(isSuccess, prefix, text) {
+        if (!feedbackBox) return;
+        feedbackBox.style.display = 'block';
+        feedbackBox.setAttribute('role', isSuccess ? 'status' : 'alert');
+        feedbackBox.className = isSuccess
+          ? 'blc-form-feedback blc-feedback-success'
+          : 'blc-form-feedback blc-feedback-error';
+        const p = document.createElement('p');
+        const strong = document.createElement('strong');
+        strong.textContent = prefix;
+        p.appendChild(strong);
+        p.appendChild(document.createTextNode(' ' + text));
+        feedbackBox.replaceChildren(p);
+        feedbackBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+
       fetch(ajaxEndpoint, {
         method: 'POST',
         body: formData
       })
         .then(response => response.json())
         .then(data => {
-          if (feedbackBox) {
-            feedbackBox.style.display = 'block';
-            if (data.success) {
-              feedbackBox.className = 'blc-form-feedback blc-feedback-success';
-              feedbackBox.innerHTML = `<p><strong>Message Sent!</strong> ${data.data.message}</p>`;
+          if (data.success) {
+            renderFeedback(true, 'Message Sent!', data.data?.message || 'Thank you for reaching out!');
 
-              if (data.data?.mockEmail) {
-                console.group('%c📧 [BLC Dev Test] Mock Contact Form Submission', 'color: #D49B28; font-weight: bold; font-size: 13px;');
-                console.info('To:           ', data.data.mockEmail.to);
-                console.info('From:         ', data.data.mockEmail.from);
-                console.info('Phone:        ', data.data.mockEmail.phone);
-                console.info('Subject:      ', data.data.mockEmail.subject);
-                console.info('Submitted At: ', data.data.mockEmail.submittedAt);
-                if (data.data.mockEmail.testOverride) {
-                  console.info('Test Mailbox: ', data.data.mockEmail.testOverride);
-                }
-                if (data.data.mockEmail.mailError) {
-                  console.warn('Note:         ', data.data.mockEmail.mailError);
-                }
-                console.info('Message:      \n' + data.data.mockEmail.message);
-                console.groupEnd();
+            if (data.data?.mockEmail) {
+              console.group('%c📧 [BLC Dev Test] Mock Contact Form Submission', 'color: #D49B28; font-weight: bold; font-size: 13px;');
+              console.info('To:           ', data.data.mockEmail.to);
+              console.info('From:         ', data.data.mockEmail.from);
+              console.info('Phone:        ', data.data.mockEmail.phone);
+              console.info('Subject:      ', data.data.mockEmail.subject);
+              console.info('Submitted At: ', data.data.mockEmail.submittedAt);
+              if (data.data.mockEmail.testOverride) {
+                console.info('Test Mailbox: ', data.data.mockEmail.testOverride);
               }
-
-              nativeForm.reset();
-              // Re-apply any default recipient if parameter present
-              const currentTo = new URLSearchParams(window.location.search).get('to');
-              if (currentTo) applyRecipient(currentTo, false);
-            } else {
-              feedbackBox.className = 'blc-form-feedback blc-feedback-error';
-              feedbackBox.innerHTML = `<p><strong>Error:</strong> ${data.data?.message || 'Unable to send message. Please try again or call (480) 832-0462.'}</p>`;
+              if (data.data.mockEmail.mailError) {
+                console.warn('Note:         ', data.data.mockEmail.mailError);
+              }
+              console.info('Message:      \n' + data.data.mockEmail.message);
+              console.groupEnd();
             }
-            feedbackBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+            nativeForm.reset();
+            // Re-apply any default recipient if parameter present
+            const currentTo = new URLSearchParams(window.location.search).get('to');
+            if (currentTo) applyRecipient(currentTo, false);
+          } else {
+            renderFeedback(false, 'Error:', data.data?.message || 'Unable to send message. Please try again or call (480) 832-0462.');
           }
         })
-        .catch(err => {
-          if (feedbackBox) {
-            feedbackBox.style.display = 'block';
-            feedbackBox.className = 'blc-form-feedback blc-feedback-error';
-            feedbackBox.innerHTML = '<p><strong>Connection Error:</strong> Could not reach the server. Please try again or call the church office at (480) 832-0462.</p>';
-            feedbackBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-          }
+        .catch(() => {
+          renderFeedback(false, 'Connection Error:', 'Could not reach the server. Please try again or call the church office at (480) 832-0462.');
         })
         .finally(() => {
           if (submitBtn) {

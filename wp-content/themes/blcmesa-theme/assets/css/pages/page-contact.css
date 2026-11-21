@@ -139,8 +139,9 @@
 .blc-form-textarea {
   width: 100%;
   padding: 0.75rem 0.9rem;
-  font-size: 0.95rem;
-  font-family: inherit;
+  font: inherit;
+  font-size: max(1rem, 1em);
+  min-height: 48px;
   color: inherit;
   background-color: #FFFFFF;
   border: 1px solid var(--wp--preset--color--warm-gray, #CBD5E1);
@@ -149,12 +150,19 @@
   box-sizing: border-box;
 }
 
-.blc-form-input:focus,
-.blc-form-select:focus,
-.blc-form-textarea:focus {
-  outline: none;
+.blc-form-input:focus-visible,
+.blc-form-select:focus-visible,
+.blc-form-textarea:focus-visible {
+  outline: 3px solid var(--blc-gold-primary);
+  outline-offset: 2px;
   border-color: var(--blc-gold-primary);
   box-shadow: 0 0 0 3px var(--blc-gold-glow);
+}
+
+.blc-form-input:user-invalid,
+.blc-form-select:user-invalid,
+.blc-form-textarea:user-invalid {
+  border-color: #DC2626;
 }
 
 .blc-form-privacy-note {
