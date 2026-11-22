@@ -9,6 +9,13 @@
   --blc-midnight-slate: #151D28;
   --blc-cream: #FAF8F5;
   --blc-white: #FFFFFF;
+  --in-oklab: ;
+}
+
+@supports (background: linear-gradient(in oklab, white, black)) {
+  :root {
+    --in-oklab: in oklab;
+  }
 }
 
 /* Remove default block gap above template parts (header, footer) */

@@ -33,6 +33,7 @@ function blcmesa_setup() {
             'assets/css/base/variables.css',
             'assets/css/base/typography.css',
             'assets/css/components/navigation.css',
+            'assets/css/components/page-header.css',
             'assets/css/components/buttons.css',
             'assets/css/components/cards.css',
             'assets/css/components/footer.css',
@@ -86,7 +87,7 @@ function blcmesa_theme_head_script() {
     <link rel="preload" href="<?php echo esc_url( $theme_uri . '/assets/fonts/cinzel.woff2' ); ?>" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="<?php echo esc_url( $theme_uri . '/assets/fonts/montserrat-400.woff2' ); ?>" as="font" type="font/woff2" crossorigin>
     <?php if ( is_front_page() ) : ?>
-    <link rel="preload" as="image" href="<?php echo esc_url( $theme_uri . '/assets/images/three-crosses-ext.webp' ); ?>" fetchpriority="high" type="image/webp">
+    <link rel="preload" as="image" href="<?php echo esc_url( $theme_uri . '/assets/images/blc-mesa-hero-dec-2026.jpg' ); ?>" fetchpriority="high" type="image/jpeg">
     <?php endif; ?>
     <?php
 }
@@ -116,6 +117,7 @@ function blcmesa_scripts() {
         'blcmesa-variables'   => '/assets/css/base/variables.css',
         'blcmesa-typography'  => '/assets/css/base/typography.css',
         'blcmesa-navigation'  => '/assets/css/components/navigation.css',
+        'blcmesa-page-header' => '/assets/css/components/page-header.css',
         'blcmesa-buttons'     => '/assets/css/components/buttons.css',
         'blcmesa-cards'       => '/assets/css/components/cards.css',
         'blcmesa-footer'      => '/assets/css/components/footer.css',
