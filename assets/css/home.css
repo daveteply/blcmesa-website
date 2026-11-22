@@ -150,6 +150,10 @@
   gap: 2.5rem;
 }
 
+.blc-elca-callout-inner > * {
+  margin-block-start: 0;
+}
+
 .blc-elca-logo-col {
   flex-shrink: 0;
   display: flex;
@@ -157,6 +161,11 @@
   justify-content: center;
 }
 
+.blc-elca-logo-col .wp-block-image {
+  margin: 0;
+}
+
+.blc-elca-logo-col img,
 .blc-elca-globe-img {
   width: 110px;
   height: auto;
@@ -165,12 +174,17 @@
   transition: transform 0.25s ease;
 }
 
+.blc-elca-logo-link a:hover img,
 .blc-elca-logo-link:hover .blc-elca-globe-img {
   transform: scale(1.05);
 }
 
 .blc-elca-text-col {
   flex: 1;
+}
+
+.blc-elca-text-col > * {
+  margin-block-start: 0;
 }
 
 .blc-elca-title {
@@ -186,7 +200,12 @@
   color: #555E6B;
   font-size: 1rem;
   line-height: 1.65;
+  margin-top: 0;
   margin-bottom: 0.85rem;
+}
+
+.blc-elca-link-wrap {
+  margin: 0;
 }
 
 .blc-elca-link-wrap a {
@@ -241,12 +260,18 @@
   align-items: stretch;
 }
 
+.blc-noahs-ark-grid > * {
+  margin-block-start: 0;
+}
+
 .blc-noahs-ark-image-col {
   position: relative;
   min-height: 380px;
   overflow: hidden;
+  margin: 0;
 }
 
+.blc-noahs-ark-image-col img,
 .blc-noahs-ark-img {
   width: 100%;
   height: 100%;
@@ -311,6 +336,10 @@
   gap: 1.5rem;
 }
 
+.blc-community-photo-grid > * {
+  margin-block-start: 0;
+}
+
 .blc-photo-placeholder-card {
   background: #FFFFFF;
   border-radius: 16px;
@@ -320,6 +349,10 @@
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   display: flex;
   flex-direction: column;
+}
+
+.blc-photo-placeholder-card > * {
+  margin-block-start: 0;
 }
 
 .blc-photo-placeholder-card:hover {
@@ -333,8 +366,10 @@
   aspect-ratio: 16 / 10;
   background: #EAE6DF;
   overflow: hidden;
+  margin: 0;
 }
 
+.blc-photo-placeholder-img-wrap img,
 .blc-community-card-img {
   width: 100%;
   height: 100%;
@@ -345,6 +380,10 @@
 .blc-photo-placeholder-body {
   padding: 1.25rem 1.5rem;
   flex: 1;
+}
+
+.blc-photo-placeholder-body > * {
+  margin-block-start: 0;
 }
 
 .blc-photo-placeholder-title {
