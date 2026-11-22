@@ -86,7 +86,7 @@ function blcmesa_theme_head_script() {
     <link rel="preload" href="<?php echo esc_url( $theme_uri . '/assets/fonts/cinzel.woff2' ); ?>" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="<?php echo esc_url( $theme_uri . '/assets/fonts/montserrat-400.woff2' ); ?>" as="font" type="font/woff2" crossorigin>
     <?php if ( is_front_page() ) : ?>
-    <link rel="preload" as="image" href="<?php echo esc_url( $theme_uri . '/assets/images/three-crosses-ext.webp' ); ?>" fetchpriority="high" type="image/webp">
+    <link rel="preload" as="image" href="<?php echo esc_url( $theme_uri . '/assets/images/blc-mesa-hero-dec-2026.jpg' ); ?>" fetchpriority="high" type="image/jpeg">
     <?php endif; ?>
     <?php
 }
