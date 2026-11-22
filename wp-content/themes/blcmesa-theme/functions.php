@@ -241,3 +241,92 @@ function blcmesa_register_pattern_categories() {
 }
 add_action( 'init', 'blcmesa_register_pattern_categories' );
 
+/**
+ * One-time automatic setup: create the editable 'Home' page and assign it as
+ * the static front page when upgrading an existing site from the hardcoded
+ * front-page template. Guarded by an autoloaded option so it runs at most once
+ * and never overwrites staff edits.
+ */
+function blcmesa_ensure_static_home_page() {
+    if ( wp_installing() || get_option( 'blcmesa_home_page_seeded' ) ) {
+        return;
+    }
+
+    // If a static front page is already configured and published, mark complete and exit.
+    $front_page_id = (int) get_option( 'page_on_front' );
+    if ( 'page' === get_option( 'show_on_front' ) && $front_page_id > 0 && 'publish' === get_post_status( $front_page_id ) ) {
+        add_option( 'blcmesa_home_page_seeded', 1, '', 'yes' );
+        return;
+    }
+
+    // Atomic one-time lock to prevent duplicate pages on concurrent requests.
+    if ( ! add_option( 'blcmesa_home_page_seeded', 1, '', 'yes' ) ) {
+        return;
+    }
+
+    $existing_home = get_page_by_path( 'home', OBJECT, 'page' );
+    if ( $existing_home instanceof WP_Post && 'publish' === $existing_home->post_status ) {
+        update_option( 'show_on_front', 'page' );
+        update_option( 'page_on_front', (int) $existing_home->ID );
+        flush_rewrite_rules( false );
+        return;
+    }
+
+    $content_file = get_template_directory() . '/patterns/home-content.html';
+    if ( ! is_readable( $content_file ) ) {
+        delete_option( 'blcmesa_home_page_seeded' );
+        return;
+    }
+
+    $content = file_get_contents( $content_file );
+    if ( false === $content || '' === trim( $content ) ) {
+        delete_option( 'blcmesa_home_page_seeded' );
+        return;
+    }
+
+    $author_id = get_current_user_id();
+    if ( ! $author_id ) {
+        $admins    = get_users(
+            array(
+                'role'   => 'administrator',
+                'number' => 1,
+                'fields' => 'ID',
+            )
+        );
+        $author_id = ! empty( $admins ) ? (int) $admins[0] : 1;
+    }
+
+    $restore_kses = ! current_user_can( 'unfiltered_html' );
+    if ( $restore_kses ) {
+        kses_remove_filters();
+    }
+
+    try {
+        $page_id = wp_insert_post(
+            array(
+                'post_type'    => 'page',
+                'post_title'   => 'Home',
+                'post_name'    => 'home',
+                'post_status'  => 'publish',
+                'post_author'  => $author_id,
+                'post_content' => wp_slash( $content ),
+            ),
+            true
+        );
+    } finally {
+        if ( $restore_kses ) {
+            kses_init_filters();
+        }
+    }
+
+    if ( is_wp_error( $page_id ) || ! $page_id ) {
+        delete_option( 'blcmesa_home_page_seeded' );
+        return;
+    }
+
+    update_option( 'show_on_front', 'page' );
+    update_option( 'page_on_front', (int) $page_id );
+    flush_rewrite_rules( false );
+}
+add_action( 'init', 'blcmesa_ensure_static_home_page', 20 );
+
