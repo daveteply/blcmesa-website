@@ -7,6 +7,8 @@ echo "=========================================================="
 echo " Publishing All Site Pages to Local WordPress Database"
 echo "=========================================================="
 
+bash "${SCRIPT_DIR}/create-home-page.sh"
+echo ""
 bash "${SCRIPT_DIR}/create-about-page.sh"
 echo ""
 bash "${SCRIPT_DIR}/create-ministries-page.sh"
