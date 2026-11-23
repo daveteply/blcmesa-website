@@ -16,8 +16,46 @@
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.09);
 }
 
-.blc-sermon-columns {
+.blc-sermon-columns,
+.wp-block-columns:has(.blc-vimeo-showcase-wrap) {
   gap: 2.5rem !important;
+  align-items: stretch !important;
+}
+
+.blc-sermon-info-col,
+.wp-block-columns:has(.blc-vimeo-showcase-wrap) > .wp-block-column:not(:has(.blc-vimeo-showcase-wrap)) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.blc-sermon-video-col,
+.wp-block-column:has(.blc-vimeo-showcase-wrap) {
+  display: flex !important;
+  flex-direction: column !important;
+  align-self: stretch !important;
+}
+
+/* Full-height Vimeo Showcase embed (replaces fixed 16:9 padding box so the vertical video list fills the container) */
+.blc-vimeo-showcase-wrap {
+  position: relative;
+  flex: 1 1 auto;
+  width: 100%;
+  min-height: 480px;
+  margin: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: var(--blc-obsidian, #0C1017);
+  border: 1px solid rgba(12, 16, 23, 0.1);
+}
+
+.blc-vimeo-showcase-iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
 }
 
 .blc-sermon-heading {
@@ -362,6 +400,16 @@
     gap: 1.5rem !important;
   }
 
+  .blc-sermon-video-col,
+  .blc-sermon-info-col {
+    flex-basis: auto !important;
+    width: 100% !important;
+  }
+
+  .blc-vimeo-showcase-wrap {
+    min-height: clamp(460px, 72dvh, 640px);
+  }
+
   .blc-sermon-featured-card {
     padding: 1.5rem !important;
   }
@@ -399,6 +447,10 @@ html[data-theme="dark"] .blc-sermon-featured-card {
 
 html[data-theme="dark"] .blc-sermon-featured-card:hover {
   border-color: var(--blc-gold-primary) !important;
+}
+
+html[data-theme="dark"] .blc-vimeo-showcase-wrap {
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
 html[data-theme="dark"] .blc-sermon-heading {
