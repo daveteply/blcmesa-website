@@ -344,10 +344,10 @@
 <div class="wp-block-group alignwide">
 <!-- wp:group {"className":"blc-card blc-card-featured","backgroundColor":"white","layout":{"type":"constrained"}} -->
 <div class="wp-block-group blc-card blc-card-featured has-white-background-color has-background">
-<!-- wp:columns {"verticalAlignment":"center"} -->
-<div class="wp-block-columns are-vertically-aligned-center">
-<!-- wp:column {"width":"50%"} -->
-<div class="wp-block-column" style="flex-basis:50%">
+<!-- wp:columns {"className":"blc-sermon-columns"} -->
+<div class="wp-block-columns blc-sermon-columns">
+<!-- wp:column {"width":"45%","className":"blc-sermon-info-col"} -->
+<div class="wp-block-column blc-sermon-info-col" style="flex-basis:45%">
 <!-- wp:paragraph {"className":"blc-section-eyebrow","textColor":"accent"} -->
 <p class="blc-section-eyebrow has-accent-color has-text-color">Latest Worship Message</p>
 <!-- /wp:paragraph -->
@@ -374,13 +374,20 @@
 </div>
 <!-- /wp:column -->
 
-<!-- wp:column {"width":"50%"} -->
-<div class="wp-block-column" style="flex-basis:50%">
-<!-- wp:embed {"url":"https://vimeo.com/1232853175","type":"video","providerNameSlug":"vimeo","responsive":true,"className":"wp-embed-aspect-16-9 wp-has-aspect-ratio"} -->
-<figure class="wp-block-embed is-type-video is-provider-vimeo wp-block-embed-vimeo wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
-https://vimeo.com/1232853175
-</div></figure>
-<!-- /wp:embed -->
+<!-- wp:column {"width":"55%","className":"blc-sermon-video-col"} -->
+<div class="wp-block-column blc-sermon-video-col" style="flex-basis:55%">
+<!-- wp:html -->
+<div class="blc-vimeo-showcase-wrap">
+  <iframe
+    class="blc-vimeo-showcase-iframe"
+    src="https://vimeo.com/showcase/12454235/embed2"
+    title="Bethlehem Lutheran Church Sunday Worship and Sermon Videos"
+    allow="autoplay; fullscreen; picture-in-picture; gyroscope; accelerometer; clipboard-write; encrypted-media; web-share"
+    allowfullscreen
+    loading="lazy"
+  ></iframe>
+</div>
+<!-- /wp:html -->
 </div>
 <!-- /wp:column -->
 </div>
