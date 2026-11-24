@@ -98,7 +98,18 @@ Restore an existing database snapshot:
 bash scripts/restore-db.sh backups/blcmesa_db_YYYYMMDD_HHMMSS.sql.gz
 ```
 
-### 3. Production Hosting Export
+### 3. Pull Cloudways Database to Local (Debugging Live/Staging Content)
+After exporting a `.sql`, `.sql.gz`, or `.zip` dump from **Cloudways → Access Details → Launch Database Manager → Export** into `backups/`:
+```bash
+# Preview planned changes without modifying local DB
+bash scripts/import-cloudways-db.sh --dry-run --latest
+
+# Save a local rollback snapshot, import the newest Cloudways export, and rewrite URLs to localhost
+bash scripts/import-cloudways-db.sh --latest
+```
+*(Supports `--backup-only`, `--remote-url <URL>`, `--uploads <zip|dir>`, and `--no-local-backup`. See [`docs/PUBLISHING-WORKFLOW.md`](file://./docs/PUBLISHING-WORKFLOW.md) and [`scripts/README.md`](file://./scripts/README.md) for the full step-by-step guide.)*
+
+### 4. Production Hosting Export
 Generate a ready-to-upload migration package:
 ```bash
 bash scripts/export-for-hosting.sh
@@ -110,7 +121,7 @@ This produces `backups/blcmesa_migration_package_<timestamp>.zip` containing:
 - Media uploads (`wp-content/uploads`)
 - Migration instructions for standard hosts (Bluehost, DreamHost, SiteGround, etc.)
 
-### 4. Media & File Sync from Existing Live Site
+### 5. Media & File Sync from Existing Live Site
 Download all media attachments from the WordPress XML export file into `wp-content/uploads/` with crash-recovery:
 ```bash
 # Test on first 5 files

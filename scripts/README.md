@@ -12,6 +12,7 @@ This directory contains automation utilities for local development, media synchr
 | [`init-site.sh`](file://./init-site.sh) | Bash / WP-CLI | Initializes WordPress core, applies site settings, and activates the theme |
 | [`backup-db.sh`](file://./backup-db.sh) | Bash / Docker | Exports a compressed SQL backup snapshot from MariaDB to `backups/` |
 | [`restore-db.sh`](file://./restore-db.sh) | Bash / Docker | Restores a database snapshot from a `.sql` or `.sql.gz` file |
+| [`import-cloudways-db.sh`](file://./import-cloudways-db.sh) | Bash / WP-CLI | Imports a manual Cloudways DB export (`.sql`/`.sql.gz`/`.zip`) into local dev with auto URL rewrite & safety rollback |
 | [`export-for-hosting.sh`](file://./export-for-hosting.sh) | Bash / Zip | Generates a one-time initial Cloudways migration zip (DB + custom theme + uploads) |
 | [`export-theme.sh`](file://./export-theme.sh) | Bash / Zip | Generates a safe theme-only zip (`blcmesa-theme`) for ongoing Cloudways re-uploads without touching the live DB |
 
@@ -111,6 +112,42 @@ bash scripts/restore-db.sh
 # Restore a specific backup
 bash scripts/restore-db.sh backups/blcmesa_db_YYYYMMDD_HHMMSS.sql.gz
 ```
+
+---
+
+## 4b. Import Cloudways Database Export (`import-cloudways-db.sh`)
+
+Imports a manually exported database from **Cloudways Database Manager** (or phpMyAdmin) into your local Docker WordPress environment for debugging live/staging content changes.
+
+### Step 1: Export from Cloudways Admin Portal
+1. Open your **Cloudways** application -> **Access Details** -> **Launch Database Manager**.
+2. Click **Export** in the left sidebar.
+3. Choose **Output: `gzip`** (or `save`), **Format: `SQL`**, keep all tables checked, and click **Export**.
+4. Save the downloaded `.sql.gz` (or `.sql` / `.zip`) file into your local `backups/` folder.
+
+### Step 2: Import into Local Dev (VS Code Dev Container terminal)
+
+```bash
+# Import a specific downloaded export
+bash scripts/import-cloudways-db.sh backups/<your-cloudways-export>.sql.gz
+
+# Or auto-select the newest Cloudways export in backups/
+bash scripts/import-cloudways-db.sh --latest
+
+# Preview what would happen without modifying local DB
+bash scripts/import-cloudways-db.sh --dry-run --latest
+
+# Archive a download from outside backups/ without importing locally
+bash scripts/import-cloudways-db.sh --backup-only ~/Downloads/export.sql
+```
+
+### What It Handles Automatically
+- **Safety rollback**: Saves a compressed snapshot of your current local DB (`backups/pre_import_local_<timestamp>.sql.gz`) before importing.
+- **SQL compatibility**: Strips Cloudways `CREATE DATABASE` / `USE` lines, `DEFINER` clauses, MariaDB sandbox headers, and MySQL 8 `utf8mb4_0900_ai_ci` collations.
+- **Table prefix sync**: Auto-detects custom Cloudways table prefixes (e.g., `wp_abc123_`) and updates local `wp-config.php` so WordPress loads the imported tables immediately.
+- **Safe URL rewriting**: Auto-detects the remote Cloudways `siteurl`/`home` and runs serialized-safe `wp search-replace` to `http://localhost:8080`.
+- **Local hygiene**: Deactivates Cloudways-only cache/security plugins (`breeze`, `malcare-security`, `object-cache-pro`, etc.) locally and flushes permalinks/caches.
+- **Optional media sync**: Pass `--uploads <path-to-uploads.zip-or-dir>` to merge newly uploaded Cloudways media into `wp-content/uploads/`.
 
 ---
 
