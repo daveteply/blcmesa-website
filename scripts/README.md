@@ -2,6 +2,23 @@
 
 This directory contains automation utilities for local development, media synchronization, database management, and production hosting deployment for **Bethlehem Lutheran Church** (`blcmesa.org`).
 
+## Table of Contents
+
+- [Script Directory Overview](#-script-directory-overview)
+- [1. Media Sync Utility (`sync-media.py` & `sync-media.sh`)](#1-media-sync-utility-sync-mediapy--sync-mediash)
+  - [Key Features](#key-features)
+  - [CLI Usage & Options](#cli-usage--options)
+  - [Full Options Reference](#full-options-reference)
+- [2. Site Initialization (`init-site.sh`)](#2-site-initialization-init-sitesh)
+- [3. Database Backup (`backup-db.sh`)](#3-database-backup-backup-dbsh)
+- [4. Database Restore (`restore-db.sh`)](#4-database-restore-restore-dbsh)
+- [4b. Import Cloudways Database Export (`import-cloudways-db.sh`)](#4b-import-cloudways-database-export-import-cloudways-dbsh)
+  - [Step 1: Export from Cloudways Admin Portal](#step-1-export-from-cloudways-admin-portal)
+  - [Step 2: Import into Local Dev (VS Code Dev Container terminal)](#step-2-import-into-local-dev-vs-code-dev-container-terminal)
+  - [What It Handles Automatically](#what-it-handles-automatically)
+- [5. Hosting Migration Packager (`export-for-hosting.sh`)](#5-hosting-migration-packager-export-for-hostingsh)
+- [6. Theme-Only Update Packager (`export-theme.sh`)](#6-theme-only-update-packager-export-themesh)
+
 ---
 
 ## 📑 Script Directory Overview

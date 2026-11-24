@@ -2,6 +2,27 @@
 
 This document provides a comprehensive guide for managing, synchronizing, and deploying the **Bethlehem Lutheran Church (blcmesa.org)** website between your local development environment and production hosting.
 
+## Table of Contents
+
+- [Architecture Overview](#-architecture-overview)
+- [Two-Way Synchronization Lifecycle](#-two-way-synchronization-lifecycle)
+- [Phase 1: Pulling Live Site Updates into Local](#-phase-1-pulling-live-site-updates-into-local)
+  - [1. Export Content XML](#1-export-content-xml)
+  - [2. Synchronize Media Attachments](#2-synchronize-media-attachments)
+- [Phase 2: Local Page Creation & Block Patterns](#-phase-2-local-page-creation--block-patterns)
+  - [1. Gutenberg Block Patterns as Templates](#1-gutenberg-block-patterns-as-templates)
+  - [2. Publishing Pages to the Local Database](#2-publishing-pages-to-the-local-database)
+  - [3. Checkpoint Database Backups](#3-checkpoint-database-backups)
+- [Phase 3: Pushing Your Revamped Site to Cloudways Production](#-phase-3-pushing-your-revamped-site-to-cloudways-production)
+  - [1. Initial One-Time Launch Package](#1-initial-one-time-launch-package)
+  - [2. Initial Deploy to Cloudways](#2-initial-deploy-to-cloudways)
+  - [3. Ongoing Code & Theme Updates (Safe While Church Admins Edit Live)](#3-ongoing-code--theme-updates-safe-while-church-admins-edit-live)
+  - [4. Pulling the Cloudways Database to Local (Debugging Live/Staging Content)](#4-pulling-the-cloudways-database-to-local-debugging-livestaging-content)
+- [Phase 4: Volunteer & Church Staff Maintenance Guide](#-phase-4-volunteer--church-staff-maintenance-guide)
+  - [1. Editing the "About Us" Page](#1-editing-the-about-us-page)
+  - [2. Posting Weekly Sermons](#2-posting-weekly-sermons)
+  - [3. Contact Form & Email Notifications](#3-contact-form--email-notifications)
+
 ---
 
 ## 🏛️ Architecture Overview

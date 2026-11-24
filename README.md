@@ -4,6 +4,23 @@ Modern, containerized WordPress development platform and Gutenberg Full Site Edi
 
 This repository serves as the **single source of truth** for rebuilding the church website, training volunteers on weekly sermon updates, and exporting production packages once hosting budgets are finalized with church leadership.
 
+## Table of Contents
+
+- [Quick Access & Port Reference](#-quick-access--port-reference)
+- [Running with WSL2 & Windows 11](#-running-with-wsl2--windows-11)
+  - [Option 1: VS Code Dev Containers (Recommended)](#option-1-vs-code-dev-containers-recommended)
+  - [Option 2: Command Line (Docker Compose)](#option-2-command-line-docker-compose)
+- [Gutenberg Block Theme (`blcmesa-theme`)](#-gutenberg-block-theme-blcmesa-theme)
+- [Volunteer Training Guide: Weekly Sermon Video Posts](#-volunteer-training-guide-weekly-sermon-video-posts)
+- [Database Tools & Production Migration](#-database-tools--production-migration)
+  - [1. Database Backups](#1-database-backups)
+  - [2. Database Restore](#2-database-restore)
+  - [3. Pull Cloudways Database to Local (Debugging Live/Staging Content)](#3-pull-cloudways-database-to-local-debugging-livestaging-content)
+  - [4. Production Hosting Export](#4-production-hosting-export)
+  - [5. Media & File Sync from Existing Live Site](#5-media--file-sync-from-existing-live-site)
+- [Handy WP-CLI Commands](#-handy-wp-cli-commands)
+- [Contact Form & Local Email Testing (`BLC_TEST_EMAIL`)](#-contact-form--local-email-testing-blc_test_email)
+
 ---
 
 ## 🚀 Quick Access & Port Reference
