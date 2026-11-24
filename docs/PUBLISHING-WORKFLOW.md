@@ -2,6 +2,27 @@
 
 This document provides a comprehensive guide for managing, synchronizing, and deploying the **Bethlehem Lutheran Church (blcmesa.org)** website between your local development environment and production hosting.
 
+## Table of Contents
+
+- [Architecture Overview](#-architecture-overview)
+- [Two-Way Synchronization Lifecycle](#-two-way-synchronization-lifecycle)
+- [Phase 1: Pulling Live Site Updates into Local](#-phase-1-pulling-live-site-updates-into-local)
+  - [1. Export Content XML](#1-export-content-xml)
+  - [2. Synchronize Media Attachments](#2-synchronize-media-attachments)
+- [Phase 2: Local Page Creation & Block Patterns](#-phase-2-local-page-creation--block-patterns)
+  - [1. Gutenberg Block Patterns as Templates](#1-gutenberg-block-patterns-as-templates)
+  - [2. Publishing Pages to the Local Database](#2-publishing-pages-to-the-local-database)
+  - [3. Checkpoint Database Backups](#3-checkpoint-database-backups)
+- [Phase 3: Pushing Your Revamped Site to Cloudways Production](#-phase-3-pushing-your-revamped-site-to-cloudways-production)
+  - [1. Initial One-Time Launch Package](#1-initial-one-time-launch-package)
+  - [2. Initial Deploy to Cloudways](#2-initial-deploy-to-cloudways)
+  - [3. Ongoing Code & Theme Updates (Safe While Church Admins Edit Live)](#3-ongoing-code--theme-updates-safe-while-church-admins-edit-live)
+  - [4. Pulling the Cloudways Database to Local (Debugging Live/Staging Content)](#4-pulling-the-cloudways-database-to-local-debugging-livestaging-content)
+- [Phase 4: Volunteer & Church Staff Maintenance Guide](#-phase-4-volunteer--church-staff-maintenance-guide)
+  - [1. Editing the "About Us" Page](#1-editing-the-about-us-page)
+  - [2. Posting Weekly Sermons](#2-posting-weekly-sermons)
+  - [3. Contact Form & Email Notifications](#3-contact-form--email-notifications)
+
 ---
 
 ## 🏛️ Architecture Overview
@@ -166,6 +187,43 @@ After launch, when you update theme styles, templates, or scripts in Git:
 
 > [!NOTE]
 > If church admins edit the Header, Footer, or Templates inside **Appearance → Editor**, WordPress saves overrides in the database that take precedence over theme `.html` files. Keep church admins editing **Pages & Posts**, while layout/template updates live in Git.
+
+### 4. Pulling the Cloudways Database to Local (Debugging Live/Staging Content)
+Once church staff and volunteers are actively editing pages on Cloudways, pull a snapshot down to your local Docker environment whenever you need to reproduce layout issues, test theme changes against real content, or keep a local backup:
+
+1. **Export from Cloudways Admin Portal**:
+   - Open your **Cloudways** application → **Access Details** → **Launch Database Manager**.
+   - Click **Export** in the left sidebar.
+   - Select **Format: `SQL`** and **Output: `gzip`** (or `save`), keep all tables selected, and click **Export**.
+   - Save the downloaded `.sql.gz` (or `.sql` / `.zip`) file into the repository's `backups/` directory (gitignored).
+2. **Import into Local WordPress** (in your **VS Code Dev Container terminal**):
+   ```bash
+   # Optional: inspect the dump and preview planned actions without modifying local DB
+   bash scripts/import-cloudways-db.sh --dry-run --latest
+
+   # Import the newest Cloudways export in backups/
+   bash scripts/import-cloudways-db.sh --latest
+
+   # Or target a specific file (files outside backups/ are automatically archived to backups/)
+   bash scripts/import-cloudways-db.sh backups/<cloudways-export>.sql.gz
+
+   # Optional: also merge a downloaded wp-content/uploads archive or directory
+   bash scripts/import-cloudways-db.sh --latest --uploads backups/uploads.zip
+   ```
+3. **What `import-cloudways-db.sh` handles automatically**:
+   - **Pre-import local safety snapshot**: Saves your current local database to `backups/pre_import_local_<timestamp>.sql.gz` before overwriting (skip with `--no-local-backup`).
+   - **SQL sanitization**: Strips `CREATE DATABASE`/`USE` statements, `DEFINER` clauses, MariaDB sandbox headers, and maps MySQL 8 `utf8mb4_0900_ai_ci` collations for MariaDB compatibility.
+   - **Table prefix sync**: Auto-detects non-default Cloudways table prefixes and updates local `wp-config.php` if needed.
+   - **Serialized-safe URL rewrite**: Auto-detects the remote `siteurl`/`home` and runs `wp search-replace` to `http://localhost:8080` (override with `--remote-url <URL>`).
+   - **Local development hygiene**: Deactivates Cloudways-only caching/security plugins locally (`breeze`, `object-cache-pro`, `redis-cache`, `malcare-security`, etc.), sets `blog_public` to `0`, and flushes caches and rewrite rules.
+   - **Archive-only mode**: Pass `--backup-only` to compress and store a download into `backups/` without touching your local database.
+4. **Post-import notes & rollback**:
+   - Your local WordPress Admin (`http://localhost:8080/wp-admin`) logins will match the **Cloudways site's users** after import.
+   - To revert to your previous local database at any time, run the printed rollback command:
+     ```bash
+     bash scripts/restore-db.sh backups/pre_import_local_<timestamp>.sql.gz
+     ```
+   - Never push this local database back up to Cloudways—continue deploying theme changes via Git (`deploy-theme`) or `scripts/export-theme.sh`.
 
 ---
 
